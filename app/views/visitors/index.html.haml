@@ -1,0 +1,49 @@
+.section.welcome
+  .wrapped
+    %h2 We pull you through.
+    %p End the stupid. Get live video & chat sessions with people in the know.
+    %p [See how it works]
+    %p [100% money back guarantee]
+.section.categories
+  .wrapped
+    %h2 Have a dream? We help you make it a reality!
+    %h2 Have a problem? We help you fix it!
+    %p
+      - Category.all.each do |cat|
+        = link_to cat.name, cat
+    %p= link_to 'Browse all categories', categories_path
+
+
+.section.initial_signup
+  .wrapped
+    %h2 Join the community as expert!
+    %p Discover the easiest way to schedule sessions with students and clients.
+    .block
+      %form{:action => new_user_registration_path}
+        .hi
+          Hi,
+        .name
+          my name is
+          %input(name="name" placeholder="deadmau5")
+        .offering
+          and I am
+          %input(name="offering" placeholder="teaching music production")
+        .category
+          in the category
+          %select(name="category")= options_from_collection_for_select(Category.all, :id, :name)
+        %button Sign up as expert
+.section.statistics
+  .wrapped
+    %h2 We connect those who are eager to learn with those who are eager to teach.
+    .block
+      %p
+        %strong= User.count
+      %p Members
+    .block
+      %p
+        %strong= User.count
+      %p Sessions held
+    .block
+      %p
+        %strong $#{User.count}
+      %p Earned

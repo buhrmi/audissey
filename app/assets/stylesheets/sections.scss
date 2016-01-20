@@ -1,0 +1,114 @@
+.section.welcome {
+  h2 {
+    font-size: 40px;
+  }
+  padding-top: 40px;
+  text-align: center;
+}
+.section.categories {
+  padding: 50px 0;
+  text-align: center;
+}
+.section.statistics {
+  background-color: #005AAB; //#F36C0B;
+  color: white;
+  padding: 50px 0;
+  text-align: center;
+  h2 {
+    font-weight: lighter;
+    margin-bottom: 20px;
+  }
+  .block {
+    display: inline-block;
+    width: 32%;
+    text-align: center;
+    padding: 0 30px;
+  }
+}
+.section.initial_signup {
+  h2 {
+    font-size: 30px;
+  }
+  .name {
+
+  }
+  .offering {
+
+    padding-bottom: 16px;
+  }
+  button {
+    width: 100%;
+  }
+  text-align: center;
+  padding: 50px 0;
+  background-color: #FF7B1B;
+  color: white;
+  .block {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px 30px;
+    text-align: left;
+    background-color: #F36C0B;
+    margin-top: 20px;
+  }
+}
+.section.sign_up {
+  text-align: center;
+  .wrapped {
+    position: relative;
+  }
+  .form {
+    margin-top: 20px;
+  }
+  .divider {
+    position: absolute;
+    width: 0px;
+    height: 200px;
+    top: 50px;
+    left: 50%;
+    border-left: 1px solid #CCC;
+    span {
+      position: absolute;
+      left: -10px;
+      top: 80px;
+      background: white;
+    }
+  }
+  h2 {
+    font-size: 30px;
+  }
+  .left_side, .right_side {
+    display: inline-block;
+    width: 49%;
+    vertical-align: top;
+
+    input,label { width: 80%;}
+    label {
+
+    }
+    input[type="submit"] {
+      margin-top: 10px;
+    }
+  }
+  .right_side {
+    padding-top: 120px;
+  }
+  .provider {
+    width: 250px;
+    display: inline-block;
+    color: white;
+    i {
+      padding: 12px 5px;
+      padding-left: 16px;
+      display: inline-block;
+    }
+    span {
+      padding: 12px 5px;
+      padding-right: 16px;
+      display: inline-block;
+    }
+    &.facebook {
+      background: #3b5998;
+    }
+  }
+}

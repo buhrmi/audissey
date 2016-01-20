@@ -1,0 +1,8 @@
+%fieldset.inline_fields.pricing
+  = f.text_field :give, :value => f.object.give || 1
+  sessions for
+  = f.text_field :take, :value => f.object.take || 49
+  = f.hidden_field :currency, :value => f.object.currency || 'USD'
+  USD
+  = f.hidden_field :_destroy
+  = link_to "Remove", '#', :class => 'remove_fields'

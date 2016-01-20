@@ -1,0 +1,6 @@
+.section.categories_index
+  .wrapped
+    - @categories.each do |category|
+      %div[category]><
+        = link_to category do
+          .name><= category.name

@@ -1,0 +1,9 @@
+- geometry = '145x145#'
+- if f.object.send(name).present?
+  = image_tag f.object.send(name).thumb(geometry).url, id: "#{f.object.class.name.underscore}_#{name}_preview"
+  //= f.input_field "remove_#{name}"
+- else
+  = image_tag 'default.png', size: '145x145#', id: "#{f.object.class.name.underscore}_#{name}_preview"
+= f.hidden_field "retained_#{name}"
+
+= content_tag :iframe, nil, src: new_upload_path(geometry: geometry, retained_id: "#{f.object.class.name.underscore}_retained_#{name}", image_id: "#{f.object.class.name.underscore}_#{name}_preview"), width:"400", height:"50", frameborder: "0"

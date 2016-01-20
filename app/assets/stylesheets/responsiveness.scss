@@ -1,0 +1,47 @@
+$page-padding: 12px;
+$normal-width: 768px;
+$wide-width: 1024px;
+
+@mixin narrow {
+  @media (max-width: #{$normal-width - 1px + 2 * $page-padding}) {
+    @content;
+  }
+}
+
+@mixin wide {
+  @media (min-width: #{$wide-width + 2 * $page-padding} ) {
+    @content;
+  }
+}
+
+.column {
+  vertical-align: top;
+  display: inline-block;
+  width: $normal-width / 12;
+  &.span-2 {
+    width: $normal-width / 6;
+  }
+  &.span-3 {
+    width: $normal-width / 4;
+  }
+  &.span-4 {
+    width: $normal-width / 3;
+  }
+  @include wide {
+    width: $wide-width / 12;
+    &.span-2 {
+      width: $wide-width / 6;
+    }
+    &.span-3 {
+      width: $wide-width / 4;
+    }
+    &.span-4 {
+      width: $wide-width / 3;
+    }
+  }
+  @include narrow {
+    width: 100%;
+    display: block;
+  }
+
+}

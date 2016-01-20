@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <style>body, form{margin: 0px;}</style>
+  </head>
+  <body>
+    <%= form_tag uploads_path, multipart: true, id: "upload_form" do %>
+      <%= hidden_field_tag :retained_id, params[:retained_id] %>
+      <%= hidden_field_tag :image_id, params[:image_id] %>
+      <%= hidden_field_tag :geometry, params[:geometry] %>
+      <%= file_field_tag :image %>
+    <% end %>
+
+    <script type="text/javascript">
+      //automatically submit the form
+      document.getElementById("image").onchange = function() {
+        window.parent.document.getElementById("<%= params[:image_id] %>").src = "<%= image_path('loading.gif')%>";
+        document.getElementById("upload_form").submit();
+      };
+
+      <% if @image %>
+        //update the retained image field
+        window.parent.document.getElementById("<%= params[:retained_id] %>").value = "<%= @retained_image %>";
+        window.parent.document.getElementById("<%= params[:image_id] %>").src = "<%= @image.thumb(params[:geometry]).url %>";
+      <% end %>
+    </script>
+  </body>
+</html>

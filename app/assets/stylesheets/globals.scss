@@ -1,0 +1,143 @@
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:400,200,700);
+@import "responsiveness";
+
+html {
+  color: #2B2B2E;
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  position: relative;
+  background-color: white;
+}
+
+a {
+  color: #08B5E5;
+}
+a:hover {
+  background: #08B5E5;
+  color: white;
+}
+
+* {
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  font-family: 'Titillium Web', sans-serif;
+  text-rendering: optimizeLegibility;
+  text-decoration: none;
+}
+
+form .error {
+  padding: 0px 4px;
+  background: white;
+  border: none;
+  width: 100%;
+  font-size: 14px;
+  color: red;
+}
+
+label {
+  display: inline-block;
+  width: 100%;
+  text-align: left;
+  color: black;
+  font-size: 14px;
+  padding: 10px 4px 0px 4px;
+}
+
+input {
+  padding: 0px 4px;
+  background: white;
+  border: none;
+  width: 100%;
+  border: 1px solid #DDD;
+  border-left: 2px solid #FF7B1B;
+  &:focus {
+      outline:none;
+      border-left: 2px solid #164269;
+  }
+}
+.field_with_errors input {
+  border: 1px solid #FCC;
+  border-left: 2px solid #FF7B1B;
+}
+.inline_fields {
+  input {
+    display: inline;
+    width: initial;
+  }
+}
+.actions {
+  margin-top: 20px;
+}
+a.add_fields, button, input[type="submit"] {
+  padding: 6px 12px;
+  color: white;
+  background: lighten(#164269,20);
+  border: none;
+  cursor: pointer;
+  &:hover {
+    background: lighten(#164269,10);
+  }
+  &:focus {
+    background: lighten(#164269,10);
+    outline:none;
+  }
+}
+a.add_fields {
+  margin-top: 20px;
+}
+.notice {
+  background-color: #F3F08B;
+  padding: 5px 8px;
+  border-top: 1px solid #CCCA89;
+  border-bottom: 1px solid #CCCA89;
+}
+
+.hidden {
+  display: none;
+}
+
+.wrapped {
+  width: $normal-width;
+  @include narrow { width: 100%; }
+  @include wide { width: $wide-width; }
+  margin: 0 auto;
+}
+
+#top_bar {
+  h1 {
+    font-size: 20px;
+  }
+  .links {
+    position: absolute;
+    right: 0;
+  }
+  .wrapped {
+    position: relative;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #CCC;
+    margin-bottom: 16px;
+  }
+}
+
+#content {
+  padding-bottom: 350px;
+}
+
+#footer {
+  padding-top: 40px;
+  background: white;
+  height: 250px;
+  box-shadow: 0 10px 20px -10px black inset;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  background: #66666F;
+  color: white;
+}

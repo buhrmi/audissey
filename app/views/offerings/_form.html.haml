@@ -1,0 +1,35 @@
+= form_for @offering, :html => {:class => 'full_form'} do |f|
+  - if @offering.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@offering.errors.count, "error")} prohibited this offering from being saved:"
+      %ul
+        - @offering.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    .label Service
+    .input.inline_fields
+      I am
+      = f.text_field :actionable_name
+  .field
+    .label Category
+    .input
+      = f.select :category_id, Category.all.collect { |c| [c.name, c.id] }
+  .field
+    .label Description
+    .input
+      = f.text_area :description, :class => 'redactor'
+  .field
+    .label Price Structure
+    .input
+      - if @offering.prices.any?
+        = f.fields_for :prices do |builder|
+          = render 'price_fields', :f => builder
+      - else
+        %p.free Free
+      = link_to_add_fields '<i class="fa fa-plus"></i> Add Pricing'.html_safe, f, :prices
+  .field
+    .label Promotions
+    .input Coming soon.
+  .actions
+    = f.submit 'Save'

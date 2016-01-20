@@ -1,0 +1,13 @@
+.section.dashboard
+  .wrapped
+    %h2.user= current_user.name || current_user.email
+    - if current_user.offerings.any?
+      .offerings
+        %h3 Offerings:
+        - current_user.offerings.each do |offering|
+          = offering.actionable_name
+          = link_to edit_offering_path(offering) do
+            %i.fa.fa-edit
+    - else
+      .offerings
+        Want to teach others?

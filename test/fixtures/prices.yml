@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: prices
+#
+#  id           :integer          not null, primary key
+#  take         :integer
+#  currency     :string
+#  buyable_id   :integer
+#  buyable_type :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  give         :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  amount: 1
+  currency: MyString
+  purchasable_id: 1
+  purchasable_type: MyString
+
+two:
+  amount: 1
+  currency: MyString
+  purchasable_id: 1
+  purchasable_type: MyString

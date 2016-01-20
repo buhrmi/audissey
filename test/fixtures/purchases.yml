@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  buyable_id: 1
+  buyable_type: MyString
+  price_json: MyString
+  buyer_id: 1
+
+two:
+  buyable_id: 1
+  buyable_type: MyString
+  price_json: MyString
+  buyer_id: 1

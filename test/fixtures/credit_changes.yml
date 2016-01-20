@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  offering_id: 1
+  delta: 1
+  source_id: 1
+  source_type: MyString
+
+two:
+  user_id: 1
+  offering_id: 1
+  delta: 1
+  source_id: 1
+  source_type: MyString
