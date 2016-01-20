@@ -15,7 +15,7 @@
 #
 
 # Use Case: Buy 4 offerings for 5 USD
-# 1. Create price (4 for 5)
+# 1. Create price (4 for 5 USD)
 # 2. Create purchase using that price
 # 3. Through purchase, add 4 credits for this offering
 # 4. Use credits to create booking

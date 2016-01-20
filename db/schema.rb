@@ -11,12 +11,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160108072748) do
+ActiveRecord::Schema.define(version: 20160113024027) do
+
+  create_table "availability_rules", force: :cascade do |t|
+    t.integer  "offering_id"
+    t.boolean  "is_exclusion"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.time     "from_time"
+    t.time     "to_time"
+    t.string   "days_json"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "offering_id"
+    t.integer  "user_id"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.datetime "offerer_confirmed_at"
+    t.datetime "buyer_confirmed_at"
+    t.string   "note"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
   create_table "categories", id: false, force: :cascade do |t|
     t.string   "name"
     t.string   "id"
     t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "credit_changes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "offering_id"
+    t.integer  "delta"
+    t.integer  "source_id"
+    t.string   "source_type"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -41,6 +75,19 @@ ActiveRecord::Schema.define(version: 20160108072748) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "give"
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.integer  "buyable_id"
+    t.string   "buyable_type"
+    t.string   "price_json"
+    t.integer  "buyer_id"
+    t.string   "gateway_id"
+    t.string   "gateway_tx_id"
+    t.string   "gateway_user_id"
+    t.datetime "gateway_confirmed_at"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "uploads", force: :cascade do |t|

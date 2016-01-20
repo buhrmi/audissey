@@ -4,10 +4,10 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:property=>"og:url", :content=>"http://bassmusic.tokyo"}
     %meta{:property=>"og:type", :content=>"website"}
-    %meta{:property=>"og:title", :content=>"bassmusic.tokyo!"}
-    %meta{:property=>"og:description", :content=>"The new e-learning platform. Because stupidity sucks."}
+    %meta{:property=>"og:title", :content=>"Bass Music Tokyo"}
+    %meta{:property=>"og:description", :content=>"We bring the bass."}
     %meta{:property=>"og:image", :content=>"http://bassmusic.tokyo/logo.png"}
-    %title bassmusic.tokyo!
+    %title Bass Music Tokyo
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
@@ -16,17 +16,15 @@
     #top_bar
       .wrapped
         .links
-          = link_to 'Browse Categories', categories_path
-          |
           - if current_user
             = link_to 'Dashboard', dashboard_path
             |
             = link_to 'Logout', destroy_user_session_path, :method=>'delete'
           - else
-            = link_to 'Login', new_user_session_path
+            = link_to 'Log In', new_user_session_path
         %h1
           = image_tag 'logo.png', :height => '22'
-          bassmusic.tokyo!
+          Bass Music Tokyo
     #content
       - if flash[:notice]
         .wrapped
@@ -35,19 +33,5 @@
 
     #footer
       .wrapped
-        .column.span-4
-          %p © bassmusic.tokyo
-          %p All Rights Reserved
-          %p Privacy Policy | Terms
-        .column.span-3
-          %h4 Company
-          %p About
-          %p Contact
-          %p Team
-          %p Jobs
-        .column.span-3
-          %h4 Resources
-          %p Become a teacher
-          %p Partners
-          %p Investors
-          %p Press Kit
+        %p.right  Terms & Conditions | Privacy Policy
+        %p © Bass Music Tokyo, All Rights Reserved
