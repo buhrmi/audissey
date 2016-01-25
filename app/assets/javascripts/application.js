@@ -19,4 +19,5 @@
 //= require redactor/video
 //= require redactor/imagemanager
 //= require redactor/filemanager
+//= require select2.min
 //= require_tree .

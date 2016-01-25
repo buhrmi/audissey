@@ -1,7 +1,5 @@
 $(document).on 'page:change', ->
-  # $('.select2-tags').select2(tags: [])
-  # $('.datatable').DataTable()
-
+  
   $('.redactor').redactor
     imageUploadParam:   'image'
     imageManagerJson:   '/uploads?type=image'

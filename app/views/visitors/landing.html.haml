@@ -1,4 +1,10 @@
-.wrapped(style="text-align: center; ")
-  = image_tag 'logo.png', :style => 'width: 30%;margin-top:30px;'
-  %h1(style="font-size:80px") Bass Music Tokyo
-  %h2(style="font-size:22px") We bring the bass.
+.wrapped.head_section(style="text-align: center; ")
+  %h1(style="font-size:80px") WE'VE GOT THE GOOD VIBES
+  %h2(style="font-size:22px") Work with the artists you really love
+.section.search_section
+  .wrapped
+    .seach_box<
+      %span.part.first> I'm looking for
+      %select.part.select2.category(name="category")= options_from_collection_for_select(Category.all, :id, :name)
+      %span.part.last> for an event on
+      %button Search

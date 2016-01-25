@@ -11,13 +11,11 @@
 
 class Category < ActiveRecord::Base
   self.primary_key = :id
-  find_or_create_by :id => 'music_production', :name => 'Music Production'
-  find_or_create_by :id => 'djing', :name => 'DJing'
-  find_or_create_by :id => 'programming', :name => 'Programming'
-  find_or_create_by :id => 'creative', :name => 'Creative Design'
-  find_or_create_by :id => 'business', :name => 'Business'
-  find_or_create_by :id => 'fashion_beauty', :name => 'Fashion & Beauty'
-  find_or_create_by :id => 'lifestyle', :name => 'Lifestyle'
+
+  delete_all
+  find_or_create_by :id => 'performer', :name => 'DJs / Performers'
+  find_or_create_by :id => 'venue',         :name => 'Venues'
+  find_or_create_by :id => 'organizer',     :name => 'Organizers'
 
   has_many :offerings
 end
