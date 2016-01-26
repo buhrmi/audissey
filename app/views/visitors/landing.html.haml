@@ -1,10 +1,14 @@
-.wrapped.head_section(style="text-align: center; ")
-  %h1(style="font-size:80px") WE'VE GOT THE GOOD VIBES
-  %h2(style="font-size:22px") Work with the artists you really love
-.section.search_section
+.section.landing_head
+  .wrapped
+    .big THE GOOD VIBES
+    .small Hire the artists you really love
+.section.landing_search
   .wrapped
     .seach_box<
       %span.part.first> I'm looking for
       %select.part.select2.category(name="category")= options_from_collection_for_select(Category.all, :id, :name)
-      %span.part.last> for an event on
+      %span.part.event> for an event on
+      %input.part.daterangepicker
       %button Search
+.wrapped.featured_head
+  %h1 A TRACK RECORD OF AWESOME

@@ -20,4 +20,5 @@
 //= require redactor/imagemanager
 //= require redactor/filemanager
 //= require select2.min
+//= require daterangepicker
 //= require_tree .

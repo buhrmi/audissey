@@ -8,8 +8,12 @@
     %meta{:property=>"og:description", :content=>"Musicians, DJs, Performers, Booking Platform"}
     %meta{:property=>"og:image", :content=>"http://bassmusic.tokyo/logo.png"}
     %title Bass Music Tokyo
+    = stylesheet_link_tag    '//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'
+    = stylesheet_link_tag    '//cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css'
+    = javascript_include_tag '//cdn.jsdelivr.net/momentjs/latest/moment.min.js'
+
+
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body

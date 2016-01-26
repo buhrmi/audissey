@@ -25,14 +25,18 @@
     padding: 0 30px;
   }
 }
-
-.section.search_section {
+.section.landing_head {
+  text-align: center;
+  .big { font-size: 60px; }
+  .small { font-size: 30px; }
+}
+.section.landing_search {
   .part, .select2-container {
     &.first {
       padding-left: 20px;
       padding-right: 10px;
     }
-    &.last {
+    &.event {
       padding-left: 10px;
       padding-right: 20px;
     }
