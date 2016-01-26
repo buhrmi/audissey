@@ -1,5 +1,4 @@
 @import url(https://fonts.googleapis.com/css?family=Titillium+Web:400,200,700);
-@import "responsiveness";
 
 html {
   color: #2B2B2E;
@@ -25,7 +24,6 @@ a:hover {
   margin: 0;
   padding: 0;
   border: none;
-  box-sizing: border-box;
   font-family: 'Titillium Web', sans-serif;
   text-rendering: optimizeLegibility;
   text-decoration: none;
@@ -52,22 +50,22 @@ label {
   float: right;
 }
 
-input {
-  padding: 0px 4px;
-  background: white;
-  border: none;
-  width: 100%;
-  border: 1px solid #DDD;
-  border-left: 2px solid #FF7B1B;
-  &:focus {
-      outline:none;
-      border-left: 2px solid #164269;
-  }
-}
-.field_with_errors input {
-  border: 1px solid #FCC;
-  border-left: 2px solid #FF7B1B;
-}
+// input {
+//   padding: 0px 4px;
+//   background: white;
+//   border: none;
+//   width: 100%;
+//   border: 1px solid #DDD;
+//   border-left: 2px solid #FF7B1B;
+//   &:focus {
+//       outline:none;
+//       border-left: 2px solid #164269;
+//   }
+// }
+// .field_with_errors input {
+//   border: 1px solid #FCC;
+//   border-left: 2px solid #FF7B1B;
+// }
 .inline_fields {
   input {
     display: inline;
@@ -105,29 +103,6 @@ a.add_fields {
   display: none;
 }
 
-.wrapped {
-  width: $normal-width;
-  @include narrow { width: 100%; }
-  @include wide { width: $wide-width; }
-  margin: 0 auto;
-}
-
-#top_bar {
-  h1 {
-    font-size: 20px;
-  }
-  .links {
-    position: absolute;
-    right: 0;
-  }
-  .wrapped {
-    position: relative;
-    padding-top: 16px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid #CCC;
-    margin-bottom: 16px;
-  }
-}
 
 #content {
   padding-bottom: 170px;

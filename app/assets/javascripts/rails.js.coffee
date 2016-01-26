@@ -1,6 +1,7 @@
 $(document).on 'page:change', ->
   $('.select2').select2()
-  $('.daterangepicker').daterangepicker();
+  $('.datepicker').daterangepicker
+    singleDatePicker: true
 
 
 $(document).on 'click', 'form .remove_fields', (event) ->

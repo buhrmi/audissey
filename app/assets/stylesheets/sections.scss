@@ -27,39 +27,53 @@
 }
 .section.landing_head {
   text-align: center;
+  position: relative;
+  height: 340px;
   .big { font-size: 60px; }
   .small { font-size: 30px; }
+  .search_box {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    .part, .select2-container {
+      vertical-align: middle;
+      color: black;
+      height: 40px;
+      line-height: 40px;
+      background: white;
+      display: inline-block;
+      &.first {
+        padding-left: 20px;
+        padding-right: 10px;
+      }
+      &.event {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+      &.datepicker {
+        padding-left: 10px;
+        width: 122px;
+      }
+      span { height: inherit; line-height: inherit; border: none; }
+    }
+    .select2-container, .part.event, .part.first {
+      border-right: 1px solid #DDD;
+    }
+    button {
+      height: 40px;
+      padding: 0px 20px;
+      vertical-align: middle;
+    }
+    text-align: center;
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: rgba(0,0,10,0.6);
+  }
+
 }
-.section.landing_search {
-  .part, .select2-container {
-    &.first {
-      padding-left: 20px;
-      padding-right: 10px;
-    }
-    &.event {
-      padding-left: 10px;
-      padding-right: 20px;
-    }
-    vertical-align: middle;
-    color: black;
-    height: 40px;
-    line-height: 40px;
-    background: white;
-    display: inline-block;
-    span { height: inherit; line-height: inherit; border: none; }
-  }
-  .select2-container {
-    border-left: 1px solid #DDD;
-    border-right: 1px solid #DDD;
-  }
-  button {
-    vertical-align: middle;
-  }
+.section.featured_head {
   text-align: center;
-  color: white;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background: rgba(0,0,10,0.6);
 }
 
 .section.initial_signup {

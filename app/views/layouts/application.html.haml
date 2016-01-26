@@ -8,7 +8,7 @@
     %meta{:property=>"og:description", :content=>"Musicians, DJs, Performers, Booking Platform"}
     %meta{:property=>"og:image", :content=>"http://bassmusic.tokyo/logo.png"}
     %title Bass Music Tokyo
-    = stylesheet_link_tag    '//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'
+    -# = stylesheet_link_tag    '//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'
     = stylesheet_link_tag    '//cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css'
     = javascript_include_tag '//cdn.jsdelivr.net/momentjs/latest/moment.min.js'
 
@@ -17,25 +17,26 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    #top_bar
-      .wrapped
-        .links
+    .navbar.navbar-default
+      .container
+        .navbar-header
+          .navbar-brand
+            -# = image_tag 'logo.png', :height => '22'
+            Bass Music Tokyo
+        %ul.nav.navbar-right
           - if current_user
             = link_to 'Dashboard', dashboard_path
             |
             = link_to 'Logout', destroy_user_session_path, :method=>'delete'
           - else
-            = link_to 'Log In', new_user_session_path
-        %h1
-          = image_tag 'logo.png', :height => '22'
-          Bass Music Tokyo
+            %li= link_to 'Log In', new_user_session_path
     #content
       - if flash[:notice]
-        .wrapped
+        .container
           .notice= flash[:notice]
       = yield
 
     #footer
-      .wrapped
+      .container
         %p.right  Terms & Conditions | Privacy Policy
         %p © Bass Music Tokyo, All Rights Reserved
