@@ -21,4 +21,5 @@
 //= require redactor/filemanager
 //= require select2.min
 //= require daterangepicker
+//= require bootstrap-sprockets
 //= require_tree .

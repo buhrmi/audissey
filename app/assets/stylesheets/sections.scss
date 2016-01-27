@@ -105,7 +105,7 @@
 }
 .section.sign_up {
   text-align: center;
-  .wrapped {
+  .container {
     position: relative;
   }
   .form {
@@ -132,14 +132,9 @@
     display: inline-block;
     width: 49%;
     vertical-align: top;
+    text-align: center;
+    .form-control, label { width: 80%; display: inline-block; text-align: left;}
 
-    input,label { width: 80%;}
-    label {
-
-    }
-    input[type="submit"] {
-      margin-top: 10px;
-    }
   }
   .right_side {
     padding-top: 120px;

@@ -1,6 +1,5 @@
 .section.dashboard
-  .wrapped
-    %h2.user= current_user.name || current_user.email
+  .container
     - if current_user.offerings.any?
       .offerings
         %h3 Offerings:
@@ -9,5 +8,5 @@
           = link_to edit_offering_path(offering) do
             %i.fa.fa-edit
     - else
-      .offerings
-        Want to teach others?
+      %h1 Pending
+      %p You have 0 pending bookings

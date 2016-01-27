@@ -38,60 +38,11 @@ form .error {
   color: red;
 }
 
-label {
-  display: inline-block;
-  width: 100%;
-  text-align: left;
-  color: black;
-  font-size: 14px;
-  padding: 10px 4px 0px 4px;
-}
 .right {
   float: right;
 }
 
-// input {
-//   padding: 0px 4px;
-//   background: white;
-//   border: none;
-//   width: 100%;
-//   border: 1px solid #DDD;
-//   border-left: 2px solid #FF7B1B;
-//   &:focus {
-//       outline:none;
-//       border-left: 2px solid #164269;
-//   }
-// }
-// .field_with_errors input {
-//   border: 1px solid #FCC;
-//   border-left: 2px solid #FF7B1B;
-// }
-.inline_fields {
-  input {
-    display: inline;
-    width: initial;
-  }
-}
-.actions {
-  margin-top: 20px;
-}
-a.add_fields, button, input[type="submit"] {
-  padding: 6px 12px;
-  color: white;
-  background: lighten(#164269,20);
-  border: none;
-  cursor: pointer;
-  &:hover {
-    background: lighten(#164269,10);
-  }
-  &:focus {
-    background: lighten(#164269,10);
-    outline:none;
-  }
-}
-a.add_fields {
-  margin-top: 20px;
-}
+
 .notice {
   background-color: #F3F08B;
   padding: 5px 8px;

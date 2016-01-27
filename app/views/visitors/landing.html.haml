@@ -5,7 +5,7 @@
   .search_box
     .container<
       %span.part.first> I'm looking for
-      %select.part.select2.category(name="category")= options_from_collection_for_select(Category.all, :id, :name)
+      %select.part.select2.category(name="category" data-search="false")= options_from_collection_for_select(Category.all, :id, :name)
       %span.part.event> for an event on
       %input.part.datepicker>
       %button Search

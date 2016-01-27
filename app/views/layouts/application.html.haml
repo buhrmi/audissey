@@ -2,16 +2,14 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %meta{:property=>"og:url", :content=>"http://bassmusic.tokyo"}
+    %meta{:property=>"og:url", :content=>"http://newsoundforjapan.com"}
     %meta{:property=>"og:type", :content=>"website"}
-    %meta{:property=>"og:title", :content=>"Bass Music Tokyo"}
+    %meta{:property=>"og:title", :content=>"Vibes"}
     %meta{:property=>"og:description", :content=>"Musicians, DJs, Performers, Booking Platform"}
-    %meta{:property=>"og:image", :content=>"http://bassmusic.tokyo/logo.png"}
-    %title Bass Music Tokyo
-    -# = stylesheet_link_tag    '//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'
-    = stylesheet_link_tag    '//cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css'
+    %meta{:property=>"og:image", :content=>"http://newsoundforjapan.com/logo.png"}
+    %title New Sound For Japan
+    = stylesheet_link_tag    '//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'
     = javascript_include_tag '//cdn.jsdelivr.net/momentjs/latest/moment.min.js'
-
 
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
@@ -22,21 +20,36 @@
         .navbar-header
           .navbar-brand
             -# = image_tag 'logo.png', :height => '22'
-            Bass Music Tokyo
-        %ul.nav.navbar-right
+            New Sound For Japan
+        %ul.nav.navbar-nav.navbar-right
           - if current_user
-            = link_to 'Dashboard', dashboard_path
-            |
-            = link_to 'Logout', destroy_user_session_path, :method=>'delete'
+            - if current_user.offerings.empty?
+              %li= link_to "Offer a service", new_offering_path
+            - else
+              - current_user.offerings.each do |offering|
+                %li= offering.actionable_name
+            %li= link_to 'Messages', dashboard_path
+            %li.dropdown
+              %a.dropdown-toggle(href="#" data-toggle="dropdown")
+                = current_user.display_name
+              %ul.dropdown-menu
+                %li= link_to 'Dashboard', dashboard_path
+                %li= link_to 'Logout', destroy_user_session_path, :method=>'delete'
           - else
             %li= link_to 'Log In', new_user_session_path
     #content
       - if flash[:notice]
         .container
           .notice= flash[:notice]
+      - if flash[:alert]
+        .container
+          .notice= flash[:alert]
       = yield
 
     #footer
       .container
         %p.right  Terms & Conditions | Privacy Policy
-        %p © Bass Music Tokyo, All Rights Reserved
+        %p © New Sound For Japan, All Rights Reserved
+      .section.partners
+        .container
+          %p Partners (Ringmasters, Tokyo Bass Music, Electro Booking, Booking.com)

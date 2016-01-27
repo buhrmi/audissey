@@ -31,6 +31,6 @@ class User < ActiveRecord::Base
   has_many :uploads
 
   def display_name
-    name || email_address
+    name || email
   end
 end
