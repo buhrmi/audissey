@@ -17,7 +17,12 @@
           %h1 Basics
           .form-group
             %label Name
-            = f.text_field :actionable_name, :'v-model' => 'offering.actionable_name'
+            = f.text_field :actionable_name,
+              :class => 'form-control',
+              :'v-model' => 'offering.actionable_name'
+            = f.submit "Confirm Changes",
+              :'v-bind:disabled' => '!offeringValid()',
+              :class => 'btn btn-lg btn-primary'
         .col-sm-8(v-show="section=='images'")
           %h1 Images
         .col-sm-8(v-show="section=='availability'")
@@ -25,9 +30,15 @@
         .col-sm-8(v-show="section=='pricing'")
           %h1 Pricing
 
+
+
 :coffee
   new Vue
     el: '.edit_offering'
     data:
       section: 'basics'
       offering: #{@offering.to_json}
+    methods:
+      offeringValid: ->
+        return false unless this.$get('offering.actionable_name')
+        true
