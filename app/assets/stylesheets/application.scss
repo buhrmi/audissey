@@ -26,3 +26,16 @@
     font-family: FontAwesome;
   }
 }
+
+.offering {
+
+  background-color: #DDD;
+
+  .name {
+    background: rgba(0,0,0,0.3);
+    color: white;
+    font-size: 24px;
+    text-align: left;
+    padding-left: 10px;
+  }
+}

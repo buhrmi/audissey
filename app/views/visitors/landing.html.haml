@@ -12,3 +12,17 @@
 .section.featured_head
   .container
     %h1 A TRACK RECORD OF AWESOME
+    %h2 Featured acts available for booking in Tokyo
+    .row
+    - @performers.each do |performance|
+      .col-sm-6
+        .embed-responsive.embed-responsive-4by3
+          .offering.embed-responsive-item
+            .name
+              %i.fa.fa-star
+              = performance.actionable_name
+
+.section.partners
+  .container
+    %h1 UPCOMING IN TOKYO
+    %h2 See how people are using RingMasters to power their events

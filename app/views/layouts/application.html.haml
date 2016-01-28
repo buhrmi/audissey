@@ -2,11 +2,11 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %meta{:property=>"og:url", :content=>"http://newsoundforjapan.com"}
+    %meta{:property=>"og:url", :content=>"http://www.newsoundforjapan.com"}
     %meta{:property=>"og:type", :content=>"website"}
-    %meta{:property=>"og:title", :content=>"Vibes"}
+    %meta{:property=>"og:title", :content=>"New Sound For Japan"}
     %meta{:property=>"og:description", :content=>"Musicians, DJs, Performers, Booking Platform"}
-    %meta{:property=>"og:image", :content=>"http://newsoundforjapan.com/logo.png"}
+    %meta{:property=>"og:image", :content=>"http://www.newsoundforjapan.com/logo.png"}
     %title New Sound For Japan
     = stylesheet_link_tag    '//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'
     = javascript_include_tag '//cdn.jsdelivr.net/momentjs/latest/moment.min.js'
@@ -20,7 +20,7 @@
         .navbar-header
           .navbar-brand
             -# = image_tag 'logo.png', :height => '22'
-            New Sound For Japan
+            =link_to 'New Sound For Japan', root_url
         %ul.nav.navbar-nav.navbar-right
           - if current_user
             - if current_user.offerings.empty?
@@ -55,4 +55,4 @@
         %p © New Sound For Japan, All Rights Reserved
       .section.partners
         .container
-          %p Partners (Ringmasters, Tokyo Bass Music, Electro Booking, Booking.com)
+          %p Partners (New Sound For Japan, Tokyo Bass Music, Electro Booking, Booking.com)

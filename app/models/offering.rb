@@ -17,9 +17,9 @@
 # Use Case: Buy 4 offerings for 5 USD
 # 1. Create price (4 for 5 USD)
 # 2. Create purchase using that price
-# 3. Through purchase, add 4 credits for this offering
+# 3. Through purchase, give user 4 credits for this offering
 # 4. Use credits to create booking
-# 5. Both parties need to confirm booking. Can change time.
+# 5. Both parties (booker and offering creator) need to confirm booking (contract signing). Can change time.
 # 6. Can cancel booking any time
 # 7. After booking, release money to offerer
 
