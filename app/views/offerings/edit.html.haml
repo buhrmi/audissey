@@ -1,2 +1,33 @@
-.wrapped
-  = render 'form'
+.section.edit_offering
+  .container
+    %h1 Edit {{offering.actionable_name}}
+    = form_for @offering do |f|
+      .row
+        .col-sm-4
+          %ul.nav.nav-pills.nav-stacked
+            %li{':class' => '{active: section=="basics"}'}
+              = link_to 'Basics', '#', :'@click' => '$set("section", "basics")'
+            %li{':class' => '{active: section=="images"}'}
+              = link_to 'Images', '#', :'@click' => '$set("section", "images")'
+            %li{':class' => '{active: section=="availability"}'}
+              = link_to 'Availability', '#', :'@click' => '$set("section", "availability")'
+            %li{':class' => '{active: section=="pricing"}'}
+              = link_to 'Pricing', '#', :'@click' => '$set("section", "pricing")'
+        .col-sm-8(v-show="section=='basics'")
+          %h1 Basics
+          .form-group
+            %label Name
+            = f.text_field :actionable_name, :'v-model' => 'offering.actionable_name'
+        .col-sm-8(v-show="section=='images'")
+          %h1 Images
+        .col-sm-8(v-show="section=='availability'")
+          %h1 Availability
+        .col-sm-8(v-show="section=='pricing'")
+          %h1 Pricing
+
+:coffee
+  new Vue
+    el: '.edit_offering'
+    data:
+      section: 'basics'
+      offering: #{@offering.to_json}
