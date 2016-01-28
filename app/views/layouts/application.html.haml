@@ -26,8 +26,11 @@
             - if current_user.offerings.empty?
               %li= link_to "Offer a service", new_offering_path
             - else
-              - current_user.offerings.each do |offering|
-                %li= offering.actionable_name
+              %li.dropdown
+                %a.dropdown-toggle(href="#" data-toggle="dropdown") Offerings
+                %ul.dropdown-menu
+                  - current_user.offerings.each do |offering|
+                    %li= link_to offering.actionable_name, edit_offering_path(offering)
             %li= link_to 'Messages', dashboard_path
             %li.dropdown
               %a.dropdown-toggle(href="#" data-toggle="dropdown")

@@ -22,4 +22,5 @@
 //= require select2.min
 //= require daterangepicker
 //= require bootstrap-sprockets
+//= require vue
 //= require_tree .

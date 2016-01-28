@@ -11,6 +11,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'dragonfly'
 gem 'dragonfly-s3_data_store'
+gem 'vuejs-rails'
 gem 'pg', group: :production
 
 group :development, :test do

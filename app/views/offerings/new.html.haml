@@ -1,8 +1,47 @@
 
 
 .section.new_offering
-.container
-  %h1 Create your listing
-  = render 'form'
+  .container
+    %h1 Create your listing
+    = form_for @offering, :html => {:class => 'full_form'} do |f|
+      - if @offering.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@offering.errors.count, "error")} prohibited this offering from being saved:"
+          %ul
+            - @offering.errors.full_messages.each do |msg|
+              %li= msg
 
-  = link_to 'Back', offerings_path
+      .form-group
+        %h3 Type of Service
+        .btn-group
+          - Category.with_icon.each do |category|
+            .btn.btn-default.btn-large.category(v-bind:class="{'active': category_id=='#{category.id}'}"
+              v-on:click="$set('category_id','#{category.id}')")
+              %span{:class => category.id}
+              = category.name
+
+        = f.hidden_field :category_id, :'v-model' => :category_id
+      .form-group
+        %h3 Listing Name
+
+        = f.text_field :actionable_name, :class => 'form-control', :'v-model' => :actionable_name
+      -# .form-group
+      -#   %label Description
+      -#   = f.text_area :description, :class => 'redactor'
+      -# .form-group
+      -#   %label Price Structure
+      -#   - if @offering.prices.any?
+      -#     = f.fields_for :prices do |builder|
+      -#       = render 'price_fields', :f => builder
+      -#   - else
+      -#     %p.free Free
+      -#   = link_to_add_fields '<i class="fa fa-plus"></i> Add Pricing'.html_safe, f, :prices
+      -# .form-group
+      -#   %label Promotions
+      -#   Coming soon.
+      .actions
+        = f.submit 'Save & Continue', :class => 'btn btn-primary btn-lg', :'v-bind:disabled' => '!actionable_name || !category_id'
+
+    :coffee
+      new Vue
+        el: '#new_offering'

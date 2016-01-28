@@ -1,6 +1,7 @@
 $(document).on 'page:change', ->
   for el in $('.select2')
     $(el).select2()
+  # $('select.buttons').buttons()
   $('.datepicker').daterangepicker
     singleDatePicker: true
 

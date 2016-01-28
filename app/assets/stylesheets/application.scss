@@ -8,3 +8,21 @@
 // OUR STUFF
 @import "globals";
 @import "sections";
+
+.category {
+  span {
+    display: block;
+  }
+  span.performer:before {
+    content: "\f001";
+    font-family: FontAwesome;
+  }
+  span.venue:before {
+    content: "\f286";
+    font-family: FontAwesome;
+  }
+  span.organizer:before {
+    content: "\f274";
+    font-family: FontAwesome;
+  }
+}
