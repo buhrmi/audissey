@@ -6,13 +6,13 @@
         .col-sm-4
           %ul.nav.nav-pills.nav-stacked
             %li{':class' => '{active: section=="basics"}'}
-              = link_to 'Basics', '#', :'@click' => '$set("section", "basics")'
+              = link_to 'Basics', '#', :'@click.prevent' => '$set("section", "basics")'
             %li{':class' => '{active: section=="images"}'}
-              = link_to 'Images', '#', :'@click' => '$set("section", "images")'
+              = link_to 'Images', '#', :'@click.prevent' => '$set("section", "images")'
             %li{':class' => '{active: section=="availability"}'}
-              = link_to 'Availability', '#', :'@click' => '$set("section", "availability")'
+              = link_to 'Availability', '#', :'@click.prevent' => '$set("section", "availability")'
             %li{':class' => '{active: section=="pricing"}'}
-              = link_to 'Pricing', '#', :'@click' => '$set("section", "pricing")'
+              = link_to 'Pricing', '#', :'@click.prevent' => '$set("section", "pricing")'
         .col-sm-8(v-show="section=='basics'")
           %h1 Basics
           .form-group
@@ -25,6 +25,11 @@
               :class => 'btn btn-lg btn-primary'
         .col-sm-8(v-show="section=='images'")
           %h1 Images
+          .form-group
+            = f.image_upload_field :image
+          = f.submit "Confirm Changes",
+            :'v-bind:disabled' => '!offeringValid()',
+            :class => 'btn btn-lg btn-primary'
         .col-sm-8(v-show="section=='availability'")
           %h1 Availability
         .col-sm-8(v-show="section=='pricing'")
@@ -36,9 +41,11 @@
   new Vue
     el: '.edit_offering'
     data:
-      section: '#{params[:section] || "basics"}'
+      section: 'basics'
       offering: #{@offering.to_json}
     methods:
       offeringValid: ->
         return false unless this.$get('offering.actionable_name')
         true
+    ready: ->
+      this.$expose 'section', 'section'

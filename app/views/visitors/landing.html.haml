@@ -17,7 +17,7 @@
     - @performers.each do |performance|
       .col-sm-6
         .embed-responsive.embed-responsive-4by3
-          .offering.embed-responsive-item
+          .offering.embed-responsive-item{:style => "background-image: url(#{performance.image&.thumb('400x300')&.url})"}
             .name
               %i.fa.fa-star
               = performance.actionable_name
