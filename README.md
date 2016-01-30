@@ -54,9 +54,9 @@ We would like to credit the creators of all the amazing open source software we 
 License
 -------
 
-               DO WHAT THE FUCK YOU WANT TO UNIVERSAL LICENSE
+    DO WHAT THE FUCK YOU WANT TO UNIVERSAL LICENSE
 
-         Copyright (C) 2016 Stefan Buhrmester <buhrmi@gmail.com>
+    Copyright (C) 2016 Stefan Buhrmester <buhrmi@gmail.com>
 
     Everyone is permitted to copy and distribute verbatim or modified
     copies of the code accompanying this license document, and changing
