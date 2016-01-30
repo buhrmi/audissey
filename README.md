@@ -44,12 +44,6 @@ Contributing
 
 We don't empose any strict rules on how to structure and open pull requests.
 
-Credits
--------
-
-Audissey.fm is a combined effort between New Sound For Japan and RingMasters Intelligent Agency.
-
-We would like to credit the creators of all the amazing open source software we are using.
 
 License
 -------
