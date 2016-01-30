@@ -59,8 +59,8 @@ DO WHAT THE FUCK YOU WANT TO UNIVERSAL LICENSE
 Copyright (C) 2016 Stefan Buhrmester <buhrmi@gmail.com>
 
 Everyone is permitted to copy and distribute verbatim or modified
-copies of this license document, and changing it is allowed as long
-as the name is changed.
+copies of the code accompanying this license document, and changing
+it is allowed in any way that pleases you.
 
 DO WHAT THE FUCK YOU WANT TO UNIVERSAL LICENSE
 TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
