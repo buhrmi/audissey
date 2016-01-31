@@ -42,7 +42,7 @@ If you've got issues, use the issue tracker.
 Contributing
 ------------
 
-We don't empose any strict rules on how to structure and open pull requests.
+We don't impose any strict rules on how to structure and open pull requests.
 
 
 License
