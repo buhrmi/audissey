@@ -15,4 +15,6 @@
 #
 
 class Booking < ActiveRecord::Base
+  include Buyable
+  
 end
