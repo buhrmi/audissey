@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160113024027) do
+ActiveRecord::Schema.define(version: 20160201060555) do
 
   create_table "availability_rules", force: :cascade do |t|
     t.integer  "offering_id"
@@ -89,6 +89,18 @@ ActiveRecord::Schema.define(version: 20160113024027) do
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
+
+  create_table "translations", force: :cascade do |t|
+    t.integer  "translatable_id"
+    t.string   "translatable_type"
+    t.string   "translatable_field"
+    t.string   "locale"
+    t.text     "text"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "translations", ["translatable_id", "translatable_type", "translatable_field", "locale"], name: "the_index", unique: true
 
   create_table "uploads", force: :cascade do |t|
     t.integer  "user_id"

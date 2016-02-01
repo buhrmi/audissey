@@ -28,7 +28,7 @@
 .section.landing_head {
   text-align: center;
   position: relative;
-  height: 340px;
+  height: 390px;
   .big { font-size: 60px; }
   .small { font-size: 30px; }
   .search_box {
@@ -73,7 +73,9 @@
 
 }
 .section.featured_head {
+  padding-top: 50px;
   text-align: center;
+  padding-bottom: 50px;
 }
 
 .section.initial_signup {

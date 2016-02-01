@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  translatable_id: 1
+  translatable_type: MyString
+  translatable_field: MyString
+  locale: MyString
+  text: MyText
+
+two:
+  translatable_id: 1
+  translatable_type: MyString
+  translatable_field: MyString
+  locale: MyString
+  text: MyText
