@@ -15,6 +15,7 @@ class BookingsController < ApplicationController
   # GET /bookings/new
   def new
     @booking = Booking.new
+    @offering = Offering.find(params[:offering])
   end
 
   # GET /bookings/1/edit

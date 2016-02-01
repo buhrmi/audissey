@@ -1,4 +1,4 @@
 .container
   %h1= @offering.actionable_name
 
-  .book_now= link_to "Book now", new_booking_path
+  .book_now= link_to "Book now", new_booking_path(:offering => @offering)
