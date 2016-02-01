@@ -4,6 +4,9 @@ $(document).on 'page:change', ->
   # $('select.buttons').buttons()
   $('.datepicker').daterangepicker
     singleDatePicker: true
+    startDate: $('.datepicker').val()
+    locale:
+      format: 'YYYY-MM-DD'
 
 
 $(document).on 'click', 'form .remove_fields', (event) ->

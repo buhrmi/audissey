@@ -13,5 +13,9 @@
 #
 
 class Price < ActiveRecord::Base
+  CURRENCIES = [
+    'JPY', 'USD', 'AUD', 'NZD', 'GBP', 'CAD', 'CHF', 'EUR', 'HKD', 'NOK', 'ZAR'
+  ]
+
   belongs_to :buyable, :polymorphic => true
 end
