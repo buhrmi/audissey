@@ -37,15 +37,15 @@ findParam = (paramName) ->
     return decodeURIComponent(result[1])
 
 Vue.prototype.$expose = (path, param) ->
-  self = this
   duringPopState = false
   newValue = findParam(param)
-  self.$set(path, newValue) if newValue
-  $(window).on 'popstate', ->
+  this.$set(path, newValue) if newValue
+  popHandler = =>
     duringPopState = true
     newValue = findParam(param)
-    self.$set(path, newValue) if newValue
-    self.$nextTick -> duringPopState = false
+    this.$set(path, newValue) if newValue
+    this.$nextTick -> duringPopState = false
+  $(window).on 'popstate', popHandler
   this.$watch path, (val1, val2) ->
     return if duringPopState
     newUrl = changeUrl(param, val1)

@@ -25,11 +25,14 @@
 
 class Offering < ActiveRecord::Base
   include Buyable
+  include Translatable
 
   belongs_to :user
   has_many :availability_rules
   dragonfly_accessor :image
   accepts_nested_attributes_for :prices, :allow_destroy => true
+
+  translates :description
 
   def availability_on(day)
 

@@ -1,12 +1,16 @@
+.second_nav
+  .container Edit Listing: {{offering.actionable_name}}
 .section.edit_offering
   .container
-    %h1 Edit {{offering.actionable_name}}
+
     = form_for @offering do |f|
       .row
-        .col-sm-4
+        .col-sm-4.nav-col
           %ul.nav.nav-pills.nav-stacked
             %li{':class' => '{active: section=="basics"}'}
               = link_to 'Basics', '#', :'@click.prevent' => '$set("section", "basics")'
+            %li{':class' => '{active: section=="description"}'}
+              = link_to 'Description', '#', :'@click.prevent' => '$set("section", "description")'
             %li{':class' => '{active: section=="images"}'}
               = link_to 'Images', '#', :'@click.prevent' => '$set("section", "images")'
             %li{':class' => '{active: section=="availability"}'}
@@ -20,26 +24,41 @@
             = f.text_field :actionable_name,
               :class => 'form-control',
               :'v-model' => 'offering.actionable_name'
-            = f.submit "Confirm Changes",
-              :'v-bind:disabled' => '!offeringValid()',
-              :class => 'btn btn-lg btn-primary'
+
+        .col-sm-8(v-show="section=='description'")
+          %h1 Description
+          .form-group
+            %label English
+            = f.text_area :description, :class => 'redactor'
+
         .col-sm-8(v-show="section=='images'")
           %h1 Images
           .form-group
             = f.image_upload_field :image
-          = f.submit "Confirm Changes",
-            :'v-bind:disabled' => '!offeringValid()',
-            :class => 'btn btn-lg btn-primary'
+
         .col-sm-8(v-show="section=='availability'")
           %h1 Availability
+          .radio
+            %label.big_option.active
+              %input(type="radio" checked)
+              %strong Always Inquire
+              %p Before accepting payment, I want to be notified and approve booking offers by myself.
+          (more options coming soon)
         .col-sm-8(v-show="section=='pricing'")
           %h1 Pricing
-
-
-
+          .radio
+            %label.big_option.active
+              %input(type="radio" checked)
+              %strong Flexible
+              %p Rates &amp; Fees can be negotiated for each booking.
+          (more options coming soon)
+      .actions
+        = f.submit "All Good. Save and show my listing.",
+          :'v-bind:disabled' => '!offeringValid()',
+          :class => 'btn btn-lg btn-primary'
 :coffee
   new Vue
-    el: '.edit_offering'
+    el: 'body'
     data:
       section: 'basics'
       offering: #{@offering.to_json}

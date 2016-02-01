@@ -1,6 +1,4 @@
-%p#notice= notice
+.container
+  %h1= @offering.actionable_name
 
-
-= link_to 'Edit', edit_offering_path(@offering)
-\|
-= link_to 'Back', offerings_path
+  .book_now= link_to "Book now", new_booking_path

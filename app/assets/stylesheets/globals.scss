@@ -9,6 +9,7 @@ body {
   min-height: 100%;
   position: relative;
   background-color: white;
+  overflow-y: scroll;
 }
 
 a {
@@ -54,6 +55,28 @@ form .error {
   display: none;
 }
 
+.row{
+    overflow: hidden;
+}
+
+[class*="col-"]{
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+}
+
+.nav-col {
+  border-right: 1px solid #DDD;
+  // background: #EEE;
+
+}
+
+.second_nav {
+  background-color: #66666F;
+  padding: 10px 0;
+  color: white;
+  margin-top: -20px;
+  margin-bottom: 20px;
+}
 
 #content {
   padding-bottom: 300px;
@@ -69,4 +92,16 @@ form .error {
   bottom: 0;
   background: #66666F;
   color: white;
+}
+
+.actions {
+  // margin-top: 10px;
+  border-top: 1px solid #DDD;
+  padding-top: 16px;
+  text-align: center;
+}
+.radio .big_option {
+  border: 1px solid #DDD;
+  width: 100%;
+  padding: 8px 12px 8px 30px;
 }
