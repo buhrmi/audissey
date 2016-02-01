@@ -3,7 +3,7 @@
     .big THE GOOD VIBES
     .small Hire the artists you really love
   .search_box
-    .container<
+    .contfainer<
       %span.part.first> I'm looking for
       %select.part.select2.category(name="category" data-search="false")= options_from_collection_for_select(Category.all, :id, :name)
       %span.part.event> for an event on

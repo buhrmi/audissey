@@ -68,13 +68,13 @@ ActiveRecord::Schema.define(version: 20160201060555) do
   end
 
   create_table "prices", force: :cascade do |t|
+    t.integer  "give"
     t.integer  "take"
     t.string   "currency"
     t.integer  "buyable_id"
     t.string   "buyable_type"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.integer  "give"
   end
 
   create_table "purchases", force: :cascade do |t|
