@@ -10,3 +10,18 @@
     - else
       %h1 Pending
       %p You have 0 pending bookings
+    .bookings
+      %h3 Paid & Confirmed Bookings
+      - if @purchased_bookings.empty?
+        Nothing yet.
+      - @purchased_bookings.each do |booking|
+        .booking
+          = link_to booking do
+            #{booking.created_at}: #{nice_price(booking.purchase.price_json)}
+
+    .balances
+      %h3 Balances
+      - @balances.each do |currency, amount|
+        #{nice_price(:currency => currency, :take => amount)}
+      .payout
+        = link_to 'Request Payout', '#'

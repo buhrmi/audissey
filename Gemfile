@@ -14,6 +14,11 @@ gem 'dragonfly-s3_data_store'
 gem 'vuejs-rails'
 gem 'pg', group: :production
 
+### PAYMENTS ####
+gem 'webpay'    #
+#################
+
+
 group :development, :test do
   gem 'byebug'
   gem 'sqlite3'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160201060555) do
+ActiveRecord::Schema.define(version: 20160202094433) do
 
   create_table "availability_rules", force: :cascade do |t|
     t.integer  "offering_id"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20160201060555) do
     t.string   "note"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.integer  "price_id"
   end
 
   create_table "categories", id: false, force: :cascade do |t|
@@ -55,6 +56,15 @@ ActiveRecord::Schema.define(version: 20160201060555) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.integer  "topicable_id"
+    t.string   "topicable_type"
+    t.integer  "sender_id"
+    t.text     "text"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
   create_table "offerings", force: :cascade do |t|
     t.string   "actionable_name"
     t.text     "description"
@@ -68,13 +78,13 @@ ActiveRecord::Schema.define(version: 20160201060555) do
   end
 
   create_table "prices", force: :cascade do |t|
-    t.integer  "give"
     t.integer  "take"
     t.string   "currency"
     t.integer  "buyable_id"
     t.string   "buyable_type"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "give"
   end
 
   create_table "purchases", force: :cascade do |t|

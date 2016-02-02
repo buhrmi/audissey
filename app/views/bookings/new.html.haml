@@ -1,4 +1,5 @@
-= form_for :new_booking do |f|
+= form_for @booking do |f|
+  = f.hidden_field :offering_id
   .section.new_booking
     .container
       %h1 New Contract with #{@offering.actionable_name}
@@ -11,20 +12,20 @@
         .col-sm-6
           .form-group
             %label Date of event
-            %input.datepicker.form-control(name="date" v-model="date")
+            %input.datepicker.form-control(name="booking[start_at]" v-model="date")
       .row
         .col-sm-6
           .form-group
             %label Budget
             .input-group
-              %input(type="hidden" v-model="currency")
-              %input.form-control(v-model = "amount" name="amount")
+              %input(type="hidden" name="booking[price_attributes][currency]" v-model="currency")
+              %input.form-control(v-model = "amount" name="booking[price_attributes][take]")
               .input-group-addon {{currency}}
               .input-group-btn
                 .btn.btn-default.dropdown-toggle(data-toggle="dropdown")
                   .caret
                 %ul.dropdown-menu.dropdown-menu-right
-                  - Price::CURRENCIES.each do |currency|
+                  - Price::CURRENCIES.keys.each do |currency|
                     %li
                       %a{:href => '#', 'v-on:click.prevent' => "$set('currency', '#{currency}')"}= currency
         .col-sm-6

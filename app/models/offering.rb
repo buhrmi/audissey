@@ -29,6 +29,7 @@ class Offering < ActiveRecord::Base
 
   belongs_to :user
   has_many :availability_rules
+  has_many :bookings
   dragonfly_accessor :image
   accepts_nested_attributes_for :prices, :allow_destroy => true
 

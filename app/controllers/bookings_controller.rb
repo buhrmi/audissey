@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: bookings
+#
+#  id                   :integer          not null, primary key
+#  offering_id          :integer
+#  user_id              :integer
+#  start_at             :datetime
+#  end_at               :datetime
+#  offerer_confirmed_at :datetime
+#  buyer_confirmed_at   :datetime
+#  note                 :string
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#  price_id             :integer
+#
+
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
@@ -9,13 +26,14 @@ class BookingsController < ApplicationController
 
   # GET /bookings/1
   # GET /bookings/1.json
+  # TODO: this is more like messaging view. maybe move into a messages controller
   def show
   end
 
   # GET /bookings/new
   def new
-    @booking = Booking.new
     @offering = Offering.find(params[:offering])
+    @booking = @offering.bookings.new(:user => current_user)
   end
 
   # GET /bookings/1/edit
@@ -27,6 +45,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.user_id = current_user.id
+    @booking.buyer_confirmed_at = Time.now
 
     respond_to do |format|
       if @booking.save
@@ -71,6 +90,6 @@ class BookingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
-      params[:booking].permit(:retained_image, :category_id, :actionable_name, :description, :prices_attributes => [:id, :_destroy, :take, :give, :currency])
+      params[:booking].permit(:offering_id, :start_at, :price_attributes => [:id, :take, :currency])
     end
 end

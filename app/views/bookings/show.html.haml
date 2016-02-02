@@ -1,0 +1,27 @@
+.container
+
+  .row
+    .col-sm-4
+      - current_user.bookings.each do |booking|
+        .topicable.booking Booking #{booking.offering.actionable_name}
+    .col-sm-8
+      .booking_status
+
+        .amount Payment: #{nice_price(@booking.price)}
+        .received
+          Payment received:
+          - if @booking.payment_received?
+            Yes
+          - else
+            No
+            - if @booking.offerer_confirmed_at && @booking.buyer_confirmed_at
+              Confirmed
+            - else
+              This booking is not confirmed. Please wait until #{@booking.offering.actionable_name} confirmed.
+
+            = form_tag Purchase.new do |f|
+              = hidden_field_tag :price_id, @booking.price.id
+              %script(src="https://checkout.webpay.jp/v3/"
+                class="webpay-button"
+                data-key="#{ENV['WEBPAY_PUBLIC_KEY']}"
+                data-lang="#{I18n.locale}")

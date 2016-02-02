@@ -13,9 +13,21 @@
 #
 
 class Price < ActiveRecord::Base
-  CURRENCIES = [
-    'JPY', 'USD', 'AUD', 'NZD', 'GBP', 'CAD', 'CHF', 'EUR', 'HKD', 'NOK', 'ZAR'
-  ]
+  CURRENCIES = {
+    'JPY' => {:symbol => '¥'}#,
+    # 'USD' => {:symbol => '$'},
+    # 'EUR' => {:symbol => '€'},
+    # 'GBP' => {:symbol => '£'},
+    # 'AUD' => {:symbol => '$'},
+    # 'NZD' => {:symbol => '$'},
+    # 'CAD' => {:symbol => '$'},
+    # 'HKD' => {:symbol => '$'},
+    # 'CHF' => {:symbol => ''},
+    # 'NOK' => {:symbol => ''},
+    # 'ZAR' => {:symbol => ''}
+  }
 
+  has_many :purchases
   belongs_to :buyable, :polymorphic => true
+
 end

@@ -1,7 +1,7 @@
 class CreatePrices < ActiveRecord::Migration
   def change
     create_table :prices do |t|
-      t.integer :give
+      t.integer :give, :default => 1
       t.integer :take
       t.string :currency
       t.integer :buyable_id

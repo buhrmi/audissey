@@ -17,5 +17,8 @@
 
 class Purchase < ActiveRecord::Base
   serialize :price_json, JSON
-  
+
+  belongs_to :buyer, :class_name => 'User'
+  belongs_to :buyable, :polymorphic => true
+
 end

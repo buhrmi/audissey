@@ -23,5 +23,4 @@
 //= require daterangepicker
 //= require bootstrap-sprockets
 //= require vue
-//= require vue-router
 //= require_tree .

@@ -27,10 +27,16 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauth_providers => [:facebook], :password_length => 4..127
 
+  has_many :bookings
   has_many :offerings
   has_many :uploads
+  has_many :purchases
 
   def display_name
     name || email
+  end
+
+  def can_purchase?(buyable)
+    true
   end
 end

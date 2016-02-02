@@ -7,4 +7,14 @@ module ApplicationHelper
     end
     link_to(name, '#', :class => "add_fields", :data => {:id => id, :fields => fields.gsub("\n", "")})
   end
+
+  def nice_price(price)
+    price = Price.new(price) if price.is_a?(Hash)
+    formatted = number_to_currency(price.take, :unit => Price::CURRENCIES[price.currency][:symbol]) + ' ' + price.currency
+    if price.give && price.give > 1
+      "#{price.give} for #{formatted}"
+    else
+      formatted
+    end
+  end
 end
