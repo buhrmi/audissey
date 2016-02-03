@@ -41,4 +41,8 @@ class Offering < ActiveRecord::Base
 
   end
 
+  def editable_by?(user)
+    self.user_id == user.id
+  end
+
 end

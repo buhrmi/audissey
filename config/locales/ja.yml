@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        email: 
+  helpers:
+    label:
+      user:
+        email: 
+        password: 

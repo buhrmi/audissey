@@ -4,7 +4,7 @@ $(document).on 'page:change', ->
   # $('select.buttons').buttons()
   $('.datepicker').daterangepicker
     singleDatePicker: true
-    startDate: $('.datepicker').val()
+    startDate: $('.datepicker').val() || new Date()
     locale:
       format: 'YYYY-MM-DD'
 

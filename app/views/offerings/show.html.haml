@@ -1,4 +1,5 @@
 .container
   %h1= @offering.actionable_name
-
-  .book_now= link_to "Book now", new_booking_path(:offering => @offering)
+  = link_to "Book now", new_booking_path(:offering => @offering), :class => 'btn btn-primary btn-lg'
+  = sanitize @offering.description
+  = link_to "Book now", new_booking_path(:offering => @offering), :class => 'btn btn-primary btn-lg'

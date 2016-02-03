@@ -55,4 +55,11 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  if defined?(BetterErrors)
+    BetterErrors.editor = lambda { |full_path, line|
+      # full_path = full_path.sub(Rails.root.to_s, your_local_path)
+      "atm://open?url=file://#{full_path}&line=#{line}"
+    }
+  end
 end

@@ -38,15 +38,17 @@ class BookingsController < ApplicationController
 
   # GET /bookings/1/edit
   def edit
+    return false unless @booking.editable_by?(current_user)
   end
 
   # POST /bookings
   # POST /bookings.json
   def create
+    return redirect_to new_user_session_path unless current_user
     @booking = Booking.new(booking_params)
     @booking.user_id = current_user.id
     @booking.buyer_confirmed_at = Time.now
-
+    return false unless @booking.editable_by?(current_user)
     respond_to do |format|
       if @booking.save
         UserNotifier.booking_inquiry(@booking).deliver_later
@@ -62,6 +64,7 @@ class BookingsController < ApplicationController
   # PATCH/PUT /bookings/1
   # PATCH/PUT /bookings/1.json
   def update
+    return false unless @booking.editable_by?(current_user)
     updates = booking_update_params
     if params[:confirm] && @booking.offering.user_id == current_user.id
       updates[:offerer_confirmed_at] = Time.now

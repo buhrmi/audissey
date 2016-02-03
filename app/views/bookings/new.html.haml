@@ -17,8 +17,10 @@
         .col-sm-6
           .form-group
             %label Budget
+
             .input-group
               %input(type="hidden" name="booking[price_attributes][currency]" v-model="currency")
+              .input-group-addon {{symbol}}
               %input.form-control(v-model = "amount" name="booking[price_attributes][take]")
               .input-group-addon {{currency}}
               .input-group-btn
@@ -35,6 +37,7 @@
         = f.submit "Send Inquiry", :class => 'btn btn-primary btn-lg', ':disabled' => '!allGood()'
 
 :coffee
+  currencies = #{Price::CURRENCIES.to_json}
   new Vue
     el: '.new_booking'
     data:
@@ -45,3 +48,7 @@
     methods:
       allGood: ->
         this.$get('location') && this.$get('amount') && this.$get('currency') && this.$get('date')
+    ready: ->
+      this.$set('symbol', currencies[this.$get('currency')].symbol)
+      this.$watch 'currency', (val) ->
+        this.$set('symbol', currencies[val].symbol)

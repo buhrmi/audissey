@@ -27,4 +27,8 @@ class Booking < ActiveRecord::Base
   def payment_received?
     purchase.present?
   end
+
+  def editable_by?(user)
+    self.user_id == user.id || self.offering.user_id == user.id
+  end
 end
