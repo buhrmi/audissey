@@ -56,6 +56,7 @@ class PurchasesController < ApplicationController
     if charge_response.paid
       Purchase.create :buyer => current_user, :buyable => buyable, :price_json => price, :gateway_id => 'webpay.jp', :gateway_tx_id => charge_response.id
       UserNotifier.booking_payment_received(buyable).deliver_later if buyable.is_a?(Booking)
+      UserNotifier.booking_payment_completed(buyable).deliver_later if buyable.is_a?(Booking)
       redirect_to :back
     else
       flash[:error] = charge_response.failure_message
