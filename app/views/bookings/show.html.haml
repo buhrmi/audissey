@@ -1,9 +1,12 @@
 .container
 
   .row
-    .col-sm-4
-      - current_user.bookings.each do |booking|
-        .topicable.booking Booking #{booking.offering.actionable_name}
+    .col-sm-4.nav-col
+      Pending:
+      %ul.nav.nav-pills.nav-stacked
+        - current_user.bookings.each do |booking|
+          %li{:class => @booking == booking ? 'active' : ''}
+            = link_to "Booking #{booking.offering.actionable_name}", booking
     .col-sm-8
       .booking_status
 
@@ -21,11 +24,27 @@
                 Confirmed
                 = form_tag Purchase.new do |f|
                   = hidden_field_tag :price_id, @booking.price.id
-                  = hidden_field_tag :gateway, 'webpay'
-                  %script(src="https://checkout.webpay.jp/v3/"
-                    class="webpay-button"
-                    data-key="#{ENV['WEBPAY_PUBLIC_KEY']}"
-                    data-lang="#{I18n.locale}")
+                  = hidden_field_tag :gateway, 'stripe'
+                  %script(src="https://checkout.stripe.com/checkout.js"
+                    class="stripe-button"
+                    data-key="#{ENV['STRIPE_PUBLIC_KEY']}"
+                    data-locale="#{I18n.locale}"
+                    data-email="#{current_user.email}"
+                    data-image="#{asset_path('logo_square.png')}"
+                    data-name="#{@booking.offering.actionable_name}"
+                    data-amount="#{@booking.price.take}"
+                    data-currency="#{@booking.price.currency}"
+                    data-description="Booking via audissey.fm"
+                    data-allow-remember-me="false"
+                    )
+                - if false # disable webpay for now
+                  = form_tag Purchase.new do |f|
+                    = hidden_field_tag :price_id, @booking.price.id
+                    = hidden_field_tag :gateway, 'webpay'
+                    %script(src="https://checkout.webpay.jp/v3/"
+                      class="webpay-button"
+                      data-key="#{ENV['WEBPAY_PUBLIC_KEY']}"
+                      data-lang="#{I18n.locale}")
               - else
                 This booking is not confirmed. Please wait until #{@booking.offering.actionable_name} confirmed.
             - if @booking.offering.user_id == current_user.id

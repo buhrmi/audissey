@@ -29,5 +29,6 @@ module BassmusicTokyo
         ENV[key.to_s] = value
       end if File.exists?(env_file)
     end
+    Stripe.api_key = ENV['STRIPE_SECRET_KEY']
   end
 end

@@ -16,6 +16,7 @@ gem 'pg', group: :production
 
 ### PAYMENTS ####
 gem 'webpay'    #
+gem 'stripe'    #
 #################
 
 gem 'localeapp'
