@@ -1,0 +1,8 @@
+Hello <%= @user.display_name %>,
+
+good news! <%= @offering.actionable_name %> confirmed your booking inquiry!
+
+Please visit the booking page and proceed with the payment.
+<%= booking_url(@booking) %>
+
+We will provide you with further information once the payment has been received.

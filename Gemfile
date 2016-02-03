@@ -18,6 +18,7 @@ gem 'pg', group: :production
 gem 'webpay'    #
 #################
 
+gem 'localeapp'
 
 group :development, :test do
   gem 'byebug'

@@ -22,10 +22,21 @@ class PurchasesController < ApplicationController
 
   end
 
+  def create
+    create_webpay if params[:gateway] == 'webpay'
+    create_stripe if params[:gateway] == 'stripe'
+  end
+
+
+  def create_stripe
+    # TODO
+  end
+
   # TODO: Use CREDIT CHANGES if purchased an offering via fixed pricing:
   # 1. Create credit change +1 for offering (source: this purchase)
   # 2. If booking given, use credit to pay for the booking via -1 credit change (source: booking)
-  def create
+  def create_webpay
+
     price = Price.find(params[:price_id])
 
     buyable = price.buyable
@@ -44,6 +55,7 @@ class PurchasesController < ApplicationController
 
     if charge_response.paid
       Purchase.create :buyer => current_user, :buyable => buyable, :price_json => price, :gateway_id => 'webpay.jp', :gateway_tx_id => charge_response.id
+      UserNotifier.booking_payment_received(buyable).deliver_later if buyable.is_a?(Booking)
       redirect_to :back
     else
       flash[:error] = charge_response.failure_message

@@ -49,6 +49,7 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if @booking.save
+        UserNotifier.booking_inquiry(@booking).deliver_later
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
       else
@@ -61,8 +62,14 @@ class BookingsController < ApplicationController
   # PATCH/PUT /bookings/1
   # PATCH/PUT /bookings/1.json
   def update
+    updates = booking_update_params
+    if params[:confirm] && @booking.offering.user_id == current_user.id
+      updates[:offerer_confirmed_at] = Time.now
+      confirmed = true
+    end
     respond_to do |format|
-      if @booking.update(booking_params)
+      if @booking.update(updates)
+        UserNotifier.booking_confirmed(@booking).deliver_later if confirmed
         format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }
         format.json { render :show, status: :ok, location: @booking }
       else
@@ -86,6 +93,12 @@ class BookingsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_booking
       @booking = Booking.find(params[:id])
+    end
+
+
+    def booking_update_params
+      return {} unless params[:booking]
+      params[:booking].permit(:start_at)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

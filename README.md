@@ -42,7 +42,7 @@ If you've got issues, use the issue tracker.
 Contributing
 ------------
 
-We don't impose any strict rules on how to structure and open pull requests.
+We don't impose any strict rules on how to structure and open pull requests. For localization contributions, check out our localeapp project: https://www.localeapp.com/projects/9031
 
 
 License
@@ -55,8 +55,20 @@ License
     Everyone is permitted to copy and distribute verbatim or modified
     copies of the code accompanying this license document, and changing
     it is allowed in any way that pleases you.
-   
+
     DO WHAT THE FUCK YOU WANT TO UNIVERSAL LICENSE
     TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
 
      1. You just DO WHAT THE FUCK YOU WANT TO.
+
+---
+
+A ruby translation project managed on [Locale](http://www.localeapp.com/) that's open to all!
+
+## Contributing to audissey
+
+- Edit the translations directly on the [audissey](http://www.localeapp.com/projects/public?search=audissey) project on Locale.
+- **That's it!**
+- The maintainer will then pull translations from the Locale project and push to Github.
+
+Happy translating!
