@@ -28,13 +28,24 @@
 .section.landing_head {
   text-align: center;
   position: relative;
-  height: 390px;
+  height: 520px;
+  background-image: url(http://blog.iavm.org/wp-content/uploads/2014/10/3DM-Music-Festival.jpg);
+  background-position: top;
+  background-size: cover;
+  color: white;
+  margin-top: -72px; //-20px;
+  padding-top: 125px; //30px;
   .big { font-size: 60px; }
-  .small { font-size: 30px; }
+  .small { font-size: 30px; margin-bottom: 30px; }
   .search_box {
     width: 100%;
     position: absolute;
     bottom: 0;
+    text-align: center;
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: rgba(0,0,10,0.3);
     .part, .select2-container {
       vertical-align: middle;
       color: black;
@@ -64,15 +75,15 @@
       padding: 0px 20px;
       vertical-align: middle;
     }
-    text-align: center;
-    color: white;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background: rgba(0,0,10,0.6);
   }
 
 }
-.section.featured_head {
+.section.featured_bookable {
+  padding-top: 50px;
+  text-align: center;
+  padding-bottom: 50px;
+}
+.section.featured_events {
   padding-top: 50px;
   text-align: center;
   padding-bottom: 50px;

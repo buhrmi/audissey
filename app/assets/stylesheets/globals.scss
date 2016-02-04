@@ -6,10 +6,32 @@ html {
 }
 
 body {
+  font-size: 18px;
   min-height: 100%;
   position: relative;
   background-color: white;
   overflow-y: scroll;
+}
+
+.navbar {
+  .logo_inverted {
+    display: none;
+  }
+}
+
+body.visitors.landing .navbar {
+  z-index:1;
+  border: none;
+  background: none;
+  .logo_normal {
+    display: none;
+  }
+  .logo_inverted {
+    display: block;
+  }
+  a {
+    color: white;
+  }
 }
 
 a {
@@ -21,7 +43,6 @@ a:hover {
 }
 
 * {
-  font-size: 18px;
   margin: 0;
   padding: 0;
   border: none;
@@ -88,19 +109,46 @@ form .error {
 }
 
 #content {
-  padding-bottom: 300px;
+  padding-bottom: 500px;
 }
 
 #footer {
   padding-top: 30px;
   background: white;
-  height: 200px;
+  height: 405px;
   box-shadow: 0 10px 20px -10px black inset;
   position: absolute;
   width: 100%;
   bottom: 0;
   background: #66666F;
-  color: white;
+  color: #EEE;
+  .logo img {
+    width: 100%;
+  }
+  .settings {
+    // text-align: center;
+    padding-bottom: 30px;
+    .dropdown {
+      display: inline-block;
+      .btn-primary {
+        font-size: 16px;
+        background-color: #4F4E54;
+        border-color: #39383A;
+      }
+    }
+  }
+  .copyright {
+    font-size: 15px;
+    padding: 15px 0;
+    text-align: center;
+    background-color: #39383A;
+    color: #AAA;
+  }
+  .links {
+    padding: 30px 0;
+    background-color: #4F4E54;
+
+  }
 }
 
 .actions {

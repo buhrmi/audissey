@@ -14,13 +14,16 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body
+  %body{:class => "#{params[:controller]} #{params[:action]}"}
     .navbar.navbar-default
       .container
         .navbar-header
           .navbar-brand
             -# = image_tag 'logo.png', :height => '22'
-            = link_to image_tag('audisseylogo.png'), root_url
+            .logo_normal
+              = link_to image_tag('audisseylogo.png'), root_url
+            .logo_inverted
+              = link_to image_tag('audisseylogo_inverted.png'), root_url
         %ul.nav.navbar-nav.navbar-right
           - if current_user
             - if current_user.offerings.empty?
@@ -50,12 +53,52 @@
       = yield
 
     #footer
-      .container
-        %p Settings (TODO):
-        %p Time Zone | Language | Currency
-      .container
-        %p.right  Terms & Conditions | Privacy Policy
-        %p © audissey, All Rights Reserved
-      .section.partners
+      .settings
         .container
-          %p Partners (New Sound For Japan, Tokyo Bass Music, Electro Booking, Booking.com)
+          .dropdown
+            %button.btn.btn-primary.dropdown-toggle(data-toggle="dropdown")
+              %i.fa.fa-language
+              = t I18n.locale
+              %span.caret
+            %ul.dropdown-menu
+              - I18n.available_locales.each do |locale|
+                %li= link_to t(locale), params.merge(:locale => locale)
+          .dropdown
+            %button.btn.btn-primary.dropdown-toggle(data-toggle="dropdown")
+              %i.fa.fa-money
+              JPY
+              %span.caret
+            %ul.dropdown-menu
+              %li= link_to 'JPY', params
+          .dropdown
+            %button.btn.btn-primary.dropdown-toggle(data-toggle="dropdown")
+              %i.fa.fa-globe
+              UTC
+              %span.caret
+            %ul.dropdown-menu
+              %li= link_to 'UTC', params
+
+      .links
+        .container
+          .row
+            .col-sm-2.logo
+              = link_to image_tag('logo_square_inverted.png'), root_url
+            .col-sm-2
+              %p= link_to 'Facebook', 'http://facebook.com/audisseyofficial'
+            .col-sm-4
+              %p
+                %strong Company
+              %p Mission Statement
+              %p Team
+              %p Jobs
+              %p Partners
+              %p Investor Relations
+            .col-sm-4
+              %p
+                %strong Support
+              %p User Guide
+              %p Contact
+              %p Terms & Conditions
+      .copyright
+        .container
+          © #{Time.now.year} audissey, All Rights Reserved

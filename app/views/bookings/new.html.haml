@@ -3,7 +3,7 @@
   .section.new_booking
     .container
       %h1 New Contract with #{@offering.actionable_name}
-      %p Make an inquiry with flexible pricing
+      %p Make a request with flexible pricing
       .row
         .col-sm-6
           .form-group
@@ -34,7 +34,7 @@
           - if @offering.category_id == 'performer'
             %p Note: You are responsible for covering transportation and lodging for the performer.
       .actions
-        = f.submit "Send Inquiry", :class => 'btn btn-primary btn-lg', ':disabled' => '!allGood()'
+        = f.submit "Send Request", :class => 'btn btn-primary btn-lg', ':disabled' => '!allGood()'
 
 :coffee
   currencies = #{Price::CURRENCIES.to_json}

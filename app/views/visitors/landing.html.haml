@@ -1,18 +1,21 @@
 .section.landing_head
   .container
-    .big BOOKING MADE EASY
-    .small Hire the artists you really love
+    .big= t 'BOOKING MADE EASY'
+    .small= t 'Hire the artists you really love'
+    %p
+      %i.fa.fa-play
+      = t 'How does it work?'
   .search_box
     .contfainer<
-      %span.part.first> I'm looking for
+      %span.part.first>= t "I'm looking for"
       %select.part.select2.category(name="category" data-search="false")= options_from_collection_for_select(Category.all, :id, :name)
-      %span.part.event> for an event on
+      %span.part.event>= t 'for an event on'
       %input.part.datepicker>
-      %button Search
-.section.featured_head
+      %button= t 'Search'
+.section.featured_bookable
   .container
-    %h1 A TRACK RECORD OF AWESOME
-    %h2 Featured acts available for booking in Tokyo
+    %h1= t 'A TRACK RECORD OF AWESOME'
+    %h2= t 'Featured acts available for booking in Tokyo'
     .row
       - @performers.each do |performance|
         .col-sm-6
@@ -23,7 +26,8 @@
                   %i.fa.fa-star
                   = performance.actionable_name
 
-.section.partners
+.section.featured_events
   .container
-    %h1 UPCOMING IN TOKYO
-    %h2 Events powered by Audissey.FM
+    %h1= t 'UPCOMING IN TOKYO'
+    %h2= t 'Events powered by audissey'
+    %p Nothing here. Check back soon.
