@@ -12,6 +12,8 @@
 #  category_id     :string
 #  duration        :integer
 #  published_at    :datetime
+#  approved_at     :datetime
+#  approved_by_id  :integer
 #
 
 module OfferingsHelper

@@ -12,6 +12,8 @@
 #  category_id     :string
 #  duration        :integer
 #  published_at    :datetime
+#  approved_at     :datetime
+#  approved_by_id  :integer
 #
 
 # Use Case: Buy 4 offerings for 5 USD
@@ -28,10 +30,15 @@ class Offering < ActiveRecord::Base
   include Translatable
 
   belongs_to :user
+  belongs_to :approved_by, :class_name => 'User'
   has_many :availability_rules
   has_many :bookings
+
+  scope :approved, lambda { where('approved_at IS NOT NULL') }
+
   dragonfly_accessor :image
   accepts_nested_attributes_for :prices, :allow_destroy => true
+
 
   def availability_on(day)
 
@@ -42,7 +49,7 @@ class Offering < ActiveRecord::Base
   end
 
   def editable_by?(user)
-    self.user_id == user.id
+    user.superpowers? or self.user_id == user.id
   end
 
 end

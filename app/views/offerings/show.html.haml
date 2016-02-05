@@ -1,3 +1,9 @@
+- if !@offering.approved_at
+  .second_nav
+    .container
+      NOTE: This listing/offering is not approved and won't be published in search results.
+      - if current_user.superpowers?
+        = link_to 'Approve now', params.merge('offering[approve]' => true), :method => 'put', :class => 'btn btn-primary'
 .container
   %h1= @offering.actionable_name
   = link_to "Book now", new_booking_path(:offering => @offering), :class => 'btn btn-primary btn-lg'

@@ -12,6 +12,8 @@
 #  category_id     :string
 #  duration        :integer
 #  published_at    :datetime
+#  approved_at     :datetime
+#  approved_by_id  :integer
 #
 
 class OfferingsController < ApplicationController
@@ -57,8 +59,14 @@ class OfferingsController < ApplicationController
   # PATCH/PUT /offerings/1
   # PATCH/PUT /offerings/1.json
   def update
+    return unless @offering.editable_by?(current_user)
+    updates = offering_params
+    if params[:offering][:approve] && current_user.superpowers? && !@offering.approved_at
+      updates[:approved_by] = current_user
+      updates[:approved_at] = Time.now
+    end
     respond_to do |format|
-      if @offering.update(offering_params)
+      if @offering.update(updates)
         format.html { redirect_to @offering, notice: 'Offering was successfully updated.' }
         format.json { render :show, status: :ok, location: @offering }
       else

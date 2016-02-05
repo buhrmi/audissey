@@ -18,6 +18,7 @@
 #  name                   :string
 #  provider               :string
 #  uid                    :string
+#  superpowers            :boolean
 #
 
 class User < ActiveRecord::Base

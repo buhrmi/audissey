@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160202094433) do
+ActiveRecord::Schema.define(version: 20160205030953) do
 
   create_table "availability_rules", force: :cascade do |t|
     t.integer  "offering_id"
@@ -75,6 +75,8 @@ ActiveRecord::Schema.define(version: 20160202094433) do
     t.string   "category_id"
     t.integer  "duration"
     t.datetime "published_at"
+    t.datetime "approved_at"
+    t.integer  "approved_by_id"
   end
 
   create_table "prices", force: :cascade do |t|
@@ -139,6 +141,7 @@ ActiveRecord::Schema.define(version: 20160202094433) do
     t.string   "name"
     t.string   "provider"
     t.string   "uid"
+    t.boolean  "superpowers"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
