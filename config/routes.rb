@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   root to: 'visitors#landing'
   get 'visitors/index', :to => 'visitors#index'
 
-  devise_for :users, :controllers => { :registrations => 'users/registrations' }
+  devise_for :users, :controllers => { :registrations => 'users/registrations', :omniauth_callbacks => "users/omniauth_callbacks" }
 
 
 end
