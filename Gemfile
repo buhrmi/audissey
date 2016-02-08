@@ -19,6 +19,7 @@ gem 'webpay'    #
 gem 'stripe'    #
 #################
 
+gem 'maxminddb'
 gem 'localeapp'
 
 group :development, :test do

@@ -38,12 +38,22 @@ class ApplicationController < ActionController::Base
   def set_locale
     if params[:locale]
       I18n.locale = cookies.permanent[:locale] = params[:locale]
-    elsif current_user
-      # TODO: save/get locale in user
+      current_user.update(:locale => params[:locale]) if current_user
+    elsif current_user && current_user.locale
+      I18n.locale = current_user.locale
     elsif cookies[:locale]
       I18n.locale = cookies[:locale]
     else
-      I18n.locale = I18n.default_locale # TODO: take locale from geoip
+      lookup = GEOIP.lookup(request.ip)
+      I18n.locale = guess_locale_from_country_code(lookup.country.iso_code)
+    end
+  end
+
+  def guess_locale_from_country_code code
+    if code == 'JP'
+      'ja'
+    else
+      'en'
     end
   end
 
