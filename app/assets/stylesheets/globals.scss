@@ -40,6 +40,7 @@ a {
 a:hover {
   background: #08B5E5;
   color: white;
+  text-decoration: none;
 }
 
 * {
@@ -135,6 +136,22 @@ form .error {
         background-color: #4F4E54;
         border-color: #39383A;
       }
+    }
+  }
+  .social {
+    float: right;
+    font-size: 26px;
+    .fa {
+      color: #DDD;
+    }
+    a:hover {
+      background: none;
+    }
+    .fa-twitter-square:hover {
+      color: #0B93B9;
+    }
+    .fa-facebook-square:hover {
+      color: #2D46A7;
     }
   }
   .copyright {

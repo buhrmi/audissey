@@ -55,6 +55,11 @@
     #footer
       .settings
         .container
+          .social
+            = link_to 'http://twitter.com/rngmstrs', :target => '_blank' do
+              %i.fa.fa-twitter-square
+            = link_to 'http://facebook.com/audisseyofficial', :target => '_blank' do
+              %i.fa.fa-facebook-square
           .dropdown
             %button.btn.btn-primary.dropdown-toggle(data-toggle="dropdown")
               %i.fa.fa-language
@@ -84,7 +89,7 @@
             .col-sm-2.logo
               = link_to image_tag('logo_square_inverted.png'), root_url
             .col-sm-2
-              %p= link_to 'Facebook', 'http://facebook.com/audisseyofficial'
+
             .col-sm-4
               %p
                 %strong Company
