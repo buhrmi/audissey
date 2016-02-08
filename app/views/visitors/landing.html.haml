@@ -1,10 +1,10 @@
 .section.landing_head
   .container
-    .big= t 'BOOKING MADE EASY'
-    .small= t 'Hire the artists you really love'
+    .big= t '.tagline'
+    .small= t '.tagline2'
     %p
       %i.fa.fa-play
-      = t 'How does it work?'
+      = t '.explain'
   .search_box
     .contfainer<
       %span.part.first>= t "I'm looking for"
@@ -12,10 +12,17 @@
       %span.part.event>= t 'for an event on'
       %input.part.datepicker>
       %button= t 'Search'
+  .more
+    = t 'Browse'
+    %br
+    .caret
+
+:coffee
+  $('.landing_head').css height: $(window).height()
 .section.featured_bookable
   .container
-    %h1= t 'A TRACK RECORD OF AWESOME'
-    %h2= t 'Featured acts available for booking in Tokyo'
+    %h1= t '.featured_tagline'
+    %h2= t '.featured_tagline2'
     .row
       - @performers.each do |performance|
         .col-sm-6
@@ -28,6 +35,6 @@
 
 .section.featured_events
   .container
-    %h1= t 'UPCOMING IN TOKYO'
-    %h2= t 'Events powered by audissey'
-    %p Nothing here. Check back soon.
+    %h1= t '.upcoming_tagline'
+    %h2= t '.upcoming_tagline2'
+    %p= t 'Nothing here. Check back soon.'

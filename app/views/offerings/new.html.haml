@@ -24,7 +24,7 @@
       .form-group
         %h3 Listing Name
 
-        = f.text_field :actionable_name, :class => 'form-control', :'v-model' => :actionable_name
+        = f.text_field :actionable_name, :class => 'form-control', 'v-model' => :actionable_name, 'v-bind:placeholder' => 'placeholder'
       -# .form-group
       -#   %label Description
       -#   = f.text_area :description, :class => 'redactor'
@@ -45,4 +45,14 @@
 
     :coffee
       new Vue
+        data:
+          name: #{current_user.display_name.to_json}
+          placeholder: #{current_user.display_name.to_json}
+        ready: ->
+          this.$watch 'category_id', (val) ->
+            placeholder = 'DJ ' + this.$get('name') if this.category_id == 'performer'
+            placeholder = 'Club ' + this.$get('name') if this.category_id == 'venue'
+            placeholder = this.$get('name') + ' Promotions' if this.category_id == 'organizer'
+            this.$set('placeholder', placeholder)
+
         el: '#new_offering'

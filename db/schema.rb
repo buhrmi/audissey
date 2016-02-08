@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160208045149) do
+ActiveRecord::Schema.define(version: 20160208053336) do
 
   create_table "availability_rules", force: :cascade do |t|
     t.integer  "offering_id"
@@ -143,6 +143,7 @@ ActiveRecord::Schema.define(version: 20160208045149) do
     t.string   "uid"
     t.boolean  "superpowers"
     t.string   "image_uid"
+    t.string   "locale"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

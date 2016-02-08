@@ -1,27 +1,35 @@
-.section.dashboard
-  .container
-    - if current_user.offerings.any?
-      .offerings
-        %h3 Offerings:
-        - current_user.offerings.each do |offering|
-          = offering.actionable_name
-          = link_to edit_offering_path(offering) do
-            %i.fa.fa-edit
-    - else
-      %h1 Pending
-      %p You have 0 pending bookings
-    .bookings
-      %h3 Paid & Confirmed Bookings
-      - if @purchased_bookings.empty?
-        Nothing yet.
-      - @purchased_bookings.each do |booking|
-        .booking
-          = link_to booking do
-            #{booking.created_at}: #{nice_price(booking.purchase.price_json)}
+- if @show_guide
+  .section.dashboard_guide
+    .container
+      %h1 Let's get started.
+      = link_to 'Offer your services', new_offering_path, :class => 'btn btn-lg btn-primary'
+      or browse our listings
 
-    .balances
-      %h3 Balances
-      - @balances.each do |currency, amount|
-        #{nice_price(:currency => currency, :take => amount)}
-      .payout
-        = link_to 'Request Payout', '#'
+- else
+  .section.dashboard
+    .container
+      - if current_user.offerings.any?
+        .offerings
+          %h3 Offerings:
+          - current_user.offerings.each do |offering|
+            = offering.actionable_name
+            = link_to edit_offering_path(offering) do
+              %i.fa.fa-edit
+      - else
+        %h1 Pending
+        %p You have 0 pending bookings
+      .bookings
+        %h3 Paid & Confirmed Bookings
+        - if @purchased_bookings.empty?
+          Nothing yet.
+        - @purchased_bookings.each do |booking|
+          .booking
+            = link_to booking do
+              #{booking.created_at}: #{nice_price(booking.purchase.price_json)}
+
+      .balances
+        %h3 Balances
+        - @balances.each do |currency, amount|
+          #{nice_price(:currency => currency, :take => amount)}
+        .payout
+          = link_to 'Request Payout', '#'
