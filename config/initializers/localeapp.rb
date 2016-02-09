@@ -5,4 +5,19 @@ Localeapp.configure do |config|
   config.polling_environments = []
   config.reloading_environments = [:development, :qa, :production]
   config.cache_missing_translations = true
+  config.translation_data_directory = 'config/locales'
 end
+
+# config/initializers/reload_locale.rb
+# if defined?(ActiveSupport)
+#   puts 'HELLOO22'
+#   locale_reloader = ActiveSupport::FileUpdateChecker.new(Dir["config/locales/*yml"]) do
+#      I18n.backend.reload!
+#      puts 'HELLOOO'
+#   end
+#
+#   ActionDispatch::Callbacks.to_prepare do
+#     locale_reloader.execute_if_updated
+#     puts 'HELLOOO33'
+#   end
+# end
