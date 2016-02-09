@@ -32,6 +32,9 @@ body.visitors.landing .navbar {
   a {
     color: white;
   }
+  .dropdown-menu a {
+    color: black;
+  }
 }
 
 a {
@@ -99,6 +102,11 @@ form .error {
 
 .navbar-brand {
   img { width: 120px; }
+}
+
+.flash.notice {
+  margin-top: -21px;
+  margin-bottom: 20px;
 }
 
 .second_nav {

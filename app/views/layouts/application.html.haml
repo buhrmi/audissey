@@ -45,11 +45,11 @@
             %li= link_to 'Log In', new_user_session_path
     #content
       - if flash[:notice]
-        .container
-          .notice= flash[:notice]
+        .flash.notice
+          .container= flash[:notice]
       - if flash[:alert]
-        .container
-          .notice= flash[:alert]
+        .flash.notice
+          .container= flash[:alert]
       = yield
 
     #footer

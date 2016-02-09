@@ -44,6 +44,17 @@ Contributing
 
 We don't impose any strict rules on how to structure and open pull requests. For localization contributions, check out our localeapp project: https://www.localeapp.com/projects/9031
 
+Roadmap
+-------
+
+Very rough:
+
+* Alpha: Artists, Venues & Organizer Booking Service
+* Beta: Event publication, Schedule Management
+* 1.0: Tour planning, Automated payouts
+* 2.0: Ticket sales & Music Downloads
+
+More detailed roadmap to be available soon.
 
 License
 -------
@@ -60,15 +71,3 @@ License
     TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
 
      1. You just DO WHAT THE FUCK YOU WANT TO.
-
----
-
-A ruby translation project managed on [Locale](http://www.localeapp.com/) that's open to all!
-
-## Contributing to audissey
-
-- Edit the translations directly on the [audissey](http://www.localeapp.com/projects/public?search=audissey) project on Locale.
-- **That's it!**
-- The maintainer will then pull translations from the Locale project and push to Github.
-
-Happy translating!

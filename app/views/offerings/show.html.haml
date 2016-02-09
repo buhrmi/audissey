@@ -4,8 +4,19 @@
       NOTE: This listing/offering is not approved and won't be published in search results.
       - if current_user.superpowers?
         = link_to 'Approve now', params.merge('offering[approve]' => true), :method => 'put', :class => 'btn btn-primary'
-.container
-  %h1= @offering.actionable_name
-  = link_to "Book now", new_booking_path(:offering => @offering), :class => 'btn btn-primary btn-lg'
-  = sanitize @offering.description
-  = link_to "Book now", new_booking_path(:offering => @offering), :class => 'btn btn-primary btn-lg'
+.section.offering
+  .container
+    .row
+      .col-sm-8
+        %h1= @offering.actionable_name
+        = sanitize @offering.description
+      .col-sm-4
+        .booking_box
+          .pricing
+            - if @offering.prices.any?
+            - else
+              Flexible pricing
+          .availability
+            - # Morning: 5-11, Daytime: 11-6, Evening: 6-10, Night: 10-5
+            Available on #{2.weeks.from_now.strftime("")}
+          = link_to "Book now", new_booking_path(:offering => @offering), :class => 'btn btn-primary btn-lg'
