@@ -8,16 +8,13 @@ Localeapp.configure do |config|
   config.translation_data_directory = 'config/locales'
 end
 
-# config/initializers/reload_locale.rb
-# if defined?(ActiveSupport)
-#   puts 'HELLOO22'
-#   locale_reloader = ActiveSupport::FileUpdateChecker.new(Dir["config/locales/*yml"]) do
-#      I18n.backend.reload!
-#      puts 'HELLOOO'
-#   end
-#
-#   ActionDispatch::Callbacks.to_prepare do
-#     locale_reloader.execute_if_updated
-#     puts 'HELLOOO33'
-#   end
-# end
+config/initializers/reload_locale.rb
+if defined?(ActiveSupport)
+  locale_reloader = ActiveSupport::FileUpdateChecker.new(Dir["config/locales/*yml"]) do
+     I18n.backend.reload!
+  end
+
+  ActionDispatch::Callbacks.to_prepare do
+    locale_reloader.execute_if_updated
+  end
+end
