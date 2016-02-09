@@ -78,10 +78,11 @@
           .dropdown
             %button.btn.btn-primary.dropdown-toggle(data-toggle="dropdown")
               %i.fa.fa-globe
-              UTC
+              = Time.zone
               %span.caret
             %ul.dropdown-menu
-              %li= link_to 'UTC', params
+              - ['UTC', 'London', 'Berlin', 'Tokyo'].each do |tz|
+                %li= link_to ActiveSupport::TimeZone[tz], params.merge(:tz => tz)
 
       .links
         .container
