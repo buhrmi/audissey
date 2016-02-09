@@ -8,7 +8,7 @@ Localeapp.configure do |config|
   config.translation_data_directory = 'config/locales'
 end
 
-config/initializers/reload_locale.rb
+#config/initializers/reload_locale.rb
 if defined?(ActiveSupport)
   locale_reloader = ActiveSupport::FileUpdateChecker.new(Dir["config/locales/*yml"]) do
      I18n.backend.reload!
