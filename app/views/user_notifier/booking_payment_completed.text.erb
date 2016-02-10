@@ -7,8 +7,10 @@ This is your booking confirmation.
 Event Date: <%= @booking.start_at %>
 
 Please use the following information to contact <%= @offering.actionable_name %> directly:
-Telephone: N/A
-Email: N/A
+
+=============================
+<%= @offering.escrow_notes %>
+=============================
 
 Thank you for using Audissey!
 We hope you have a good experience.

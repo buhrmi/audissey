@@ -6,6 +6,9 @@ class DashboardsController < ApplicationController
 
     
     @purchased_bookings = Booking.joins(:purchase).where(:offering => current_user.offerings).order('created_at DESC')
+    bookings_from_me = current_user.bookings
+    bookings_with_me = Booking.where(:offering => current_user.offerings)
+    @all_bookings = (bookings_from_me + bookings_with_me).uniq
 
     # To arrive at current account balance, sum up all bookings since last requested payout
     @balances = {}

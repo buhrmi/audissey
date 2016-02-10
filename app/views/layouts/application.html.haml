@@ -30,11 +30,16 @@
               %li= link_to "Offer a service", new_offering_path
             - else
               %li.dropdown
-                %a.dropdown-toggle(href="#" data-toggle="dropdown") Offerings
+                %a.dropdown-toggle(href="#" data-toggle="dropdown")
+                  %i.fa.fa-bookmark-o
+                  Listings
                 %ul.dropdown-menu
                   - current_user.offerings.each do |offering|
                     %li= link_to offering.actionable_name, edit_offering_path(offering)
-            %li= link_to 'Messages', dashboard_path
+            %li
+              = link_to dashboard_path do
+                %i.fa.fa-envelope-o
+                Bookings
             %li.dropdown
               %a.dropdown-toggle(href="#" data-toggle="dropdown")
                 = current_user.display_name

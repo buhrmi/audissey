@@ -37,6 +37,7 @@ class Offering < ActiveRecord::Base
   scope :approved, lambda { where('approved_at IS NOT NULL') }
 
   dragonfly_accessor :image
+  dragonfly_accessor :hero_image
   accepts_nested_attributes_for :prices, :allow_destroy => true
 
 

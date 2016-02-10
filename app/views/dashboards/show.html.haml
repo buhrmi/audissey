@@ -15,10 +15,16 @@
             = offering.actionable_name
             = link_to edit_offering_path(offering) do
               %i.fa.fa-edit
-      - else
-        %h1 Pending
-        %p You have 0 pending bookings
+      
+      
       .bookings
+        %h3 Bookings in Progress
+        - if @all_bookings.empty?
+          Nothing yet
+        - @all_bookings.each do |booking|
+          .booking
+            = link_to booking.offering.actionable_name, booking
+            
         %h3 Paid & Confirmed Bookings
         - if @purchased_bookings.empty?
           Nothing yet.

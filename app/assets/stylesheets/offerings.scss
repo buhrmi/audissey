@@ -1,3 +1,35 @@
-.booking_box {
-  border: 1px solid #DDD;
+.offering_detail {
+  .booking_col {
+    position: relative;
+  }
+  .booking_area {
+    width: 100%;
+    position: relative;
+  }
+  .booking_box {
+    border: 1px solid #DDD;
+
+    .pricing {
+      padding: 15px;
+      background: #666;
+      color: white;
+    }
+    .availability {
+      padding: 15px;
+      padding-bottom: 0px;
+    }
+    .action {
+      padding: 15px;
+      padding-top: 0px;
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+  .problems {
+    font-size: 12px;
+    text-align: center;
+    margin-top: 15px;
+    a { color: #888; }
+  }
 }

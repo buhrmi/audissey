@@ -17,13 +17,15 @@
               = link_to 'Availability', '#', :'@click.prevent' => '$set("section", "availability")'
             %li{':class' => '{active: section=="pricing"}'}
               = link_to 'Pricing', '#', :'@click.prevent' => '$set("section", "pricing")'
+            %li{':class' => '{active: section=="escrow"}'}
+              = link_to 'Escrow Infos', '#', :'@click.prevent' => '$set("section", "escrow")'
         .col-sm-8(v-show="section=='basics'")
           %h1 Basics
           .form-group
             %label Name
             = f.text_field :actionable_name,
               :class => 'form-control',
-              :'v-model' => 'offering.actionable_name'
+              'v-model' => 'offering.actionable_name'
 
         .col-sm-8(v-show="section=='description'")
           %h1 Description
@@ -52,6 +54,19 @@
               %strong Flexible
               %p Rates &amp; Fees can be negotiated for each booking.
           (more options coming soon)
+        .col-sm-8(v-show="section=='escrow'")
+          %h1 Escrow Information
+          %p 
+            This information is kept confidential and will be made available to the payer after payment has been confirmed.
+            Please include contact details such as phone numbers, email addresses, etc.
+          .form-group
+            %label English
+            = f.text_area :escrow_notes,
+              :placeholder => "Phone:\nEmail:",
+              :class => 'form-control',
+              'v-model' => 'offering.escrow_notes'
+          
+
       .actions
         = f.submit "All good. Save changes.",
           :'v-bind:disabled' => '!offeringValid()',
@@ -65,6 +80,7 @@
     methods:
       offeringValid: ->
         return false unless this.$get('offering.actionable_name')
+        return false unless this.$get('offering.escrow_notes')
         true
     ready: ->
       this.$expose 'section', 'section'

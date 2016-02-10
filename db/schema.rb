@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160209062912) do
+ActiveRecord::Schema.define(version: 20160210071214) do
 
   create_table "availability_rules", force: :cascade do |t|
     t.integer  "offering_id"
@@ -77,6 +77,8 @@ ActiveRecord::Schema.define(version: 20160209062912) do
     t.datetime "published_at"
     t.datetime "approved_at"
     t.integer  "approved_by_id"
+    t.string   "hero_image_uid"
+    t.text     "escrow_notes"
   end
 
   create_table "prices", force: :cascade do |t|

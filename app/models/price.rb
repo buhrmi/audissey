@@ -14,7 +14,7 @@
 
 class Price < ActiveRecord::Base
   CURRENCIES = {
-    'JPY' => {:symbol => '¥'}#,
+    'JPY' => {:symbol => '¥'}
     # 'USD' => {:symbol => '$'},
     # 'EUR' => {:symbol => '€'},
     # 'GBP' => {:symbol => '£'},

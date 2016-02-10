@@ -4,19 +4,72 @@
       NOTE: This listing/offering is not approved and won't be published in search results.
       - if current_user.superpowers?
         = link_to 'Approve now', params.merge('offering[approve]' => true), :method => 'put', :class => 'btn btn-primary'
-.section.offering
+.section.offering_detail
   .container
     .row
       .col-sm-8
         %h1= @offering.actionable_name
         = sanitize @offering.description
-      .col-sm-4
-        .booking_box
-          .pricing
-            - if @offering.prices.any?
-            - else
-              Flexible pricing
-          .availability
-            - # Morning: 5-11, Daytime: 11-6, Evening: 6-10, Night: 10-5
-            Available on #{2.weeks.from_now.strftime("")}
-          = link_to "Book now", new_booking_path(:offering => @offering), :class => 'btn btn-primary btn-lg'
+      .col-sm-4.booking_col
+        .booking_area
+          = form_for Booking.new(:offering => @offering) do |f|
+            = f.hidden_field :offering_id
+            .booking_box
+              .pricing
+                - if @offering.prices.any?
+                - else
+                  Flexible pricing
+              .availability
+                - # Morning: 5-11, Daytime: 11-6, Evening: 6-10, Night: 10-5
+                .form-group
+                  %label Event Date
+                  %input.datepicker.form-control{:value => 4.weeks.from_now.strftime("%Y-%m-%d"), :name => 'booking[start_at]'}
+                .form-group
+                  %label Budget
+
+                  .input-group
+                    %input(type="hidden" name="booking[price_attributes][currency]" v-model="currency")
+                    .input-group-addon {{symbolForCurrency()}}
+                    %input.form-control(v-model = "amount" name="booking[price_attributes][take]")
+                    .input-group-addon {{currency}}
+                    .input-group-btn
+                      .btn.btn-default.dropdown-toggle(data-toggle="dropdown")
+                        .caret
+                      %ul.dropdown-menu.dropdown-menu-right
+                        - Price::CURRENCIES.keys.each do |currency|
+                          %li
+                            %a{:href => '#', 'v-on:click.prevent' => "$set('currency', '#{currency}')"}= currency
+
+              .action
+                %button.btn.btn-primary.btn-lg= t("Request Booking")
+            .problems
+              = link_to t('Report a problem'), '/contact'
+:coffee
+  positionBookingArea = ->
+    scrollPosition = $(window).scrollTop()
+    bookingColTop = $('.booking_col').offset().top;
+    if $(window).width() > 768
+      if scrollPosition >= bookingColTop
+        $('.booking_area').css('top', scrollPosition - bookingColTop)
+      else $('.booking_area').css('top', 0)
+    else
+      $('.booking_area').css('top', 0)
+
+  $(window).on 'scroll', positionBookingArea
+  $(window).on 'resize', positionBookingArea
+
+
+  currencies = #{Price::CURRENCIES.to_json}
+  new Vue
+    el: '.booking_area'
+    data:
+      location: '#{params[:location]}' || 'Tokyo'
+      amount: '#{params[:amount]}' || 50000
+      currency: '#{params[:currency]}' || 'JPY'
+      date: '#{params[:date]}' || '#{4.weeks.from_now.strftime("%Y-%m-%d")}'
+      symbol: ''
+    methods:
+      symbolForCurrency: ->
+        currencies[this.$get('currency')].symbol
+      allGood: ->
+        this.$get('location') && this.$get('amount') && this.$get('currency') && this.$get('date')
