@@ -28,4 +28,10 @@ class UserNotifier < ApplicationMailer
     @user = booking.user
     mail :to => @user.email, :subject => "Payment confirmation and further information"
   end
+  
+  def admin_new_listing(offering)  
+    @offering = offering
+    return unless Rails.env.production?
+    mail :to => 'gee.daigo@ringmasters.cc', :subject => "Please approve: #{offering.actionable_name}"
+  end
 end

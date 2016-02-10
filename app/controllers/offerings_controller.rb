@@ -47,6 +47,7 @@ class OfferingsController < ApplicationController
 
     respond_to do |format|
       if @offering.save
+        UserNotifier.admin_new_listing(@offering).deliver_later
         format.html { redirect_to edit_offering_path(@offering, :section => 'description'), notice: 'Offering was successfully created.' }
         format.json { render :show, status: :created, location: @offering }
       else

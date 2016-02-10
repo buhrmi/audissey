@@ -1,3 +1,10 @@
+<%- unless Rails.env.production? -%>
+  ====================================
+  THIS IS A TEST FROM <%= Rails.env %>
+             PLEASE IGNORE
+  ====================================
+  
+<%- end -%>
 <%= yield %>
 
 -- 
