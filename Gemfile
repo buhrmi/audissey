@@ -22,6 +22,7 @@ gem 'stripe'    #
 
 gem 'maxminddb'
 gem 'localeapp'
+gem 'activeadmin', github: 'activeadmin'
 
 group :development, :test do
   gem 'byebug'

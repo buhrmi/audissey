@@ -19,12 +19,16 @@
 #  provider               :string
 #  uid                    :string
 #  superpowers            :boolean
+#  image_uid              :string
+#  locale                 :string
+#  tz                     :string
+#  currency               :string
 #
 
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :omniauthable,
+  devise :database_authenticatable,  :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauth_providers => [:facebook], :password_length => 4..127
 

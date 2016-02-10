@@ -83,5 +83,14 @@ class ApplicationController < ActionController::Base
       'UTC'
     end
   end
+  
+  def authenticate_super_user!
+    authenticate_user!
+    not_found unless current_user.superpowers?
+  end
+  
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
+  end
 
 end

@@ -14,6 +14,8 @@
 #  published_at    :datetime
 #  approved_at     :datetime
 #  approved_by_id  :integer
+#  hero_image_uid  :string
+#  escrow_notes    :text
 #
 
 class OfferingsController < ApplicationController

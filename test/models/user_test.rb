@@ -19,6 +19,10 @@
 #  provider               :string
 #  uid                    :string
 #  superpowers            :boolean
+#  image_uid              :string
+#  locale                 :string
+#  tz                     :string
+#  currency               :string
 #
 
 require 'test_helper'
