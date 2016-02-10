@@ -2,7 +2,7 @@
   .second_nav
     .container
       NOTE: This listing/offering is not approved and won't be published in search results.
-      - if current_user.superpowers?
+      - if current_user&.superpowers?
         = link_to 'Approve now', params.merge('offering[approve]' => true), :method => 'put', :class => 'btn btn-primary'
 .section.offering_detail
   .container
