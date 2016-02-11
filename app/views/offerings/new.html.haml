@@ -41,7 +41,7 @@
       -#   Coming soon.
       .actions
         = f.submit 'Save & Continue', :class => 'btn btn-primary btn-lg', :'v-bind:disabled' => '!actionable_name || !category_id'
-        .note I agree with the #{link_to "Terms & Conditions", '/terms', :target => '_blank'}.
+        .note I agree with the #{link_to "Terms & Conditions", page_path('terms'), :target => '_blank'}.
 
     :coffee
       new Vue

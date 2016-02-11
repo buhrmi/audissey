@@ -274,7 +274,10 @@ en:
     guide:
       summary_html: "<p>We are still working on a complete guide, but here it is in a nutshell</p>"
     terms:
-      summary_html: "<p>By default, we take a commission of 15% which is automatically deducted from your payout. Lower rates can be discussed. The commission is used to improve the service and keep it alive.</p>"
+      summary_html: |
+        <h3>Payouts</h3>
+        <p>A payout to your account can be requested at any time from your dashboard page. You can not be paid out for events that have not started yet. A payout usually takes between 2 and 7 days but can take longer in individual cases.</p>
+        <p>By default, we take a commission of 15% which is automatically deducted from your payout. Lower rates can be negotiated. The commission is used to improve the service and keep it alive.</p>
   Contact: 
   Jobs: 
   Team: 
