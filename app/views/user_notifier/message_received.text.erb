@@ -1,3 +1,8 @@
 -- REPLY ABOVE THIS LINE --
 
 <%= @message.text %>
+
+<%- if @booking -%>
+========================
+You can reply to this message directly or view the conversation including details by visiting <%= booking_url(@booking) %>
+<%- end -%>

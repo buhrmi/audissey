@@ -37,6 +37,7 @@ class UserNotifier < ApplicationMailer
   
   def message_received(message, to_user)
     @message = message
+    @booking = @message.topicable if @message.topicable_type == 'Booking'
     embed_data = {
       :sender_id => to_user.id,
       :topicable_id => message.topicable_id,
