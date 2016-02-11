@@ -1,5 +1,10 @@
 class EmailProcessor
-  def self.process(email)
+  def initialize(email)
+    @email = email
+  end
+  
+  def self.process
+    email = @email
     from = email.from
     encrypted = email.from.to_s.gsub('reply+', '').gsub('@relay.audissey.fm','')
     crypt = ActiveSupport::MessageEncryptor.new(ENV['SECRET_KEY_BASE'])
