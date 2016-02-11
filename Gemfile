@@ -35,6 +35,7 @@ gem 'localeapp'
 gem 'activeadmin', github: 'activeadmin'
 gem 'sendgrid'
 gem 'rbjs'
+gem 'delayed_job_active_record'
 
 ##### DEVELOPMENT GEMS #########
 group :development, :test do

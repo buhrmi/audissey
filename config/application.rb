@@ -22,6 +22,8 @@ module BassmusicTokyo
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    
+    config.active_job.queue_adapter = :sidekiq
 
     config.before_configuration do
       env_file = File.join(Rails.root, 'config', 'local_env.yml')
