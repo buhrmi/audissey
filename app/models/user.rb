@@ -64,4 +64,10 @@ class User < ActiveRecord::Base
   def can_purchase?(buyable)
     true
   end
+  
+  def pending_bookings
+    bookings_from_me = bookings
+    bookings_with_me = Booking.where(:offering => offerings)
+    (bookings_from_me + bookings_with_me).uniq
+  end
 end

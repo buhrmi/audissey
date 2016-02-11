@@ -9,21 +9,34 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'dragonfly'
-gem 'dragonfly-s3_data_store'
-gem 'vuejs-rails'
 gem 'rb-readline'
 gem 'pg', group: :production
+gem 'haml-rails'
+gem 'high_voltage'
+gem 'puma'
 
 ### PAYMENTS ####
 gem 'webpay'    #
 gem 'stripe'    #
 #################
 
+### AUTH ##################
+gem 'devise'              #
+gem 'omniauth-facebook'   #
+###########################
+
+gem 'dragonfly'
+gem 'dragonfly-s3_data_store'
+gem 'vuejs-rails'
+gem 'griddler' 
+gem 'griddler-sendgrid'
 gem 'maxminddb'
 gem 'localeapp'
 gem 'activeadmin', github: 'activeadmin'
+gem 'sendgrid'
 
+
+##### DEVELOPMENT GEMS #########
 group :development, :test do
   gem 'byebug'
   gem 'sqlite3'
@@ -31,14 +44,6 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
-end
-gem 'devise'
-gem 'omniauth-facebook'
-gem 'haml-rails'
-gem 'high_voltage'
-gem 'puma'
-gem 'sendgrid'
-group :development do
   gem 'better_errors'
   gem 'html2haml'
   gem 'quiet_assets'

@@ -1,5 +1,5 @@
 class UserNotifier < ApplicationMailer
-  default :from => 'Audissey Team <team@audissey.fm>'
+  default :from => 'Audissey <team@audissey.fm>'
 
   def booking_inquiry(booking)
     @booking = booking
@@ -33,5 +33,20 @@ class UserNotifier < ApplicationMailer
     @offering = offering
     return unless Rails.env.production?
     mail :to => 'gee.daigo@ringmasters.cc', :subject => "Please approve: #{offering.actionable_name}"
+  end
+  
+  def message_received(message, to_user)
+    @message = message
+    embed_data = {
+      :sender_id => to_user.id,
+      :topicable_id => message.topicable_id,
+      :topicable_type => message.topicable_type
+    }
+    crypt = ActiveSupport::MessageEncryptor.new(ENV['SECRET_KEY_BASE'])
+    encrypted = crypt.encrypt_and_sign(embed_data.to_json)
+    reply_to = "reply+#{encrypted}@relay.audissey.fm"
+    mail :to => to_user.email, 
+      :subject => "Message from #{message.sender.display_name} regarding #{message.topicable.topicable_name}",
+      :reply_to => reply_to
   end
 end

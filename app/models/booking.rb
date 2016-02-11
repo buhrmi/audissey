@@ -31,4 +31,8 @@ class Booking < ActiveRecord::Base
   def editable_by?(user)
     self.user_id == user.id || self.offering.user_id == user.id
   end
+  
+  def topicable_name
+    offering.actionable_name
+  end
 end

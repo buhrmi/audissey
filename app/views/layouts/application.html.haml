@@ -37,9 +37,13 @@
                   - current_user.offerings.each do |offering|
                     %li= link_to offering.actionable_name, edit_offering_path(offering)
             %li
-              = link_to dashboard_path do
-                %i.fa.fa-envelope-o
-                Bookings
+              %li.dropdown
+                %a.dropdown-toggle(href="#" data-toggle="dropdown")
+                  %i.fa.fa-envelope-o
+                  Messages
+                %ul.dropdown-menu
+                  - current_user.pending_bookings.each do |pending_booking|
+                    %li= link_to pending_booking.offering.actionable_name, booking_path(pending_booking)
             %li.dropdown
               %a.dropdown-toggle(href="#" data-toggle="dropdown")
                 = current_user.display_name
@@ -99,16 +103,17 @@
             .col-sm-4
               %p
                 %strong Company
-              %p Mission Statement
-              %p Team
-              %p Jobs
+              %p= link_to 'Mission Statement', page_path('mission')
+              %p= link_to 'Team', page_path('team')
+              %p= link_to 'Jobs', page_path('jobs')
               %p Partners
             .col-sm-4
               %p
                 %strong Support
               %p User Guide
-              %p Contact
+              %p= link_to 'Contact', page_path('contact')
               %p Terms & Conditions
+              %p Privacy Policy
       .copyright
         .container
           © #{Time.now.year} audissey, All Rights Reserved

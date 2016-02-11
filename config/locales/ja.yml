@@ -17,6 +17,48 @@ ja:
       user:
         email: 
         password: 
+      booking:
+        buyer_confirmed_at: 
+        created_at: 
+        end_at: 
+        id: 
+        messages: 
+        note: 
+        offerer_confirmed_at: 
+        offering: 
+        price: 
+        purchase: 
+        start_at: 
+        updated_at: 
+        user: 
+      offering:
+        actionable_name: 
+        approved_at: 
+        approved_by: 
+        approved_by_id: 
+        availability_rules: 
+        bookings: 
+        category_id: 
+        created_at: 
+        description: 
+        duration: 
+        escrow_notes: 
+        hero_image_uid: 
+        id: 
+        image_uid: 
+        prices: 
+        published_at: 
+        purchases: 
+        translations: 
+        updated_at: 
+        user: 
+        user_id: 
+    models:
+      admin: 
+      booking: 
+      comment: 
+      offering: 
+      user: 
   en: English
   for an event on: 
   helpers:
@@ -24,6 +66,46 @@ ja:
       user:
         email: 
         password: 
+      offering:
+        edit:
+          actionable_name: 
+          approved_at: 
+          approved_by: 
+          description: 
+          duration: 
+          escrow_notes: 
+          hero_image_uid: 
+          image_uid: 
+          published_at: 
+          user: 
+      q:
+        index:
+          actionable_name: 
+          approved_at: 
+          approved_by: 
+          availability_rules: 
+          bookings: 
+          buyer_confirmed_at: 
+          created_at: 
+          description: 
+          duration: 
+          end_at: 
+          escrow_notes: 
+          hero_image_uid: 
+          image_uid: 
+          messages: 
+          note: 
+          offerer_confirmed_at: 
+          offering: 
+          price: 
+          prices: 
+          published_at: 
+          purchase: 
+          purchases: 
+          start_at: 
+          translations: 
+          updated_at: 
+          user: 
   ja: 日本語
   visitors:
     landing:
@@ -34,3 +116,146 @@ ja:
       tagline2: Work with the artists you really like
       upcoming_tagline: UPCOMING IN TOKYO
       upcoming_tagline2: Events powered by audissey.fm
+  ar: 
+  bg: 
+  bs: 
+  ca: 
+  cs: 
+  da: 
+  de: 
+  de-CH: 
+  el: 
+  en-GB: 
+  es: 
+  es-MX: 
+  fa: 
+  fi: 
+  formtastic:
+    actions:
+      offering:
+        edit:
+          update: 
+    hints:
+      active_admin/comment:
+        show:
+          body: 
+      offering:
+        edit:
+          actionable_name: 
+          approved_at: 
+          approved_by: 
+          description: 
+          duration: 
+          escrow_notes: 
+          hero_image_uid: 
+          image_uid: 
+          published_at: 
+          user: 
+    labels:
+      offering:
+        edit:
+          actionable_name: 
+          approved_at: 
+          approved_by: 
+          description: 
+          duration: 
+          escrow_notes: 
+          hero_image_uid: 
+          image_uid: 
+          published_at: 
+          user: 
+      q:
+        index:
+          actionable_name: 
+          approved_at: 
+          approved_by: 
+          availability_rules: 
+          bookings: 
+          buyer_confirmed_at: 
+          created_at: 
+          description: 
+          duration: 
+          end_at: 
+          escrow_notes: 
+          hero_image_uid: 
+          image_uid: 
+          messages: 
+          note: 
+          offerer_confirmed_at: 
+          offering: 
+          price: 
+          prices: 
+          published_at: 
+          purchase: 
+          purchases: 
+          start_at: 
+          translations: 
+          updated_at: 
+          user: 
+    placeholders:
+      active_admin/comment:
+        show:
+          body: 
+      offering:
+        edit:
+          actionable_name: 
+          description: 
+          duration: 
+          escrow_notes: 
+          hero_image_uid: 
+          image_uid: 
+      q:
+        index:
+          actionable_name: 
+          description: 
+          duration: 
+          escrow_notes: 
+          hero_image_uid: 
+          image_uid: 
+          note: 
+    update: 
+  fr: 
+  he: 
+  hr: 
+  hu: 
+  id: 
+  it: 
+  ko: 
+  lt: 
+  lv: 
+  nb: 
+  nl: 
+  pl: 
+  pt: 
+  pt-BR: 
+  pt-PT: 
+  Report a problem: 
+  Request Booking: 
+  ro: 
+  ru: 
+  sv-SE: 
+  Tokyo: 
+  tr: 
+  uk: 
+  vi: 
+  zh: 
+  zh-CN: 
+  zh-TW: 
+  pages:
+    mission:
+      text1_html: |
+        <p>Life is about the experience. About the people you meet, the sights you see, the music you hear, the events you attend.</p>
+        <p>We at Audissey aim to become the best place to find and work with amazing artists, venues and event organizers in the world.</p>
+         <p>For that purpose and in the name of good music we do away with language barriers, borders and other nuisances.</p>
+         <p>Join us and together we can change the world.</p>
+    contact:
+      address: |-
+        Audissey
+        LOOP A 301
+        4-17-3 Higashi-Nakano, Nakano-ku
+        Tokyo 164-0003
+        FAX:
+        TEL:
+  Contact: 
+  Jobs: 
+  Team: 

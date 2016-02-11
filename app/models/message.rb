@@ -13,4 +13,5 @@
 
 class Message < ActiveRecord::Base
   belongs_to :topicable, :polymorphic => true
+  belongs_to :sender, :class_name => 'User'
 end
