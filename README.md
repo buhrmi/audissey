@@ -28,11 +28,8 @@ Follow these steps to install and run the website locally:
 8. Go to `localhost:3000` in your browser
 9. Have fun.
 
+Required / Supported Environment Variables: `SECRET_KEY_BASE`, `SENDGRID_USERNAME`, `SENDGRID_PASSWORD`, `FACEBOOK_APP_ID`, `FACEBOOK_APP_SECRET`, `WEBPAY_PUBLIC_KEY`, `WEBPAY_SECRET_KEY`, `STRIPE_PUBLIC_KEY`, `STRIPE_SECRET_KEY`, `AWS_ACCESS_KEY`, `AWS_SECRET_KEY`, `DRAGONFLY_SECRET`, `DOMAIN_NAME`
 
-Documentation and Support
--------------------------
-
-For support, please refer to the support section on http://audissey.fm/support
 
 Issues
 -------------
