@@ -3,7 +3,7 @@ class EmailProcessor
     @email = email
   end
   
-  def self.process
+  def process
     email = @email
     from = email.from
     encrypted = email.from.to_s.gsub('reply+', '').gsub('@relay.audissey.fm','')
