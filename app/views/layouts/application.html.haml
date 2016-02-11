@@ -103,16 +103,16 @@
             .col-sm-4
               %p
                 %strong Company
-              %p= link_to 'Mission Statement', page_path('mission')
-              %p= link_to 'Team', page_path('team')
-              %p= link_to 'Jobs', page_path('jobs')
+              %p= link_to t('Mission Statement'), page_path('mission')
+              %p= link_to t('Team'), page_path('team')
+              %p= link_to t('Jobs'), page_path('jobs')
               %p Partners
             .col-sm-4
               %p
                 %strong Support
-              %p User Guide
-              %p= link_to 'Contact', page_path('contact')
-              %p Terms & Conditions
+              %p= link_to t('User Guide'), page_path('guide')
+              %p= link_to t('Contact'), page_path('contact')
+              %p= link_to t('Terms And Conditions'), page_path('terms')
               %p Privacy Policy
       .copyright
         .container

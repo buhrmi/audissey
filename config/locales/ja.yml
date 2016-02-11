@@ -271,6 +271,10 @@ ja:
         Tokyo 164-0003
         FAX:
         TEL:
+    guide:
+      summary_html: "<p>We are still working on a complete guide, but here it is in a nutshell</p>\n"
+    terms:
+      summary_html: "<p>By default, we take a commission of 15% which is automatically deducted from your payout. Lower rates can be discussed. The commission is used to improve the service and keep it alive.</p>"
   Contact: 
   Jobs: 
   Team: 
@@ -461,3 +465,6 @@ ja:
       short: "%y/%m/%d %H:%M"
       recent_message: "%H:%M"
     pm: 午後
+  Mission Statement: 
+  User Guide: 
+  Terms And Conditions: Terms & Conditions

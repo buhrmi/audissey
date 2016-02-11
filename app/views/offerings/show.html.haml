@@ -43,7 +43,7 @@
               .action
                 %button.btn.btn-primary.btn-lg= t("Request Booking")
             .problems
-              = link_to t('Report a problem'), '/contact'
+              = link_to t('Report a problem'), page_path('contact')
 :coffee
   positionBookingArea = ->
     scrollPosition = $(window).scrollTop()

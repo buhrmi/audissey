@@ -48,7 +48,7 @@ class UserNotifier < ApplicationMailer
     reply_to = "reply+#{encrypted}@relay.audissey.fm"
     mail :to => to_user.email,
       :from => "#{message.sender.display_name} | Audissey <team@audissey.fm>",
-      :subject => "Message on Audissey regarding #{message.topicable.topicable_name}",
+      :subject => "New Message: #{message.topicable.topicable_name}",
       :reply_to => "#{message.sender.display_name} <#{reply_to}>"
   end
 end
