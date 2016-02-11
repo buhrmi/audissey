@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   # devise_for :users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
   resources :offerings
   resources :uploads
   resources :categories
@@ -12,6 +11,7 @@ Rails.application.routes.draw do
   get 'visitors/index', :to => 'visitors#index'
 
   devise_for :users, :controllers => { :registrations => 'users/registrations', :omniauth_callbacks => "users/omniauth_callbacks" }
-
+  ActiveAdmin.routes(self)
+  mount_griddler
 
 end
