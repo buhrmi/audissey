@@ -7,6 +7,12 @@ class ApplicationController < ActionController::Base
   around_filter :atomic_posts
   # before_filter :allow_me
 
+  protected
+  def cancel(message)
+    flash[:notice] = message
+    redirect_to :back
+  end
+  
   private
   def atomic_posts
     if request.method == 'GET' || !current_user

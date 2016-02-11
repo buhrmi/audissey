@@ -17,4 +17,15 @@ module ApplicationHelper
       formatted
     end
   end
+  
+  def message_classes(message, user)
+    if message.sender_id.nil?
+      'system'
+    end
+    if message.sender_id == user.id
+      'sent'
+    else
+      'received'
+    end
+  end
 end

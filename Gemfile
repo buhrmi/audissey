@@ -34,7 +34,7 @@ gem 'maxminddb'
 gem 'localeapp'
 gem 'activeadmin', github: 'activeadmin'
 gem 'sendgrid'
-
+gem 'rbjs'
 
 ##### DEVELOPMENT GEMS #########
 group :development, :test do

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :bookings
   resource :dashboard
   resources :purchases
+  resources :messages
 
   root to: 'visitors#landing'
   get 'visitors/index', :to => 'visitors#index'

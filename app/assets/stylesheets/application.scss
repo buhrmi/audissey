@@ -40,3 +40,39 @@
     padding-left: 10px;
   }
 }
+
+.messages_area {
+  .message {
+    .text {
+      font-size: 14px;
+      padding: 4px 6px;
+    }
+    .date {
+      font-size: 11px;
+      color: #666;
+    }
+    &.system {
+      .text {
+        text-align: center;
+      }
+      .date {
+        text-align: center;
+      }
+    }
+    &.sent {
+      .text {
+        background-color: #cfedfb;
+        margin-left: 20px;
+      }
+      .date {
+        text-align: right;
+      }
+    }
+    &.received {
+      .text {
+        background-color: #EEE;
+        margin-right: 20px;
+      }
+    }
+  }
+}

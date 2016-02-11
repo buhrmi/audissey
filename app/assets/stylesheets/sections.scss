@@ -98,6 +98,10 @@
 }
 
 .section.initial_signup {
+  text-align: center;
+  padding: 50px 0;
+  background-color: #FF7B1B;
+  color: white;
   h2 {
     font-size: 30px;
   }
@@ -105,16 +109,11 @@
 
   }
   .offering {
-
     padding-bottom: 16px;
   }
   button {
     width: 100%;
   }
-  text-align: center;
-  padding: 50px 0;
-  background-color: #FF7B1B;
-  color: white;
   .block {
     width: 400px;
     margin: 0 auto;

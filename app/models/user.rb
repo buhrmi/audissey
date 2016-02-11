@@ -58,7 +58,7 @@ class User < ActiveRecord::Base
 
 
   def display_name
-    name || email
+    name || email.gsub(/@.*/, '')
   end
 
   def can_purchase?(buyable)

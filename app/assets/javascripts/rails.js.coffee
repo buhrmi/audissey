@@ -22,6 +22,8 @@ $(document).on 'click', 'form .add_fields', (event) ->
 
 
 
+window.delay = (timeout, fn) ->
+  setTimeout fn, timeout
 
 ## VUE PATH EXPOSE EXTENSION: TODO: EXTRACT THIS
 changeUrl = (paramName, paramValue) ->

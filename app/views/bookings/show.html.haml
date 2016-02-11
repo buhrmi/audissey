@@ -53,3 +53,30 @@
               - else
                 Everything good? Please confirm in order to receive payment.
                 = link_to 'Confirm', booking_path(@booking, :confirm => true), :method => 'PUT'
+      .messages_area
+        .old_messages
+          = render @booking.messages
+            
+        .new_message
+          = form_for @booking.messages.new, :remote => true do |f|
+            = f.hidden_field :topicable_id 
+            = f.hidden_field :topicable_type
+            = f.text_area :text, :placeholder => 'Your Message', :class => 'form-control'
+            = f.submit "Send", :class => 'btn btn-primary'
+            
+:coffee
+  $('#new_message').on 'submit', ->
+    delay 10, -> 
+      $('#new_message textarea').attr('disabled', true)
+      $('#new_message input').attr('disabled', true)
+  window.resetMessages = ->
+    $('#new_message textarea').attr('disabled', false).val('')
+    $('#new_message input').attr('disabled', false)
+  # TODO: Set message area height to window height
+
+:coffee
+  # TODO: Real Time messaging with vuejs & websockets
+  new Vue
+    el: '.messages_area'
+    data:
+      messages: #{@booking.messages.to_json}

@@ -75,7 +75,7 @@
               = t I18n.locale
               %span.caret
             %ul.dropdown-menu
-              - I18n.available_locales.each do |locale|
+              - ['en', 'ja'].each do |locale|
                 %li= link_to t(locale), params.merge(:locale => locale)
           .dropdown
             %button.btn.btn-primary.dropdown-toggle(data-toggle="dropdown")

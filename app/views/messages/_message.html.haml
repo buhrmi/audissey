@@ -1,0 +1,3 @@
+.message{:class => message_classes(message, current_user)}
+  .text= message.text
+  .date= message.created_at.strftime(t 'time.formats.recent_message')
