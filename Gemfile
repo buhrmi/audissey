@@ -36,6 +36,7 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'sendgrid'
 gem 'rbjs'
 gem 'delayed_job_active_record'
+gem 'newrelic_rpm'
 
 ##### DEVELOPMENT GEMS #########
 group :development, :test do
