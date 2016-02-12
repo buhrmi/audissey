@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'visitors/index', :to => 'visitors#index'
 
   devise_for :users, :controllers => { :registrations => 'users/registrations', :omniauth_callbacks => "users/omniauth_callbacks" }
-  # resources :users
+  resources :users
   
   ActiveAdmin.routes(self)
   mount_griddler
