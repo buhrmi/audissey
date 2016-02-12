@@ -19,6 +19,13 @@ body {
   }
 }
 
+body.visitors.landing .flash {
+  right: 0;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 74px;
+}
 body.visitors.landing .navbar {
   z-index:1;
   border: none;
@@ -105,7 +112,6 @@ form .error {
 }
 
 .flash.notice {
-  margin-top: -21px;
   margin-bottom: 20px;
 }
 
@@ -118,10 +124,11 @@ form .error {
 }
 
 #content {
-  padding-bottom: 385px;
+  padding-bottom: 465px;
 }
 
 #footer {
+  
   padding-top: 30px;
   background: white;
   height: 385px;

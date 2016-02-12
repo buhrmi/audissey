@@ -486,3 +486,24 @@ ja:
   offerings:
     edit:
       escrow: This information is kept confidential and will be made available to the buyer after payment has been confirmed. Please include contact details such as phone numbers, email addresses, etc.
+  devise:
+    registrations:
+      new:
+        header: Getting Closer
+        tagline: Join the network of professional artists and event organizers.
+        provider: Sign up with %{provider}
+        done: Sign Up
+        use_existing_account: Already have an account? Click here!
+      user:
+        signed_up: Welcome to Audissey!
+    sessions:
+      new:
+        header: Getting Closer
+        tagline: Join the network of professional artists and event organizers.
+      user:
+        signed_in: Welcome back!
+        signed_out: You have been signed out.
+    failure:
+      user:
+        invalid: 
+        not_found_in_database: 

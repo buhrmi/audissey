@@ -2,9 +2,9 @@
   .container
     .row
       .col-sm-4
-        Messages
+        Bookings
       .col-sm-8
-        Details
+        Messages
 .section.booking
   .container
     .row
@@ -18,7 +18,7 @@
                   = booking.offering.actionable_name
                   on
                   = event_date(booking.start_at)
-      .col-sm-8
+      .col-sm-8.messaging_col
         .booking_status
           .row
             .col-sm-6

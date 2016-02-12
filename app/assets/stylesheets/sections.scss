@@ -36,7 +36,7 @@
   }
 }
 .section.edit_offering {
-  margin-bottom: 100px;
+  
   .nav-pills {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -145,6 +145,10 @@
 }
 .section.sign_up {
   text-align: center;
+  
+  .links {
+    margin-top: 20px;
+  }
   .container {
     position: relative;
   }

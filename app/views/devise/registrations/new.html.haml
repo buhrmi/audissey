@@ -1,7 +1,7 @@
 .section.sign_up
   .container
-    %h1 Getting closer
-    %p Join the world wide network of professionals in the event business
+    %h1= t('.header')
+    %p= t('.tagline')
   .container.form
     .left_side
       = form_for(resource, as: resource_name, url: user_registration_path) do |f|
@@ -16,15 +16,15 @@
         .form-group
           = f.label :password_confirmation
           = f.password_field :password_confirmation, autocomplete: "off", :class => 'form-control'
-        = f.submit "Complete Sign Up", :class => 'btn btn-primary'
+        = f.submit t(".done"), :class => 'btn btn-primary'
         .links
-          = link_to t("Already have an account? Log in."), new_session_path(resource_name)
+          = link_to t(".use_existing_account"), new_session_path(resource_name)
     .right_side
       - if devise_mapping.omniauthable?
         - resource_class.omniauth_providers.each do |provider|
           = link_to omniauth_authorize_path(resource_name, provider), :class=>"provider #{provider}" do
             %i{:class=>"fa fa-#{provider}"}
-            %span Sign up with Facebook
+            %span= t('.provider', :provider => 'Facebook')
     .divider
       %span Or
     

@@ -1,7 +1,7 @@
 .section.sign_up
   .container
-    %h1 Getting closer
-    %p Join the world wide network of professionals in the event business
+    %h1= t('.header')
+    %p= t('.tagline')
   .container.form
     .left_side
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
