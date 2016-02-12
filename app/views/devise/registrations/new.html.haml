@@ -4,7 +4,7 @@
     %p Join the world wide network of professionals in the event business
   .container.form
     .left_side
-      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = form_for(resource, as: resource_name, url: user_registration_path) do |f|
         - resource.errors.full_messages.each do |msg|
           .error= msg
         .form-group
@@ -16,9 +16,9 @@
         .form-group
           = f.label :password_confirmation
           = f.password_field :password_confirmation, autocomplete: "off", :class => 'form-control'
-        .actions
-          %label
-          = f.submit "Complete Sign Up", :class => 'btn btn-primary'
+        = f.submit "Complete Sign Up", :class => 'btn btn-primary'
+        .links
+          = link_to t("Already have an account? Log in."), new_session_path(resource_name)
     .right_side
       - if devise_mapping.omniauthable?
         - resource_class.omniauth_providers.each do |provider|
@@ -27,3 +27,4 @@
             %span Sign up with Facebook
     .divider
       %span Or
+    

@@ -10,7 +10,7 @@ module ApplicationHelper
 
   def nice_price(price)
     price = Price.new(price) if price.is_a?(Hash)
-    formatted = number_to_currency(price.take, :unit => Price::CURRENCIES[price.currency][:symbol]) + ' ' + price.currency
+    formatted = Price::CURRENCIES[price.currency][:symbol] + number_with_delimiter(price.take) + ' ' + price.currency
     if price.give && price.give > 1
       "#{price.give} for #{formatted}"
     else
@@ -21,11 +21,16 @@ module ApplicationHelper
   def message_classes(message, user)
     if message.sender_id.nil?
       'system'
-    end
-    if message.sender_id == user.id
+    elsif message.sender_id == user.id
       'sent'
     else
       'received'
     end
   end
+  
+  def event_date(date)
+    # TODO: show time slot on event's time zone (day, night, evening, morning)
+    date.strftime(t 'date.formats.short') + ' (' + t("date.abbr_day_names")[date.wday] + ')'
+  end
+  
 end

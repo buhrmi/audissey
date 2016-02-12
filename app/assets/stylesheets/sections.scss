@@ -25,6 +25,26 @@
     padding: 0 30px;
   }
 }
+.section.booking {
+  .nav-pills {
+    margin-top: 20px;
+  }
+  .booking_status {
+    font-size: 16px;
+    background: #EEE;
+    padding: 3px 12px 3px;
+  }
+}
+.section.edit_offering {
+  margin-bottom: 100px;
+  .nav-pills {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  #offering_escrow_notes {
+    height: 140px;
+  }
+}
 .section.landing_head {
   text-align: center;
   position: relative;
@@ -33,7 +53,7 @@
   background-position: top;
   background-size: cover;
   color: white;
-  margin-top: -72px; //-20px;
+  margin-top: -52px; //-20px;
   // padding-top: 125px; //30px;
   .big { font-size: 60px; }
   .small { font-size: 30px; margin-bottom: 30px; }

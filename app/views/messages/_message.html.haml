@@ -1,3 +1,6 @@
 .message{:class => message_classes(message, current_user)}
-  .text= (h message.text).gsub("\n",'<br>').html_safe
+  - if message.sender_id
+    .text= (h message.text).gsub("\n",'<br>').html_safe
+  - else
+    .text= (t message.text).gsub("\n",'<br>').html_safe
   .date= message.created_at.strftime(t 'time.formats.recent_message')

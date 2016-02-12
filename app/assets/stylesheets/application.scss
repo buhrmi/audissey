@@ -9,23 +9,19 @@
 @import "globals";
 @import "sections";
 @import "offerings";
+@import "bookings";
 
-.category {
-  span {
-    display: block;
-  }
-  span.performer:before {
-    content: "\f001";
-    font-family: FontAwesome;
-  }
-  span.venue:before {
-    content: "\f286";
-    font-family: FontAwesome;
-  }
-  span.organizer:before {
-    content: "\f274";
-    font-family: FontAwesome;
-  }
+.category-icon.performer:before {
+  content: "\f001";
+  font-family: FontAwesome;
+}
+.category-icon.venue:before {
+  content: "\f286";
+  font-family: FontAwesome;
+}
+.category-icon.organizer:before {
+  content: "\f274";
+  font-family: FontAwesome;
 }
 
 .offering {
@@ -41,38 +37,6 @@
   }
 }
 
-.messages_area {
-  .message {
-    .text {
-      font-size: 14px;
-      padding: 4px 6px;
-    }
-    .date {
-      font-size: 11px;
-      color: #666;
-    }
-    &.system {
-      .text {
-        text-align: center;
-      }
-      .date {
-        text-align: center;
-      }
-    }
-    &.sent {
-      .text {
-        background-color: #cfedfb;
-        margin-left: 20px;
-      }
-      .date {
-        text-align: right;
-      }
-    }
-    &.received {
-      .text {
-        background-color: #EEE;
-        margin-right: 20px;
-      }
-    }
-  }
+.navbar.navbar-default {
+  margin-bottom: 0;
 }

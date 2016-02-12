@@ -1,68 +1,95 @@
-.container
-
-  .row
-    .col-sm-4.nav-col
-      Pending:
-      %ul.nav.nav-pills.nav-stacked
-        - current_user.bookings.each do |booking|
-          %li{:class => @booking == booking ? 'active' : ''}
-            = link_to "Booking #{booking.offering.actionable_name}", booking
-    .col-sm-8
-      .booking_status
-
-        .amount Payment: #{nice_price(@booking.price)}
-        .received
-          Payment received:
-          - if @booking.payment_received?
-            Yes
-          - else
-            No
-        - if !@booking.payment_received?
-          .confirmation
-            - if @booking.user_id == current_user.id
-              - if @booking.offerer_confirmed_at && @booking.buyer_confirmed_at
-                Confirmed
-                = form_tag Purchase.new do |f|
-                  = hidden_field_tag :price_id, @booking.price.id
-                  = hidden_field_tag :gateway, 'stripe'
-                  %script(src="https://checkout.stripe.com/checkout.js"
-                    class="stripe-button"
-                    data-key="#{ENV['STRIPE_PUBLIC_KEY']}"
-                    data-locale="#{I18n.locale}"
-                    data-email="#{current_user.email}"
-                    data-image="#{asset_path('logo_square.png')}"
-                    data-name="#{@booking.offering.actionable_name}"
-                    data-amount="#{@booking.price.take}"
-                    data-currency="#{@booking.price.currency}"
-                    data-description="Booking via audissey.fm"
-                    data-allow-remember-me="false"
-                    )
-                - if false # disable webpay for now
-                  = form_tag Purchase.new do |f|
-                    = hidden_field_tag :price_id, @booking.price.id
-                    = hidden_field_tag :gateway, 'webpay'
-                    %script(src="https://checkout.webpay.jp/v3/"
-                      class="webpay-button"
-                      data-key="#{ENV['WEBPAY_PUBLIC_KEY']}"
-                      data-lang="#{I18n.locale}")
-              - else
-                This booking is not confirmed. Please wait until #{@booking.offering.actionable_name} confirmed.
-            - if @booking.offering.user_id == current_user.id
-              - if @booking.offerer_confirmed_at
-                You confirmed
-              - else
-                Everything good? Please confirm in order to receive payment.
-                = link_to 'Confirm', booking_path(@booking, :confirm => true), :method => 'PUT'
-      .messages_area
-        .old_messages
-          = render @booking.messages
-            
-        .new_message
-          = form_for @booking.messages.new, :remote => true do |f|
-            = f.hidden_field :topicable_id 
-            = f.hidden_field :topicable_type
-            = f.text_area :text, :placeholder => 'Your Message', :class => 'form-control'
-            = f.submit "Send", :class => 'btn btn-primary'
+.second_nav
+  .container
+    .row
+      .col-sm-4
+        Messages
+      .col-sm-8
+        Details
+.section.booking
+  .container
+    .row
+      .col-sm-4.nav-col
+        
+        %ul.nav.nav-pills.nav-stacked
+          - current_user.bookings.each do |booking|
+            %li{:class => @booking == booking ? 'active' : ''}
+              = link_to booking_path(booking) do
+                .category-icon{:class => booking.offering.category_id}
+                  = booking.offering.actionable_name
+                  on
+                  = event_date(booking.start_at)
+      .col-sm-8
+        .booking_status
+          .row
+            .col-sm-6
+              .location 
+                %i.fa.fa-fort-awesome
+                Venue: 
+              .date
+                %i.fa.fa-calendar
+                Date: #{event_date @booking.start_at}
+              .user
+                %i.fa.fa-user
+                Buyer: 
+                = link_to @booking.user.display_name, @booking.user
+            .col-sm-6
+              .amount
+                %i.fa.fa-hand-peace-o
+                Proposed Fee: #{nice_price(@booking.price)}
+              - if @booking.payment_received?
+                .received
+                  %i.fa.fa-check
+                  Payment received
+              - if !@booking.payment_received?
+                .confirmation
+                  - if @booking.user_id == current_user.id
+                    - if @booking.offerer_confirmed_at && @booking.buyer_confirmed_at
+                      %i.fa.fa-check
+                      Booking confirmed. Please proceed with payment.
+                      = form_tag Purchase.new do |f|
+                        = hidden_field_tag :price_id, @booking.price.id
+                        = hidden_field_tag :gateway, 'stripe'
+                        %script(src="https://checkout.stripe.com/checkout.js"
+                          class="stripe-button"
+                          data-key="#{ENV['STRIPE_PUBLIC_KEY']}"
+                          data-locale="#{I18n.locale}"
+                          data-email="#{current_user.email}"
+                          data-image="#{asset_path('logo_square.png')}"
+                          data-name="#{@booking.offering.actionable_name}"
+                          data-amount="#{@booking.price.take}"
+                          data-currency="#{@booking.price.currency}"
+                          data-description="Booking via audissey.fm"
+                          data-allow-remember-me="false"
+                          )
+                      - if false # disable webpay for now
+                        = form_tag Purchase.new do |f|
+                          = hidden_field_tag :price_id, @booking.price.id
+                          = hidden_field_tag :gateway, 'webpay'
+                          %script(src="https://checkout.webpay.jp/v3/"
+                            class="webpay-button"
+                            data-key="#{ENV['WEBPAY_PUBLIC_KEY']}"
+                            data-lang="#{I18n.locale}")
+                    - else
+                      %i.fa.fa-hourglass-half
+                      Waiting for confirmation from #{@booking.offering.actionable_name}.
+                  - if @booking.offering.user_id == current_user.id
+                    - if @booking.offerer_confirmed_at
+                      %i.fa.fa-hourglass-half
+                      Waiting for payment
+                    - else
+                      Please confirm availability in order to receive payment.
+                      = link_to 'Confirm', booking_path(@booking, :confirm => true), :method => 'PUT', :class => 'btn btn-primary'
+        .messages_area
+          .old_messages
+            = render @booking.messages
+              
+          .new_message
+            = form_for @booking.messages.new, :remote => true do |f|
+              = f.hidden_field :topicable_id 
+              = f.hidden_field :topicable_type
+              = f.text_area :text, :placeholder => t('.send_message_placeholder'), :class => 'form-control'
+              .submit
+                = f.submit "Send", :class => 'btn btn-primary'
             
 :coffee
   $('#new_message').on 'submit', ->
@@ -70,9 +97,18 @@
       $('#new_message textarea').attr('disabled', true)
       $('#new_message input').attr('disabled', true)
   window.resetMessages = ->
+    $('.old_messages').scrollTop($('.old_messages')[0].scrollHeight)
     $('#new_message textarea').attr('disabled', false).val('')
     $('#new_message input').attr('disabled', false)
-  # TODO: Set message area height to window height
+  
+  resize = ->
+    newHeight = $(window).height() - $('.messages_area').offset().top
+    newHeight = 400 if newHeight < 400
+    $('.messages_area').css('height', newHeight)
+    $('.old_messages').css('height', newHeight - $('.new_message').height())
+  $(window).on 'resize', resize
+  do resize
+  do resetMessages
 
 :coffee
   # TODO: Real Time messaging with vuejs & websockets

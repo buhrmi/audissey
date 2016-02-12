@@ -1,5 +1,3 @@
-%h3 User
-%p
-  Name: #{@user.name if @user.name}
-%p
-  Email: #{@user.email if @user.email}
+.container
+  %h1= @user.display_name
+  %p We don't have a profile for this user.

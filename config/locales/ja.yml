@@ -1,22 +1,31 @@
 ja:
   A TRACK RECORD OF AWESOME: 
+  Already have an account? Log in: 
   BOOKING MADE EASY: ブッキングが簡単に
+  Booking request has been received: 
   Browse: 
   Check out our stuff!: 
+  Contact: 
+  Don&#39;t have an account? Sign Up: 
   Events powered by audissey: 
   Featured acts available for booking in Tokyo: 
   Hire the artists you really love: 
   How does it work?: 
   I&#39;m looking for: 
+  Jobs: 
+  Mission Statement: 
   Nothing here:
     " Check back soon": 
+  Report a problem: 
+  Request Booking: 
   Search: 
+  Team: 
+  Terms And Conditions: Terms & Conditions
+  Tokyo: 
   UPCOMING IN TOKYO: 
+  User Guide: 
   activerecord:
     attributes:
-      user:
-        email: 
-        password: 
       booking:
         buyer_confirmed_at: 
         created_at: 
@@ -53,98 +62,171 @@ ja:
         updated_at: 
         user: 
         user_id: 
-    models:
-      admin: 
-      booking: 
-      comment: 
-      offering: 
-      user: 
-      message: 
+      user:
+        email: 
+        password: 
+        password_confirmation: 
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
         restrict_dependent_destroy:
           has_many: "%{record}が存在しているので削除できません"
           has_one: "%{record}が存在しているので削除できません"
-  en: English
-  for an event on: 
-  helpers:
-    label:
-      user:
-        email: 
-        password: 
-      offering:
-        edit:
-          actionable_name: 
-          approved_at: 
-          approved_by: 
-          description: 
-          duration: 
-          escrow_notes: 
-          hero_image_uid: 
-          image_uid: 
-          published_at: 
-          user: 
-      q:
-        index:
-          actionable_name: 
-          approved_at: 
-          approved_by: 
-          availability_rules: 
-          bookings: 
-          buyer_confirmed_at: 
-          created_at: 
-          description: 
-          duration: 
-          end_at: 
-          escrow_notes: 
-          hero_image_uid: 
-          image_uid: 
-          messages: 
-          note: 
-          offerer_confirmed_at: 
-          offering: 
-          price: 
-          prices: 
-          published_at: 
-          purchase: 
-          purchases: 
-          start_at: 
-          translations: 
-          updated_at: 
-          user: 
-    submit:
-      message:
-        create: 
-      create: 
-      submit: 
-      update: 
-    select:
-      prompt: 選択してください
-  ja: 日本語
-  visitors:
-    landing:
-      explain: 説明ビデオ
-      featured_tagline: A TRACK RECORD OF AWESOME
-      featured_tagline2: Artists available in Tokyo
-      tagline: 音楽のため
-      tagline2: Work with the artists you really like
-      upcoming_tagline: UPCOMING IN TOKYO
-      upcoming_tagline2: Events powered by audissey.fm
+    models:
+      admin: 
+      booking: 
+      comment: 
+      message: 
+      offering: 
+      user: 
   ar: 
   bg: 
+  bookings:
+    show:
+      send_message_placeholder: Type Message. Ctrl+Return to send.
   bs: 
   ca: 
   cs: 
   da: 
+  date:
+    abbr_day_names:
+    - 日
+    - 月
+    - 火
+    - 水
+    - 木
+    - 金
+    - 土
+    abbr_month_names:
+    - 
+    - 1月
+    - 2月
+    - 3月
+    - 4月
+    - 5月
+    - 6月
+    - 7月
+    - 8月
+    - 9月
+    - 10月
+    - 11月
+    - 12月
+    day_names:
+    - 日曜日
+    - 月曜日
+    - 火曜日
+    - 水曜日
+    - 木曜日
+    - 金曜日
+    - 土曜日
+    formats:
+      default: "%Y/%m/%d"
+      event_date: 
+      long: "%Y年%m月%d日(%a)"
+      short: "%m/%d"
+    month_names:
+    - 
+    - 1月
+    - 2月
+    - 3月
+    - 4月
+    - 5月
+    - 6月
+    - 7月
+    - 8月
+    - 9月
+    - 10月
+    - 11月
+    - 12月
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: 約1時間
+        other: 約%{count}時間
+      about_x_months:
+        one: 約1ヶ月
+        other: 約%{count}ヶ月
+      about_x_years:
+        one: 約1年
+        other: 約%{count}年
+      almost_x_years:
+        one: 1年弱
+        other: "%{count}年弱"
+      half_a_minute: 30秒前後
+      less_than_x_minutes:
+        one: 1分以内
+        other: "%{count}分未満"
+      less_than_x_seconds:
+        one: 1秒以内
+        other: "%{count}秒未満"
+      over_x_years:
+        one: 1年以上
+        other: "%{count}年以上"
+      x_days:
+        one: 1日
+        other: "%{count}日"
+      x_minutes:
+        one: 1分
+        other: "%{count}分"
+      x_months:
+        one: 1ヶ月
+        other: "%{count}ヶ月"
+      x_seconds:
+        one: 1秒
+        other: "%{count}秒"
+    prompts:
+      day: 日
+      hour: 時
+      minute: 分
+      month: 月
+      second: 秒
+      year: 年
   de: 
   de-CH: 
   el: 
+  en: English
   en-GB: 
+  errors:
+    format: "%{attribute}%{message}"
+    messages:
+      accepted: を受諾してください
+      blank: を入力してください
+      confirmation: と%{attribute}の入力が一致しません
+      empty: を入力してください
+      equal_to: は%{count}にしてください
+      even: は偶数にしてください
+      exclusion: は予約されています
+      greater_than: は%{count}より大きい値にしてください
+      greater_than_or_equal_to: は%{count}以上の値にしてください
+      inclusion: は一覧にありません
+      invalid: は不正な値です
+      less_than: は%{count}より小さい値にしてください
+      less_than_or_equal_to: は%{count}以下の値にしてください
+      model_invalid: 'バリデーションに失敗しました: %{errors}'
+      not_a_number: は数値で入力してください
+      not_an_integer: は整数で入力してください
+      odd: は奇数にしてください
+      other_than: は%{count}以外の値にしてください
+      present: は入力しないでください
+      required: を入力してください
+      taken: はすでに存在します
+      too_long: は%{count}文字以内で入力してください
+      too_short: は%{count}文字以上で入力してください
+      wrong_length: は%{count}文字で入力してください
+    template:
+      body: 次の項目を確認してください
+      header:
+        one: "%{model}にエラーが発生しました"
+        other: "%{model}に%{count}個のエラーが発生しました"
   es: 
   es-MX: 
   fa: 
   fi: 
+  for an event on: 
   formtastic:
     actions:
       offering:
@@ -231,184 +313,70 @@ ja:
     update: 
   fr: 
   he: 
+  helpers:
+    label:
+      offering:
+        edit:
+          actionable_name: 
+          approved_at: 
+          approved_by: 
+          description: 
+          duration: 
+          escrow_notes: 
+          hero_image_uid: 
+          image_uid: 
+          published_at: 
+          user: 
+      q:
+        index:
+          actionable_name: 
+          approved_at: 
+          approved_by: 
+          availability_rules: 
+          bookings: 
+          buyer_confirmed_at: 
+          created_at: 
+          description: 
+          duration: 
+          end_at: 
+          escrow_notes: 
+          hero_image_uid: 
+          image_uid: 
+          messages: 
+          note: 
+          offerer_confirmed_at: 
+          offering: 
+          price: 
+          prices: 
+          published_at: 
+          purchase: 
+          purchases: 
+          start_at: 
+          translations: 
+          updated_at: 
+          user: 
+      user:
+        email: 
+        password: 
+        password_confirmation: 
+    select:
+      prompt: 選択してください
+    submit:
+      create: 
+      message:
+        create: 
+      submit: 
+      update: 
   hr: 
   hu: 
   id: 
   it: 
+  ja: 日本語
   ko: 
   lt: 
   lv: 
   nb: 
   nl: 
-  pl: 
-  pt: 
-  pt-BR: 
-  pt-PT: 
-  Report a problem: 
-  Request Booking: 
-  ro: 
-  ru: 
-  sv-SE: 
-  Tokyo: 
-  tr: 
-  uk: 
-  vi: 
-  zh: 
-  zh-CN: 
-  zh-TW: 
-  pages:
-    mission:
-      text1_html: |
-        <p>Life is about the experience. About the people you meet, the sights you see, the music you hear, the events you attend.</p>
-        <p>We at Audissey aim to become the best place to find and work with amazing artists, venues and event organizers in the world.</p>
-         <p>For that purpose and in the name of good music we do away with language barriers, borders and other nuisances.</p>
-         <p>Join us and together we can change the world.</p>
-    contact:
-      address: |-
-        Audissey
-        LOOP A 301
-        4-17-3 Higashi-Nakano, Nakano-ku
-        Tokyo 164-0003
-        FAX:
-        TEL:
-    guide:
-      summary_html: "<p>We are still working on a complete guide, but here it is in a nutshell</p>\n"
-    terms:
-      summary_html: |
-        <h3>Payouts</h3>
-        <p>A payout to your account can be requested at any time from your dashboard page. You can not be paid out for events that have not started yet. A payout usually takes between 2 and 7 days but can take longer in individual cases.</p>
-        <p>By default, we take a commission of 15% which is automatically deducted from your payout. Lower rates can be negotiated. The commission is used to improve the service and keep it alive.</p>
-  Contact: 
-  Jobs: 
-  Team: 
-  date:
-    abbr_day_names:
-    - 日
-    - 月
-    - 火
-    - 水
-    - 木
-    - 金
-    - 土
-    abbr_month_names:
-    - 
-    - 1月
-    - 2月
-    - 3月
-    - 4月
-    - 5月
-    - 6月
-    - 7月
-    - 8月
-    - 9月
-    - 10月
-    - 11月
-    - 12月
-    day_names:
-    - 日曜日
-    - 月曜日
-    - 火曜日
-    - 水曜日
-    - 木曜日
-    - 金曜日
-    - 土曜日
-    formats:
-      default: "%Y/%m/%d"
-      long: "%Y年%m月%d日(%a)"
-      short: "%m/%d"
-    month_names:
-    - 
-    - 1月
-    - 2月
-    - 3月
-    - 4月
-    - 5月
-    - 6月
-    - 7月
-    - 8月
-    - 9月
-    - 10月
-    - 11月
-    - 12月
-    order:
-    - :year
-    - :month
-    - :day
-  datetime:
-    distance_in_words:
-      half_a_minute: 30秒前後
-      about_x_hours:
-        one: 約1時間
-        other: 約%{count}時間
-      about_x_months:
-        one: 約1ヶ月
-        other: 約%{count}ヶ月
-      about_x_years:
-        one: 約1年
-        other: 約%{count}年
-      almost_x_years:
-        one: 1年弱
-        other: "%{count}年弱"
-      less_than_x_minutes:
-        one: 1分以内
-        other: "%{count}分未満"
-      less_than_x_seconds:
-        one: 1秒以内
-        other: "%{count}秒未満"
-      over_x_years:
-        one: 1年以上
-        other: "%{count}年以上"
-      x_days:
-        one: 1日
-        other: "%{count}日"
-      x_minutes:
-        one: 1分
-        other: "%{count}分"
-      x_months:
-        one: 1ヶ月
-        other: "%{count}ヶ月"
-      x_seconds:
-        one: 1秒
-        other: "%{count}秒"
-    prompts:
-      day: 日
-      hour: 時
-      minute: 分
-      month: 月
-      second: 秒
-      year: 年
-  errors:
-    format: "%{attribute}%{message}"
-    messages:
-      accepted: を受諾してください
-      blank: を入力してください
-      confirmation: と%{attribute}の入力が一致しません
-      empty: を入力してください
-      equal_to: は%{count}にしてください
-      even: は偶数にしてください
-      exclusion: は予約されています
-      greater_than: は%{count}より大きい値にしてください
-      greater_than_or_equal_to: は%{count}以上の値にしてください
-      inclusion: は一覧にありません
-      invalid: は不正な値です
-      less_than: は%{count}より小さい値にしてください
-      less_than_or_equal_to: は%{count}以下の値にしてください
-      model_invalid: 'バリデーションに失敗しました: %{errors}'
-      not_an_integer: は整数で入力してください
-      not_a_number: は数値で入力してください
-      odd: は奇数にしてください
-      other_than: は%{count}以外の値にしてください
-      present: は入力しないでください
-      required: を入力してください
-      taken: はすでに存在します
-      too_long: は%{count}文字以内で入力してください
-      too_short: は%{count}文字以上で入力してください
-      wrong_length: は%{count}文字で入力してください
-    template:
-      body: 次の項目を確認してください
-      header:
-        one: "%{model}にエラーが発生しました"
-        other: "%{model}に%{count}個のエラーが発生しました"
   number:
     currency:
       format:
@@ -421,13 +389,13 @@ ja:
         unit: 円
     format:
       delimiter: ","
-      precision: 
-      separator: 
-      significant: 
-      strip_insignificant_zeros: 
+      precision: 3
+      separator: "."
+      significant: false
+      strip_insignificant_zeros: false
     human:
       decimal_units:
-        format: 
+        format: "%n %u"
         units:
           billion: 十億
           million: 百万
@@ -441,13 +409,13 @@ ja:
         significant: true
         strip_insignificant_zeros: true
       storage_units:
+        format: "%n%u"
         units:
           byte: バイト
           gb: ギガバイト
           kb: キロバイト
           mb: メガバイト
           tb: テラバイト
-        format: "%n%u"
     percentage:
       format:
         delimiter: 
@@ -455,11 +423,43 @@ ja:
     precision:
       format:
         delimiter: 
+  pages:
+    contact:
+      address: |-
+        Audissey
+        LOOP A 301
+        4-17-3 Higashi-Nakano, Nakano-ku
+        Tokyo 164-0003
+        FAX:
+        TEL:
+    guide:
+      summary_html: "<p>We are still working on a complete guide, but here it is in a nutshell</p>\n"
+    mission:
+      text1_html: |
+        <p>Life is about the experience. About the people you meet, the sights you see, the music you hear, the events you attend.</p>
+        <p>We at Audissey aim to become the best place to find and work with amazing artists, venues and event organizers in the world.</p>
+         <p>For that purpose and in the name of good music we do away with language barriers, borders and other nuisances.</p>
+         <p>Join us and together we can change the world.</p>
+    terms:
+      summary_html: |-
+        <h3>Payouts</h3>
+        <p>A payout to your account can be requested at any time from your dashboard page. You can not be paid out for events that have not started yet. A payout usually takes between 2 and 7 days but can take longer in individual cases depending on your geographic location.</p>
+        <p>By default, we take a commission of 15% which is automatically deducted from your payout. Lower rates can be negotiated.</p>
+        <h3>Times</h3>
+        <p>Times noted in the rider details are in the timezone of the event location.</p>
+        <p>Morning: 5 AM to 11 AM, Daytime: 11 AM to 5 PM, Evening: 5 PM to 10 PM, Night: 10 PM to 5 AM</p>
+  pl: 
+  pt: 
+  pt-BR: 
+  pt-PT: 
+  ro: 
+  ru: 
   support:
     array:
       last_word_connector: と
       two_words_connector: と
       words_connector: と
+  sv-SE: 
   time:
     am: 午前
     formats:
@@ -468,6 +468,21 @@ ja:
       short: "%y/%m/%d %H:%M"
       recent_message: "%H:%M"
     pm: 午後
-  Mission Statement: 
-  User Guide: 
-  Terms And Conditions: Terms & Conditions
+  tr: 
+  uk: 
+  vi: 
+  visitors:
+    landing:
+      explain: 説明ビデオ
+      featured_tagline: A TRACK RECORD OF AWESOME
+      featured_tagline2: Artists available in Tokyo
+      tagline: 音楽のため
+      tagline2: Work with the artists you really like
+      upcoming_tagline: UPCOMING IN TOKYO
+      upcoming_tagline2: Events powered by audissey.fm
+  zh: 
+  zh-CN: 
+  zh-TW: 
+  offerings:
+    edit:
+      escrow: This information is kept confidential and will be made available to the buyer after payment has been confirmed. Please include contact details such as phone numbers, email addresses, etc.

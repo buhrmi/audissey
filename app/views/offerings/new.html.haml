@@ -17,7 +17,7 @@
           - Category.with_icon.each do |category|
             .btn.btn-default.btn-large.category(v-bind:class="{'active': category_id=='#{category.id}'}"
               v-on:click="$set('category_id','#{category.id}')")
-              %span{:class => category.id}
+              .category-icon{:class => category.id}
               = category.name
 
         = f.hidden_field :category_id, :'v-model' => :category_id

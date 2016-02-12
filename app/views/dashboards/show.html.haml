@@ -12,7 +12,7 @@
         .offerings
           %h3 Offerings:
           - current_user.offerings.each do |offering|
-            = offering.actionable_name
+            = link_to offering.actionable_name, offering
             = link_to edit_offering_path(offering) do
               %i.fa.fa-edit
       

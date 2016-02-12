@@ -17,6 +17,7 @@ class Message < ActiveRecord::Base
   validate :sender_matches_topicable
   
   def sender_matches_topicable
+    return true unless sender_id
     if topicable_type == 'Booking'
       return true if topicable.user_id == sender.id
       return true if topicable.offering.user_id == sender.id
@@ -25,9 +26,10 @@ class Message < ActiveRecord::Base
   end
   
   after_create do
-    return unless self.sender_id
-    receivers.each do |receiver|
-      UserNotifier.message_received(self, receiver).deliver_later
+    if self.sender_id
+      receivers.each do |receiver|
+        UserNotifier.message_received(self, receiver).deliver_later
+      end
     end
   end
   

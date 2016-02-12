@@ -1,22 +1,31 @@
 en:
   A TRACK RECORD OF AWESOME: 
+  Already have an account? Log in: 
   BOOKING MADE EASY: BOOKING MADE EASY
+  Booking request has been received: 
   Browse: 
   Check out our stuff!: 
+  Contact: 
+  Don&#39;t have an account? Sign Up: 
   Events powered by audissey: 
   Featured acts available for booking in Tokyo: 
   Hire the artists you really love: 
   How does it work?: 
   I&#39;m looking for: 
+  Jobs: 
+  Mission Statement: 
   Nothing here:
     " Check back soon": 
+  Report a problem: 
+  Request Booking: 
   Search: 
+  Team: 
+  Terms And Conditions: Terms & Conditions
+  Tokyo: 
   UPCOMING IN TOKYO: UPCOMING IN TOKYO
+  User Guide: 
   activerecord:
     attributes:
-      user:
-        email: Email
-        password: Password
       booking:
         buyer_confirmed_at: Buyer confirmed at
         created_at: Created at
@@ -53,98 +62,177 @@ en:
         updated_at: Updated at
         user: User
         user_id: User
-    models:
-      admin: Admin
-      booking: Bookings
-      comment: Comments
-      offering: Offerings
-      user: Users
-      message: Message
+      user:
+        email: Email
+        password: Password
+        password_confirmation: Password confirmation
     errors:
       messages:
         record_invalid: 'Validation failed: %{errors}'
         restrict_dependent_destroy:
           has_many: Cannot delete record because dependent %{record} exist
           has_one: Cannot delete record because a dependent %{record} exists
-  en: English
-  for an event on: 
-  helpers:
-    label:
-      user:
-        email: 
-        password: 
-      offering:
-        edit:
-          actionable_name: 
-          approved_at: 
-          approved_by: 
-          description: 
-          duration: 
-          escrow_notes: 
-          hero_image_uid: 
-          image_uid: 
-          published_at: 
-          user: 
-      q:
-        index:
-          actionable_name: 
-          approved_at: 
-          approved_by: 
-          availability_rules: 
-          bookings: 
-          buyer_confirmed_at: 
-          created_at: 
-          description: 
-          duration: 
-          end_at: 
-          escrow_notes: 
-          hero_image_uid: 
-          image_uid: 
-          messages: 
-          note: 
-          offerer_confirmed_at: 
-          offering: 
-          price: 
-          prices: 
-          published_at: 
-          purchase: 
-          purchases: 
-          start_at: 
-          translations: 
-          updated_at: 
-          user: 
-    submit:
-      message:
-        create: Create Message
-      create: Create %{model}
-      submit: Save %{model}
-      update: Update %{model}
-    select:
-      prompt: Please select
-  ja: 日本語
-  visitors:
-    landing:
-      explain: How does it work?
-      featured_tagline: A TRACK RECORD OF AWESOME
-      featured_tagline2: Artists available in Tokyo
-      tagline: THIS IS FOR THE MUSIC
-      tagline2: Work with the artists you really love
-      upcoming_tagline: UPCOMING IN TOKYO
-      upcoming_tagline2: Events powered by audissey.fm
+    models:
+      admin: Admin
+      booking: Bookings
+      comment: Comments
+      message: Message
+      offering: Offerings
+      user: Users
   ar: 
   bg: 
+  bookings:
+    show:
+      send_message_placeholder: Type Message. Ctrl+Return to send.
   bs: 
   ca: 
   cs: 
   da: 
+  date:
+    abbr_day_names:
+    - Sun
+    - Mon
+    - Tue
+    - Wed
+    - Thu
+    - Fri
+    - Sat
+    abbr_month_names:
+    - 
+    - Jan
+    - Feb
+    - Mar
+    - Apr
+    - May
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Oct
+    - Nov
+    - Dec
+    day_names:
+    - Sunday
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Saturday
+    formats:
+      default: "%Y-%m-%d"
+      event_date: 
+      long: "%B %d, %Y"
+      short: "%b %d"
+    month_names:
+    - 
+    - January
+    - February
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: about 1 hour
+        other: about %{count} hours
+      about_x_months:
+        one: about 1 month
+        other: about %{count} months
+      about_x_years:
+        one: about 1 year
+        other: about %{count} years
+      almost_x_years:
+        one: almost 1 year
+        other: almost %{count} years
+      half_a_minute: half a minute
+      less_than_x_minutes:
+        one: less than a minute
+        other: less than %{count} minutes
+      less_than_x_seconds:
+        one: less than 1 second
+        other: less than %{count} seconds
+      over_x_years:
+        one: over 1 year
+        other: over %{count} years
+      x_days:
+        one: 1 day
+        other: "%{count} days"
+      x_minutes:
+        one: 1 minute
+        other: "%{count} minutes"
+      x_months:
+        one: 1 month
+        other: "%{count} months"
+      x_seconds:
+        one: 1 second
+        other: "%{count} seconds"
+    prompts:
+      day: Day
+      hour: Hour
+      minute: Minute
+      month: Month
+      second: Seconds
+      year: Year
   de: 
   de-CH: 
   el: 
+  en: English
   en-GB: 
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: must be accepted
+      blank: can't be blank
+      confirmation: doesn't match %{attribute}
+      empty: can't be empty
+      equal_to: must be equal to %{count}
+      even: must be even
+      exclusion: is reserved
+      greater_than: must be greater than %{count}
+      greater_than_or_equal_to: must be greater than or equal to %{count}
+      inclusion: is not included in the list
+      invalid: is invalid
+      less_than: must be less than %{count}
+      less_than_or_equal_to: must be less than or equal to %{count}
+      model_invalid: 'Validation failed: %{errors}'
+      not_a_number: is not a number
+      not_an_integer: must be an integer
+      odd: must be odd
+      other_than: must be other than %{count}
+      present: must be blank
+      required: must exist
+      taken: has already been taken
+      too_long:
+        one: is too long (maximum is 1 character)
+        other: is too long (maximum is %{count} characters)
+      too_short:
+        one: is too short (minimum is 1 character)
+        other: is too short (minimum is %{count} characters)
+      wrong_length:
+        one: is the wrong length (should be 1 character)
+        other: is the wrong length (should be %{count} characters)
+    template:
+      body: 'There were problems with the following fields:'
+      header:
+        one: 1 error prohibited this %{model} from being saved
+        other: "%{count} errors prohibited this %{model} from being saved"
   es: 
   es-MX: 
   fa: 
   fi: 
+  for an event on: 
   formtastic:
     actions:
       offering:
@@ -231,190 +319,70 @@ en:
     update: Update %{model}
   fr: 
   he: 
+  helpers:
+    label:
+      offering:
+        edit:
+          actionable_name: 
+          approved_at: 
+          approved_by: 
+          description: 
+          duration: 
+          escrow_notes: 
+          hero_image_uid: 
+          image_uid: 
+          published_at: 
+          user: 
+      q:
+        index:
+          actionable_name: 
+          approved_at: 
+          approved_by: 
+          availability_rules: 
+          bookings: 
+          buyer_confirmed_at: 
+          created_at: 
+          description: 
+          duration: 
+          end_at: 
+          escrow_notes: 
+          hero_image_uid: 
+          image_uid: 
+          messages: 
+          note: 
+          offerer_confirmed_at: 
+          offering: 
+          price: 
+          prices: 
+          published_at: 
+          purchase: 
+          purchases: 
+          start_at: 
+          translations: 
+          updated_at: 
+          user: 
+      user:
+        email: 
+        password: 
+        password_confirmation: 
+    select:
+      prompt: Please select
+    submit:
+      create: Create %{model}
+      message:
+        create: Create Message
+      submit: Save %{model}
+      update: Update %{model}
   hr: 
   hu: 
   id: 
   it: 
+  ja: 日本語
   ko: 
   lt: 
   lv: 
   nb: 
   nl: 
-  pl: 
-  pt: 
-  pt-BR: 
-  pt-PT: 
-  Report a problem: 
-  Request Booking: 
-  ro: 
-  ru: 
-  sv-SE: 
-  Tokyo: 
-  tr: 
-  uk: 
-  vi: 
-  zh: 
-  zh-CN: 
-  zh-TW: 
-  pages:
-    mission:
-      text1_html: |
-        <p>Life is about the experience. About the people you meet, the sights you see, the music you hear, the events you attend.</p>
-        <p>We at Audissey aim to become the best place to find and work with amazing artists, venues and event organizers in the world.</p>
-         <p>For that purpose and in the name of good music we do away with language barriers, borders and other nuisances.</p>
-         <p>Join us and together we can change the world.</p>
-    contact:
-      address: |-
-        Audissey
-        LOOP A 301
-        4-17-3 Higashi-Nakano, Nakano-ku
-        Tokyo 164-0003
-        FAX:
-        TEL:
-    guide:
-      summary_html: "<p>We are still working on a complete guide, but here it is in a nutshell</p>"
-    terms:
-      summary_html: |
-        <h3>Payouts</h3>
-        <p>A payout to your account can be requested at any time from your dashboard page. You can not be paid out for events that have not started yet. A payout usually takes between 2 and 7 days but can take longer in individual cases.</p>
-        <p>By default, we take a commission of 15% which is automatically deducted from your payout. Lower rates can be negotiated. The commission is used to improve the service and keep it alive.</p>
-  Contact: 
-  Jobs: 
-  Team: 
-  date:
-    abbr_day_names:
-    - Sun
-    - Mon
-    - Tue
-    - Wed
-    - Thu
-    - Fri
-    - Sat
-    abbr_month_names:
-    - 
-    - Jan
-    - Feb
-    - Mar
-    - Apr
-    - May
-    - Jun
-    - Jul
-    - Aug
-    - Sep
-    - Oct
-    - Nov
-    - Dec
-    day_names:
-    - Sunday
-    - Monday
-    - Tuesday
-    - Wednesday
-    - Thursday
-    - Friday
-    - Saturday
-    formats:
-      default: "%Y-%m-%d"
-      long: "%B %d, %Y"
-      short: "%b %d"
-    month_names:
-    - 
-    - January
-    - February
-    - March
-    - April
-    - May
-    - June
-    - July
-    - August
-    - September
-    - October
-    - November
-    - December
-    order:
-    - :year
-    - :month
-    - :day
-  datetime:
-    distance_in_words:
-      half_a_minute: half a minute
-      about_x_hours:
-        one: about 1 hour
-        other: about %{count} hours
-      about_x_months:
-        one: about 1 month
-        other: about %{count} months
-      about_x_years:
-        one: about 1 year
-        other: about %{count} years
-      almost_x_years:
-        one: almost 1 year
-        other: almost %{count} years
-      less_than_x_minutes:
-        one: less than a minute
-        other: less than %{count} minutes
-      less_than_x_seconds:
-        one: less than 1 second
-        other: less than %{count} seconds
-      over_x_years:
-        one: over 1 year
-        other: over %{count} years
-      x_days:
-        one: 1 day
-        other: "%{count} days"
-      x_minutes:
-        one: 1 minute
-        other: "%{count} minutes"
-      x_months:
-        one: 1 month
-        other: "%{count} months"
-      x_seconds:
-        one: 1 second
-        other: "%{count} seconds"
-    prompts:
-      day: Day
-      hour: Hour
-      minute: Minute
-      month: Month
-      second: Seconds
-      year: Year
-  errors:
-    format: "%{attribute} %{message}"
-    messages:
-      accepted: must be accepted
-      blank: can't be blank
-      confirmation: doesn't match %{attribute}
-      empty: can't be empty
-      equal_to: must be equal to %{count}
-      even: must be even
-      exclusion: is reserved
-      greater_than: must be greater than %{count}
-      greater_than_or_equal_to: must be greater than or equal to %{count}
-      inclusion: is not included in the list
-      invalid: is invalid
-      less_than: must be less than %{count}
-      less_than_or_equal_to: must be less than or equal to %{count}
-      model_invalid: 'Validation failed: %{errors}'
-      not_an_integer: must be an integer
-      not_a_number: is not a number
-      odd: must be odd
-      other_than: must be other than %{count}
-      present: must be blank
-      required: must exist
-      taken: has already been taken
-      too_long:
-        one: is too long (maximum is 1 character)
-        other: is too long (maximum is %{count} characters)
-      too_short:
-        one: is too short (minimum is 1 character)
-        other: is too short (minimum is %{count} characters)
-      wrong_length:
-        one: is the wrong length (should be 1 character)
-        other: is the wrong length (should be %{count} characters)
-    template:
-      body: 'There were problems with the following fields:'
-      header:
-        one: 1 error prohibited this %{model} from being saved
-        other: "%{count} errors prohibited this %{model} from being saved"
   number:
     currency:
       format:
@@ -447,10 +415,15 @@ en:
         significant: true
         strip_insignificant_zeros: true
       storage_units:
+        format: "%n %u"
         units:
           byte:
             one: Byte
             other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
     percentage:
       format:
         delimiter: 
@@ -458,19 +431,66 @@ en:
     precision:
       format:
         delimiter: 
+  pages:
+    contact:
+      address: |-
+        Audissey
+        LOOP A 301
+        4-17-3 Higashi-Nakano, Nakano-ku
+        Tokyo 164-0003
+        FAX:
+        TEL:
+    guide:
+      summary_html: "<p>We are still working on a complete guide, but here it is in a nutshell</p>"
+    mission:
+      text1_html: |
+        <p>Life is about the experience. About the people you meet, the sights you see, the music you hear, the events you attend.</p>
+        <p>We at Audissey aim to become the best place to find and work with amazing artists, venues and event organizers in the world.</p>
+         <p>For that purpose and in the name of good music we do away with language barriers, borders and other nuisances.</p>
+         <p>Join us and together we can change the world.</p>
+    terms:
+      summary_html: |-
+        <h3>Payouts</h3>
+        <p>A payout to your account can be requested at any time from your dashboard page. You can not be paid out for events that have not started yet. A payout usually takes between 2 and 7 days but can take longer in individual cases depending on your geographic location.</p>
+        <p>By default, we take a commission of 15% which is automatically deducted from your payout. Lower rates can be negotiated.</p>
+        <h3>Times</h3>
+        <p>Times noted in the rider details are in the timezone of the event location.</p>
+        <p>Morning: 5 AM to 11 AM, Daytime: 11 AM to 5 PM, Evening: 5 PM to 10 PM, Night: 10 PM to 5 AM</p>
+  pl: 
+  pt: 
+  pt-BR: 
+  pt-PT: 
+  ro: 
+  ru: 
   support:
     array:
       last_word_connector: ", and "
       two_words_connector: " and "
       words_connector: ", "
+  sv-SE: 
   time:
     am: am
     formats:
       default: "%a, %d %b %Y %H:%M:%S %z"
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
-      recent_message: "%I:%M %p"
+      recent_message: "%I:%M %P"
     pm: pm
-  Mission Statement: 
-  User Guide: 
-  Terms And Conditions: Terms & Conditions
+  tr: 
+  uk: 
+  vi: 
+  visitors:
+    landing:
+      explain: How does it work?
+      featured_tagline: A TRACK RECORD OF AWESOME
+      featured_tagline2: Artists available in Tokyo
+      tagline: THIS IS FOR THE MUSIC
+      tagline2: Work with the artists you really love
+      upcoming_tagline: UPCOMING IN TOKYO
+      upcoming_tagline2: Events powered by audissey.fm
+  zh: 
+  zh-CN: 
+  zh-TW: 
+  offerings:
+    edit:
+      escrow: This information is kept confidential and will be made available to the buyer after payment has been confirmed. Please include contact details such as phone numbers, email addresses, etc.

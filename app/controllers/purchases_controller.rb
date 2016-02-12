@@ -70,8 +70,11 @@ class PurchasesController < ApplicationController
 
     if paid
       Purchase.create :buyer => current_user, :buyable => buyable, :price_json => price, :gateway_id => params[:gateway], :gateway_tx_id => txid
-      UserNotifier.booking_payment_received(buyable).deliver_later if buyable.is_a?(Booking)
-      UserNotifier.booking_payment_completed(buyable).deliver_later if buyable.is_a?(Booking)
+      if buyable.is_a?(Booking)
+        UserNotifier.booking_payment_received(buyable).deliver_later
+        UserNotifier.booking_payment_completed(buyable).deliver_later
+        Message.create(:topicable => buyable, :text => 'Payment has been received.') 
+      end
       redirect_to :back
     else
       flash[:error] = error

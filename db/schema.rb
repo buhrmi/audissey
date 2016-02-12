@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160211110320) do
+ActiveRecord::Schema.define(version: 20160212044544) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20160211110320) do
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.integer  "price_id"
+    t.integer  "location_id"
   end
 
   create_table "categories", id: false, force: :cascade do |t|
@@ -111,6 +112,9 @@ ActiveRecord::Schema.define(version: 20160211110320) do
     t.string   "hero_image_uid"
     t.text     "escrow_notes"
     t.integer  "commission_percent", default: 15
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "prices", force: :cascade do |t|

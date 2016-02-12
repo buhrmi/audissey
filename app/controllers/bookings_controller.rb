@@ -48,11 +48,10 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user_id = current_user.id
     @booking.buyer_confirmed_at = Time.now
-    cancel "You can't book yourself" and return if @booking.offering.user_id == current_user.id
+    cancel "You can't book yourself" and return if @booking.offering.user_id == current_user.id && Rails.env.production?
     return false unless @booking.editable_by?(current_user)
     respond_to do |format|
       if @booking.save
-        UserNotifier.booking_inquiry(@booking).deliver_later
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
       else
@@ -73,7 +72,10 @@ class BookingsController < ApplicationController
     end
     respond_to do |format|
       if @booking.update(updates)
-        UserNotifier.booking_confirmed(@booking).deliver_later if confirmed
+        if confirmed
+          UserNotifier.booking_confirmed(@booking).deliver_later
+          Message.create(:topicable => @booking, :text => 'Booking has been confirmed. Awaiting payment.')
+        end
         format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }
         format.json { render :show, status: :ok, location: @booking }
       else

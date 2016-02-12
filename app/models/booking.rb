@@ -18,11 +18,17 @@
 class Booking < ActiveRecord::Base
   has_many :messages, :as => 'topicable'
   belongs_to :offering
+  belongs_to :location, :class_name => 'Offering'
   belongs_to :user
   belongs_to :price
   accepts_nested_attributes_for :price
 
   has_one :purchase, :as => 'buyable'
+
+  after_create do
+    UserNotifier.booking_inquiry(self).deliver_later
+    Message.create(:topicable => self, :text => 'Booking request has been received.')
+  end
 
   def payment_received?
     purchase.present?

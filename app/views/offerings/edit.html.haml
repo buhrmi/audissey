@@ -57,8 +57,7 @@
         .col-sm-8(v-show="section=='escrow'")
           %h1 Escrow Information
           %p 
-            This information is kept confidential and will be made available to the payer after payment has been confirmed.
-            Please include contact details such as phone numbers, email addresses, etc.
+            =t('.escrow')
           .form-group
             %label English
             = f.text_area :escrow_notes,

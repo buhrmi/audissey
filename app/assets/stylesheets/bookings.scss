@@ -1,0 +1,64 @@
+.booking_status {
+  
+  border-bottom: 1px solid #DDD;
+  .header {
+    
+  }
+}
+.messages_area {
+  position: relative;
+  .message {
+    .text {
+      font-size: 14px;
+      padding: 4px 6px;
+    }
+    .date {
+      font-size: 11px;
+      color: #666;
+    }
+    &.system {
+      .text {
+        text-align: center;
+      }
+      .date {
+        text-align: center;
+      }
+    }
+    &.sent {
+      .text {
+        background-color: #cfedfb;
+        margin-left: 20px;
+      }
+      .date {
+        text-align: right;
+      }
+    }
+    &.received {
+      .text {
+        background-color: #EEE;
+        margin-right: 20px;
+      }
+    }
+  }
+}
+.old_messages {
+  overflow-y: scroll;
+}
+.new_message {
+  height: 80px;
+  textarea {
+    width: 89%;
+    height: 80px;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .submit {
+    vertical-align: top;
+    display: inline-block;
+    height: 80px;
+    width: 10%;
+    .btn {
+      height: 100%;
+    }
+  }
+}
