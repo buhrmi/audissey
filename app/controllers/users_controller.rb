@@ -28,15 +28,20 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
-  def index
-    @users = User.all
-  end
-
   def show
     @user = User.find(params[:id])
-    unless @user == current_user
-      redirect_to :back, :alert => "Access denied."
-    end
+    # unless @user == current_user
+    #   redirect_to :back, :alert => "Access denied."
+    # end
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    cancel t(".in_use") and return if @user.offerings.any? { |o| o.pending_bookings.any? }
+    @user.offerings.map(&:destroy)
+    cancel and return unless @user.id == current_user.id
+    @user.update :email => @user.email + '_' + SecureRandom.hex 
+    @user.destroy
+    redirect_to root_url, :notice => t('.destroyed')
+  end
 end

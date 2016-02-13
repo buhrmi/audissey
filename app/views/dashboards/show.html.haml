@@ -25,7 +25,7 @@
           .booking
             = link_to booking.offering.actionable_name, booking
             
-        %h3 Paid & Confirmed Bookings
+        %h3 Payments
         - if @purchased_bookings.empty?
           Nothing yet.
         - @purchased_bookings.each do |booking|
@@ -39,3 +39,6 @@
           #{nice_price(:currency => currency, :take => amount)}
         .payout
           = link_to 'Request Payout', '#'
+      .settings
+        %h3 Account Settings
+        = link_to 'Delete Account', current_user, :method => 'delete', 'data-confirm' => 'Are you sure?'

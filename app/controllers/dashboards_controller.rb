@@ -1,4 +1,6 @@
 class DashboardsController < ApplicationController
+  before_filter :authenticate_user!
+  
   def show
     @show_guide = true
     @show_guide = false if current_user.offerings.any?

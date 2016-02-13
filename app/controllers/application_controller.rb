@@ -8,9 +8,13 @@ class ApplicationController < ActionController::Base
   # before_filter :allow_me
 
   protected
-  def cancel(message)
+  def cancel(message = nil)
     flash[:notice] = message
-    redirect_to :back
+    if request.referer
+      redirect_to :back
+    else
+      redirect_to dashboard_url
+    end
   end
   
   private

@@ -32,6 +32,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauth_providers => [:facebook], :password_length => 4..127
 
+  acts_as_paranoid
+
   dragonfly_accessor :image
 
   has_many :bookings

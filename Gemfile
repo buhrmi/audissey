@@ -37,6 +37,7 @@ gem 'sendgrid'
 gem 'rbjs'
 gem 'delayed_job_active_record'
 gem 'newrelic_rpm'
+gem 'paranoia', "~> 2.0"
 
 ##### DEVELOPMENT GEMS #########
 group :development, :test do

@@ -16,14 +16,15 @@
 #
 
 class Booking < ActiveRecord::Base
-  has_many :messages, :as => 'topicable'
+  acts_as_paranoid
+  
   belongs_to :offering
   belongs_to :location, :class_name => 'Offering'
   belongs_to :user
   belongs_to :price
-  accepts_nested_attributes_for :price
-
+  has_many :messages, :as => 'topicable'
   has_one :purchase, :as => 'buyable'
+  accepts_nested_attributes_for :price
 
   after_create do
     UserNotifier.booking_inquiry(self).deliver_later

@@ -32,6 +32,8 @@ class Offering < ActiveRecord::Base
   include Buyable
   include Translatable
 
+  acts_as_paranoid
+
   belongs_to :user
   belongs_to :approved_by, :class_name => 'User'
   has_many :availability_rules
@@ -51,9 +53,13 @@ class Offering < ActiveRecord::Base
   def earliest_availability()
 
   end
+  
+  def pending_bookings
+    bookings.where(['start_at > ?', Time.current])
+  end
 
   def editable_by?(user)
-    user.superpowers? or self.user_id == user.id
+    user&.superpowers? or self.user_id == user&.id
   end
 
 end

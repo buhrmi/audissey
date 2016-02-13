@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160212044544) do
+ActiveRecord::Schema.define(version: 20160213082642) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -52,7 +52,10 @@ ActiveRecord::Schema.define(version: 20160212044544) do
     t.datetime "updated_at",           null: false
     t.integer  "price_id"
     t.integer  "location_id"
+    t.datetime "deleted_at"
   end
+
+  add_index "bookings", ["deleted_at"], name: "index_bookings_on_deleted_at"
 
   create_table "categories", id: false, force: :cascade do |t|
     t.string   "name"
@@ -115,7 +118,10 @@ ActiveRecord::Schema.define(version: 20160212044544) do
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
+    t.datetime "deleted_at"
   end
+
+  add_index "offerings", ["deleted_at"], name: "index_offerings_on_deleted_at"
 
   create_table "prices", force: :cascade do |t|
     t.integer  "take"
@@ -184,6 +190,7 @@ ActiveRecord::Schema.define(version: 20160212044544) do
     t.string   "locale"
     t.string   "tz"
     t.string   "currency"
+    t.datetime "deleted_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

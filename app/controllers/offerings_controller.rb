@@ -40,6 +40,7 @@ class OfferingsController < ApplicationController
 
   # GET /offerings/1/edit
   def edit
+    cancel and return unless @offering.editable_by?(current_user)
   end
 
   # POST /offerings
@@ -47,7 +48,7 @@ class OfferingsController < ApplicationController
   def create
     @offering = Offering.new(offering_params)
     @offering.user_id = current_user.id
-
+        
     respond_to do |format|
       if @offering.save
         UserNotifier.admin_new_listing(@offering).deliver_later
@@ -83,6 +84,8 @@ class OfferingsController < ApplicationController
   # DELETE /offerings/1
   # DELETE /offerings/1.json
   def destroy
+    cancel and return unless @offering.editable_by?(current_user)
+    cancel t('.in_use') and return if @offering.pending_bookings.any?
     @offering.destroy
     respond_to do |format|
       format.html { redirect_to offerings_url, notice: 'Offering was successfully destroyed.' }
