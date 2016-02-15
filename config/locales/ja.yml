@@ -6,6 +6,7 @@ ja:
   Browse: 
   Check out our stuff!: 
   Contact: 
+  Delete Offering: 
   Don&#39;t have an account? Sign Up: 
   Events powered by audissey: 
   Featured acts available for booking in Tokyo: 
@@ -187,6 +188,27 @@ ja:
       year: 年
   de: 
   de-CH: 
+  devise:
+    failure:
+      user:
+        invalid: 
+        not_found_in_database: 
+    registrations:
+      new:
+        done: Sign Up
+        header: Getting Closer
+        provider: Sign up with %{provider}
+        tagline: Work with artists and promoters from all over the world
+        use_existing_account: Already have an account? Click here!
+      user:
+        signed_up: Welcome to Audissey!
+    sessions:
+      new:
+        header: Getting Closer
+        tagline: Work with artists and promoters from all over the world
+      user:
+        signed_in: Welcome back!
+        signed_out: You have been signed out.
   el: 
   en: English
   en-GB: 
@@ -423,6 +445,11 @@ ja:
     precision:
       format:
         delimiter: 
+  offerings:
+    destroy:
+      in_use: 
+    edit:
+      escrow: This information is kept confidential and will be made available to the buyer after payment has been confirmed. Please include contact details such as phone numbers, email addresses, etc.
   pages:
     contact:
       address: |-
@@ -465,45 +492,24 @@ ja:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
       long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
-      short: "%y/%m/%d %H:%M"
       recent_message: "%H:%M"
+      short: "%y/%m/%d %H:%M"
     pm: 午後
   tr: 
   uk: 
+  users:
+    destroy:
+      in_use: 
   vi: 
   visitors:
     landing:
       explain: 説明ビデオ
       featured_tagline: A TRACK RECORD OF AWESOME
       featured_tagline2: Artists available in Tokyo
-      tagline: 音楽のため
-      tagline2: Work with the artists you really like
+      tagline: BOOKING MADE EASY
+      tagline2: Discover hidden talent available for hire
       upcoming_tagline: UPCOMING IN TOKYO
       upcoming_tagline2: Events powered by audissey.fm
   zh: 
   zh-CN: 
   zh-TW: 
-  offerings:
-    edit:
-      escrow: This information is kept confidential and will be made available to the buyer after payment has been confirmed. Please include contact details such as phone numbers, email addresses, etc.
-  devise:
-    registrations:
-      new:
-        header: Getting Closer
-        tagline: Join the network of professional artists and event organizers.
-        provider: Sign up with %{provider}
-        done: Sign Up
-        use_existing_account: Already have an account? Click here!
-      user:
-        signed_up: Welcome to Audissey!
-    sessions:
-      new:
-        header: Getting Closer
-        tagline: Join the network of professional artists and event organizers.
-      user:
-        signed_in: Welcome back!
-        signed_out: You have been signed out.
-    failure:
-      user:
-        invalid: 
-        not_found_in_database: 

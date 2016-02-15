@@ -5,21 +5,21 @@
     %p
       %i.fa.fa-play
       = t '.explain'
-  .search_box
-    .contfainer<
-      %span.part.first>= t "I'm looking for"
-      %select.part.select2.category(name="category" data-search="false")= options_from_collection_for_select(Category.all, :id, :name)
-      %span.part.event>= t 'for an event on'
-      %input.part.datepicker>
-      %button= t 'Search'
+  -# .search_box
+  -#   .contfainer<
+  -#     %span.part.first>= t "I'm looking for"
+  -#     %select.part.select2.category(name="category" data-search="false")= options_from_collection_for_select(Category.all, :id, :name)
+  -#     %span.part.event>= t 'for an event on'
+  -#     %input.part.datepicker>
+  -#     %button= t 'Search'
   .more
     = t 'Browse'
     %br
     .caret
 
 :coffee
-  $('.landing_head .big').css 'marginTop': $(window).height() / 4.5
-  $('.landing_head').css height: $(window).height()
+  $('.landing_head .big').css 'marginTop': $(window).height() / 4.5 * 0.7
+  $('.landing_head').css height: $(window).height() * 0.7
 .section.featured_bookable
   .container
     %h1= t '.featured_tagline'
@@ -30,9 +30,18 @@
           .embed-responsive.embed-responsive-4by3
             = link_to performance do
               .offering.embed-responsive-item{:style => "background-image: url(#{performance.image&.thumb('400x300')&.url})"}
-                .name
-                  %i.fa.fa-star
-                  = performance.actionable_name
+                .gradient
+                .details
+                  .pic_circle
+                    - if performance.user.image
+                      .pic_image{:style => "background-image: url(#{performance.user.image.thumb('74x74#').url})"}
+                  .name
+                    = performance.actionable_name
+                  .pricing
+                    %span.category
+                      %i.category-icon{:class => performance.category_id} 
+                      #{performance.category.name},
+                    Flexible Pricing
 
 .section.featured_events
   .container

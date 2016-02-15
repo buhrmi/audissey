@@ -36,6 +36,7 @@ class Offering < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :approved_by, :class_name => 'User'
+  belongs_to :category
   has_many :availability_rules
   has_many :bookings
 

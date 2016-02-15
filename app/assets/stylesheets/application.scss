@@ -23,17 +23,72 @@
   content: "\f274";
   font-family: FontAwesome;
 }
+.category-icon.press:before {
+  content: "\f274";
+  font-family: FontAwesome;
+}
 
 .offering {
   background-color: #DDD;
   background-size: cover;
   background-position: center;
-  .name {
-    background: rgba(0,0,0,0.3);
-    color: white;
-    font-size: 24px;
+  position: relative;
+  .gradient {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.65) 80%);
+  }
+  .details {
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+  }
+  .pricing {
+    background: white;
+    font-size: 16px;
     text-align: left;
-    padding-left: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-top: 10px;
+    height: 50px;
+    color: #2B2B2E;
+    padding-left: 100px;
+    .category-icon {
+      padding-right: 5px;
+      color: #54A;
+    }
+  }
+  
+  .name {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+    position: absolute;
+    left: 100px;
+    bottom: 60px;
+  }
+  .pic_circle {
+    background: white;
+    border: 1px solid #AAA;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 80px;
+    width: 80px;
+    border-radius: 40px;
+    z-index: 2;
+    .pic_image {
+      position: absolute;
+      height: 72px;
+      width: 72px;
+      border-radius: 37px;
+      top: 3px;
+      left: 3px;
+    }
   }
 }
 
