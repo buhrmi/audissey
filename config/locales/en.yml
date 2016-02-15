@@ -518,6 +518,12 @@ en:
       tagline2: Discover hidden talent available for hire
       upcoming_tagline: UPCOMING IN TOKYO
       upcoming_tagline2: Events powered by audissey.fm
+      about_audissey_header: About Audissey
+      about_audissey_html: |-
+        <p>Life is about the experience. About the people you meet, the sights you see, the music you hear, the places you go.</p>
+        <p>Audissey is creating the best place to find and work with amazing artists, venues and event organizers all over the world.</p>
+        <p>For that purpose we do away with language barriers, borders and other nuisances.</p>
+        <p>This is for the music.</p>
   zh: 
   zh-CN: 
   zh-TW: 

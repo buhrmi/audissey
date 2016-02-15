@@ -198,14 +198,14 @@ ja:
         done: Sign Up
         header: Getting Closer
         provider: Sign up with %{provider}
-        tagline: Work with artists and promoters from all over the world
+        tagline: 世界各国のアーティストやプロモーターとコラボ
         use_existing_account: Already have an account? Click here!
       user:
         signed_up: Welcome to Audissey!
     sessions:
       new:
         header: Getting Closer
-        tagline: Work with artists and promoters from all over the world
+        tagline: 世界各国のアーティストやプロモーターとコラボ
       user:
         signed_in: Welcome back!
         signed_out: You have been signed out.
@@ -506,10 +506,16 @@ ja:
       explain: 説明ビデオ
       featured_tagline: A TRACK RECORD OF AWESOME
       featured_tagline2: Artists available in Tokyo
-      tagline: BOOKING MADE EASY
-      tagline2: Discover hidden talent available for hire
+      tagline: ブッキングは簡単に
+      tagline2: 隠れた才能を発掘
       upcoming_tagline: UPCOMING IN TOKYO
       upcoming_tagline2: Events powered by audissey.fm
+      about_audissey_header: Audisseyとは？
+      about_audissey_html: |-
+        <p>人生とは、経験すること。出会うひとであったり、視野に入るもの、鑑賞する音楽や、足を運んだ場所。</p>
+        <p>Audisseyは、世界中の優れたアーティストやベニュー、イベント・オーガナイザーを探し出し、一緒に仕事ができる場を提供します。</p>
+        <p>そのために、言語、国境、その他の障害をすべて私たちが取り除きます。</p>
+        <p>音楽のために。</p>
   zh: 
   zh-CN: 
   zh-TW: 
