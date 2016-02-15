@@ -9,6 +9,7 @@ Dragonfly.app.configure do
 
   url_format "/files/:job/:name"
 
+  fetch_url_whitelist [/.*/]
   fetch_file_whitelist [/app\/assets\/images/]
   datastore :s3,
     bucket_name: 'bassmusictokyo',
