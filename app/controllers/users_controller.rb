@@ -23,6 +23,7 @@
 #  locale                 :string
 #  tz                     :string
 #  currency               :string
+#  deleted_at             :datetime
 #
 
 class UsersController < ApplicationController

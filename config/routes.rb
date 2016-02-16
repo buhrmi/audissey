@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :payouts
   resources :offerings
   resources :uploads
   resources :categories

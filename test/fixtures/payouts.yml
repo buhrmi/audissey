@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: payouts
+#
+#  id            :integer          not null, primary key
+#  method        :string
+#  method_detail :string
+#  user_id       :integer
+#  completed_at  :datetime
+#  completed_by  :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  method: MyString
+  method_detail: MyString
+  user_id: 1
+  completed_at: 2016-02-16 15:51:26
+  completed_by: 1
+
+two:
+  method: MyString
+  method_detail: MyString
+  user_id: 1
+  completed_at: 2016-02-16 15:51:26
+  completed_by: 1

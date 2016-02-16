@@ -17,6 +17,10 @@
 #  hero_image_uid     :string
 #  escrow_notes       :text
 #  commission_percent :integer          default(15)
+#  address            :string
+#  latitude           :float
+#  longitude          :float
+#  deleted_at         :datetime
 #
 
 module OfferingsHelper

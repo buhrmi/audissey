@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160213082642) do
+ActiveRecord::Schema.define(version: 20160216075330) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -123,6 +123,16 @@ ActiveRecord::Schema.define(version: 20160213082642) do
 
   add_index "offerings", ["deleted_at"], name: "index_offerings_on_deleted_at"
 
+  create_table "payouts", force: :cascade do |t|
+    t.string   "method"
+    t.string   "method_detail"
+    t.integer  "user_id"
+    t.datetime "completed_at"
+    t.integer  "completed_by"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "prices", force: :cascade do |t|
     t.integer  "take"
     t.string   "currency"
@@ -144,6 +154,10 @@ ActiveRecord::Schema.define(version: 20160213082642) do
     t.datetime "gateway_confirmed_at"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.integer  "beneficiary_id"
+    t.string   "memo"
+    t.datetime "value_date"
+    t.integer  "commission_percent"
   end
 
   create_table "translations", force: :cascade do |t|

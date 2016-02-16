@@ -13,6 +13,10 @@
 #  gateway_confirmed_at :datetime
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
+#  beneficiary_id       :integer
+#  memo                 :string
+#  value_date           :datetime
+#  commission_percent   :integer
 #
 
 class PurchasesController < ApplicationController
@@ -69,7 +73,21 @@ class PurchasesController < ApplicationController
 
 
     if paid
-      Purchase.create :buyer => current_user, :buyable => buyable, :price_json => price, :gateway_id => params[:gateway], :gateway_tx_id => txid
+      if buyable.is_a?(Booking)
+        beneficiary = buyable.offering.user
+        memo = buyable.offering.actionable_name
+        value_date = buyable.start_at + 1.days
+        commission_percent = buyable.offering.commission_percent
+      end
+      Purchase.create :buyer => current_user,
+        :buyable => buyable,
+        :price_json => price,
+        :gateway_id => params[:gateway], 
+        :gateway_tx_id => txid,
+        :beneficiary => beneficiary,
+        :memo => memo,
+        :value_date => value_date,
+        :commission_percent => commission_percent
       if buyable.is_a?(Booking)
         UserNotifier.booking_payment_received(buyable).deliver_later
         UserNotifier.booking_payment_completed(buyable).deliver_later

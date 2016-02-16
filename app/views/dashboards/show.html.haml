@@ -17,28 +17,33 @@
               %i.fa.fa-edit
       
       
-      .bookings
-        %h3 Bookings in Progress
-        - if @all_bookings.empty?
-          Nothing yet
-        - @all_bookings.each do |booking|
-          .booking
-            = link_to booking.offering.actionable_name, booking
-            
-        %h3 Payments
-        - if @purchased_bookings.empty?
-          Nothing yet.
-        - @purchased_bookings.each do |booking|
-          .booking
-            = link_to booking do
-              #{booking.created_at}: #{nice_price(booking.purchase.price_json)}
+    
+      %h3 Bookings in Progress
+      - if @all_bookings.empty?
+        Nothing yet
+      - @all_bookings.each do |booking|
+        .booking
+          = link_to booking.offering.actionable_name, booking
 
-      .balances
-        %h3 Balances
-        - @balances.each do |currency, amount|
-          #{nice_price(:currency => currency, :take => amount)}
-        .payout
-          = link_to 'Request Payout', '#'
+      %h3 Earnings since last Payout
+      - current_user.purchases_since_last_payout.each do |purchase|
+        .purchase
+          #{purchase.created_at.to_s(:short)}: #{nice_price(purchase.price_json)}
+          |
+          = link_to purchase.buyable do
+            #{purchase.buyable}
+      .payout
+      = link_to 'Request Payout', new_payout_path, :class => 'btn btn-primary'
+      
+      %h3 Payouts
+      - current_user.payouts.each do |payout|
+        = payout.amounts
+        - if payout.completed_at
+          %i.fa.fa-checkmark
+        - else
+          %i.fa.fa-hourglass-half
+          Pending
+      
       .settings
         %h3 Account Settings
         = form_for current_user do |f|

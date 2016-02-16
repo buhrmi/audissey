@@ -1,0 +1,13 @@
+= form_for @payout do |f|
+  - if @payout.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@payout.errors.count, "error")} prohibited this payout from being saved:"
+      %ul
+        - @payout.errors.full_messages.each do |msg|
+          %li= msg
+
+  .input-group
+    %label Paypal Address
+    = f.text_field :method_detail, :value => current_user.email, :class => 'form-control'
+  .actions
+    = f.submit 'Request Payout', :class => 'btn btn-lg btn-primary'

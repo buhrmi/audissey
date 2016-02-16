@@ -13,6 +13,8 @@
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
 #  price_id             :integer
+#  location_id          :integer
+#  deleted_at           :datetime
 #
 
 class Booking < ActiveRecord::Base
@@ -41,5 +43,9 @@ class Booking < ActiveRecord::Base
   
   def topicable_name
     offering.actionable_name
+  end
+  
+  def to_s
+    offering.actionable_name + ' booked by ' + user.display_name
   end
 end

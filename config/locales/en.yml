@@ -67,6 +67,12 @@ en:
         email: Email
         password: Password
         password_confirmation: Password confirmation
+      payout:
+        completed_at: 
+        completed_by: 
+        method: 
+        method_detail: 
+        user_id: 
     errors:
       messages:
         record_invalid: 'Validation failed: %{errors}'
@@ -207,6 +213,7 @@ en:
       new:
         header: Getting Closer
         tagline: Work with artists and promoters from all over the world
+        or: Or
       user:
         signed_in: Welcome back!
         signed_out: You have been signed out.
@@ -388,6 +395,12 @@ en:
         email: 
         password: 
         password_confirmation: 
+      payout:
+        completed_at: 
+        completed_by: 
+        method: 
+        method_detail: 
+        user_id: 
     select:
       prompt: Please select
     submit:

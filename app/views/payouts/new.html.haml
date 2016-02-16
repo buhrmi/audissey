@@ -1,0 +1,10 @@
+.container
+  %h1 Request Payout
+  %p During the alpha phase we only support payouts to paypal addresses. We are planning to offer world wide bank transfers soon. Stay tuned.
+  - current_user.earnings_since_last_payout.each do |currency, earnings|
+    %h2= currency
+    
+    %p Earnings: #{nice_price Price.new(:take => earnings[:amount], :currency => currency)}
+    %p Commission: #{nice_price Price.new(:take => earnings[:commission], :currency => currency)}
+    %p Payout Amount: #{nice_price Price.new(:take => earnings[:payout], :currency => currency)}
+  = render 'form'

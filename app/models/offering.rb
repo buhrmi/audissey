@@ -17,6 +17,10 @@
 #  hero_image_uid     :string
 #  escrow_notes       :text
 #  commission_percent :integer          default(15)
+#  address            :string
+#  latitude           :float
+#  longitude          :float
+#  deleted_at         :datetime
 #
 
 # Use Case: Buy 4 offerings for 5 USD
@@ -61,6 +65,10 @@ class Offering < ActiveRecord::Base
 
   def editable_by?(user)
     user&.superpowers? or self.user_id == user&.id
+  end
+  
+  def to_s
+    actionable_name
   end
 
 end

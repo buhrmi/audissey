@@ -23,6 +23,7 @@
 #  locale                 :string
 #  tz                     :string
 #  currency               :string
+#  deleted_at             :datetime
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

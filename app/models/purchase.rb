@@ -13,11 +13,16 @@
 #  gateway_confirmed_at :datetime
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
+#  beneficiary_id       :integer
+#  memo                 :string
+#  value_date           :datetime
+#  commission_percent   :integer
 #
 
 class Purchase < ActiveRecord::Base
   serialize :price_json, JSON
 
+  belongs_to :beneficiary, :class_name => 'User'
   belongs_to :buyer, :class_name => 'User'
   belongs_to :buyable, :polymorphic => true
 

@@ -67,6 +67,12 @@ ja:
         email: 
         password: 
         password_confirmation: 
+      payout:
+        completed_at: 
+        completed_by: 
+        method: 
+        method_detail: 
+        user_id: 
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -207,6 +213,7 @@ ja:
       new:
         header: Getting Closer
         tagline: 世界各国のアーティストやプロモーターとコラボ
+        or: それとも
       user:
         signed_in: Welcome back!
         signed_out: You have been signed out.
@@ -382,6 +389,12 @@ ja:
         email: 
         password: 
         password_confirmation: 
+      payout:
+        completed_at: 
+        completed_by: 
+        method: 
+        method_detail: 
+        user_id: 
     select:
       prompt: 選択してください
     submit:

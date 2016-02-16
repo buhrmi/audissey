@@ -13,6 +13,8 @@
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
 #  price_id             :integer
+#  location_id          :integer
+#  deleted_at           :datetime
 #
 
 require 'test_helper'

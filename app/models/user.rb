@@ -23,6 +23,7 @@
 #  locale                 :string
 #  tz                     :string
 #  currency               :string
+#  deleted_at             :datetime
 #
 
 class User < ActiveRecord::Base
@@ -40,7 +41,9 @@ class User < ActiveRecord::Base
   has_many :offerings
   has_many :uploads
   has_many :purchases
-
+  has_many :beneficiary_purchases, :class_name => 'Purchase', :foreign_key => 'beneficiary_id'
+  has_many :payouts
+  
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
@@ -58,7 +61,30 @@ class User < ActiveRecord::Base
     end
   end
 
+  def purchases_since_last_payout(at = Time.current)
+    last_payout = self.payouts.where(['created_at < ?', at]).order('created_at desc').first
+    if last_payout
+      self.beneficiary_purchases.where(['created_at > ? AND created_at < ?', last_payout.created_at, at])
+    else
+      self.beneficiary_purchases.where(['created_at < ?', at])
+    end
+  end
 
+  def earnings_since_last_payout(at = Time.current)
+    new_purchases = purchases_since_last_payout(at)
+    
+    {}.tap do |earnings|
+      new_purchases.each do |p|
+        currency = p.price_json['currency']
+        amount   = p.price_json['take']
+        earnings[currency] ||= {:amount => 0, :commission => 0, :payout => 0}
+        earnings[currency][:amount]     += amount
+        earnings[currency][:commission] += (amount * p.commission_percent / 100).round
+        earnings[currency][:payout]     += amount - (amount * p.commission_percent / 100).round
+      end
+    end
+  end
+  
   def display_name
     name || email.gsub(/@.*/, '')
   end
