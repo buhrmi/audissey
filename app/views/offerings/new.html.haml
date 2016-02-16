@@ -41,7 +41,8 @@
       -#   Coming soon.
       .actions
         = f.submit 'Save & Continue', :class => 'btn btn-primary btn-lg', :'v-bind:disabled' => '!actionable_name || !category_id'
-        .note I agree with the #{link_to "Terms & Conditions", page_path('terms'), :target => '_blank'}.
+        .note 
+          By clicking this button, you agree with our #{link_to "Terms & Conditions", page_path('terms'), :target => '_blank'}.
 
     :coffee
       new Vue
@@ -52,6 +53,8 @@
           this.$watch 'category_id', (val) ->
             placeholder = 'DJ ' + this.$get('name') if this.category_id == 'performer'
             placeholder = 'Club ' + this.$get('name') if this.category_id == 'venue'
+            placeholder = 'Chef ' + this.$get('name') if this.category_id == 'catering'
+            placeholder = this.$get('name') + ' Photography' if this.category_id == 'photographer'
             placeholder = this.$get('name') + ' Promotions' if this.category_id == 'organizer'
             this.$set('placeholder', placeholder)
 

@@ -47,8 +47,8 @@
 .section.about_audissey {
   text-align: center;
   position: relative;
-  background-color: #1987AD;
-    padding: 40px 0;
+  background-color: #65656E;
+    padding: 60px 0;
     color: white;
 
 }
@@ -64,12 +64,25 @@
   // padding-top: 125px; //30px;
   .big { font-size: 60px; }
   .small { font-size: 30px; margin-bottom: 30px; }
+  .bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+  .get_started {
+    position: relative;
+    bottom: 40px;
+
+
+
+    margin: 0 auto;
+  }
   .more {
     font-size: 13px;
     color: #CCC;
     text-align: center;
-    position: absolute;
-    display: inline-block;
+    margin: 0 auto;
     bottom: 10px;
   }
   .search_box {

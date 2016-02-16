@@ -12,10 +12,13 @@
   -#     %span.part.event>= t 'for an event on'
   -#     %input.part.datepicker>
   -#     %button= t 'Search'
-  .more
-    = t 'Browse'
-    %br
-    .caret
+  .bottom
+    = link_to t('.join_now'), new_user_registration_path, :class => 'get_started btn btn-lg btn-primary'
+    .more
+      = t 'Browse'
+      %br
+      .caret
+      
 
 :coffee
   $('.landing_head .big').css 'marginTop': $(window).height() / 4.5 * 0.7
