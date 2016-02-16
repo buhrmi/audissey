@@ -200,6 +200,7 @@ ja:
         provider: Sign up with %{provider}
         tagline: 世界各国のアーティストやプロモーターとコラボ
         use_existing_account: Already have an account? Click here!
+        or: それとも
       user:
         signed_up: Welcome to Audissey!
     sessions:

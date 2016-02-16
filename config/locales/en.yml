@@ -200,6 +200,7 @@ en:
         provider: Sign up with %{provider}
         tagline: Work with artists and promoters from all over the world
         use_existing_account: Already have an account? Click here!
+        or: Or
       user:
         signed_up: Welcome to Audissey!
     sessions:

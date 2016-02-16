@@ -183,10 +183,13 @@
     left: 50%;
     border-left: 1px solid #CCC;
     span {
+      width: 85px;
       position: absolute;
-      left: -10px;
+      left: -42px;
       top: 80px;
-      background: white;
+      background: #E8EBEB;
+      text-align: center;
+      font-size: 15px;
     }
   }
   h2 {
