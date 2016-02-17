@@ -29,7 +29,7 @@
     %h2= t '.featured_tagline2'
     .row
       - @performers.each do |performance|
-        .col-sm-6
+        .col-sm-6.col-md-4
           .embed-responsive.embed-responsive-4by3
             = link_to performance do
               .offering.embed-responsive-item{:style => "background-image: url(#{performance.image&.thumb('400x300')&.url})"}
