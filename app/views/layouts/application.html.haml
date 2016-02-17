@@ -39,6 +39,12 @@
                       = link_to edit_offering_path(offering) do
                         .category-icon{:class => offering.category_id}
                           = offering.actionable_name
+                    %li.divider
+                    
+                    %li
+                      = link_to new_offering_path do
+                        %i.fa.fa-plus
+                        = t('.new_listing')
                         
             %li
               %li.dropdown

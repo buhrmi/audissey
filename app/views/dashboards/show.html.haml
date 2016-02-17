@@ -10,11 +10,12 @@
     .container
       - if current_user.offerings.any?
         .offerings
-          %h3 Offerings:
+          %h3 Your Listings:
           - current_user.offerings.each do |offering|
             = link_to offering.actionable_name, offering
             = link_to edit_offering_path(offering) do
               %i.fa.fa-edit
+          = link_to t('.new_listing'), new_offering_path, :class => 'btn btn-lg btn-primary'
       
       
     
