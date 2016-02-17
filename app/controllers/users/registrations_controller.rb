@@ -4,9 +4,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-    cookies[:name] = params[:name] if params[:name].present?
-    cookies[:offering] = params[:offering] if params[:offering].present?
-    cookies[:category] = params[:category] if params[:category].present?
     super
   end
 
@@ -15,9 +12,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
 
     if resource.persisted?
-      resource.name = cookies[:name]
-      if cookies[:offering]
-        resource.offerings.create(:actionable_name => cookies[:offering], :category_id => cookies[:category])
+      if session[:control_offering]
+        offering = Offering.find session[:control_offering]
+        offering.update :user_id => resource.id unless offering.user_id
+        session.delete(:control_offering)
       end
       resource.save
     end

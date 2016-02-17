@@ -70,13 +70,20 @@ class OfferingsController < ApplicationController
   def update
     return unless @offering.editable_by?(current_user)
     updates = offering_params
+    if params[:offering][:disconnect]
+      if @offering.pending_bookings.any?
+        return redirect_to :back, :notice => 'There are pending bookings. Cant disconnect.'
+      else
+        updates[:user_id] = nil
+      end
+    end
     if params[:offering][:approve] && current_user.superpowers? && !@offering.approved_at
       updates[:approved_by] = current_user
       updates[:approved_at] = Time.now
     end
     respond_to do |format|
       if @offering.update(updates)
-        format.html { redirect_to @offering, notice: 'Offering was successfully updated.' }
+        format.html { redirect_to @offering, notice: @offering.actionable_name + ' was successfully updated.' }
         format.json { render :show, status: :ok, location: @offering }
       else
         format.html { render :edit }
@@ -105,6 +112,6 @@ class OfferingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def offering_params
-      params[:offering].permit(:retained_image, :escrow_notes, :category_id, :actionable_name, :description, :prices_attributes => [:id, :_destroy, :take, :give, :currency])
+      params.require(:offering).permit(:retained_image, :escrow_notes, :category_id, :actionable_name, :description, :prices_attributes => [:id, :_destroy, :take, :give, :currency])
     end
 end

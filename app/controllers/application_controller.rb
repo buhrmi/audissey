@@ -3,8 +3,10 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :set_locale
+  before_filter :control_offering
   around_filter :set_tz
   around_filter :atomic_posts
+  
   # before_filter :allow_me
 
   protected
@@ -18,6 +20,17 @@ class ApplicationController < ActionController::Base
   end
   
   private
+  def control_offering
+    if params[:control_offering_id]
+      session[:control_offering] = params[:control_offering_id]
+    end
+    if session[:control_offering] && current_user
+      offering = Offering.find session[:control_offering]
+      offering.update :user_id => current_user.id unless offering.user_id
+      session.delete(:control_offering)
+    end
+  end
+  
   def atomic_posts
     if request.method == 'GET' || !current_user
       yield

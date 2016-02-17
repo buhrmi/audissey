@@ -12,37 +12,52 @@
         = sanitize @offering.description
       .col-sm-4.booking_col
         .booking_area
-          = form_for Booking.new(:offering => @offering) do |f|
-            = f.hidden_field :offering_id
+          - if @offering.user_id
+            = form_for Booking.new(:offering => @offering) do |f|
+              = f.hidden_field :offering_id
+              .booking_box
+                .pricing
+                  - if @offering.prices.any?
+                  - else
+                    Flexible pricing
+                .availability
+                  .form-group
+                    %label Event Date
+                    %input.datepicker.form-control{:value => 4.weeks.from_now.strftime("%Y-%m-%d"), :name => 'booking[start_at]'}
+                  .form-group
+                    %label Budget
+
+                    .input-group
+                      %input(type="hidden" name="booking[price_attributes][currency]" v-model="currency")
+                      .input-group-addon {{symbolForCurrency()}}
+                      %input.form-control(v-model = "amount" name="booking[price_attributes][take]")
+                      .input-group-addon {{currency}}
+                      .input-group-btn
+                        .btn.btn-default.dropdown-toggle(data-toggle="dropdown")
+                          .caret
+                        %ul.dropdown-menu.dropdown-menu-right
+                          - Price::CURRENCIES.keys.each do |currency|
+                            %li
+                              %a{:href => '#', 'v-on:click.prevent' => "$set('currency', '#{currency}')"}= currency
+
+                .action
+                  %button.btn.btn-primary.btn-lg= t("Request Booking")
+          - else
             .booking_box
-              .pricing
-                - if @offering.prices.any?
-                - else
-                  Flexible pricing
+              .pricing Unaffiliated
               .availability
-                .form-group
-                  %label Event Date
-                  %input.datepicker.form-control{:value => 4.weeks.from_now.strftime("%Y-%m-%d"), :name => 'booking[start_at]'}
-                .form-group
-                  %label Budget
-
-                  .input-group
-                    %input(type="hidden" name="booking[price_attributes][currency]" v-model="currency")
-                    .input-group-addon {{symbolForCurrency()}}
-                    %input.form-control(v-model = "amount" name="booking[price_attributes][take]")
-                    .input-group-addon {{currency}}
-                    .input-group-btn
-                      .btn.btn-default.dropdown-toggle(data-toggle="dropdown")
-                        .caret
-                      %ul.dropdown-menu.dropdown-menu-right
-                        - Price::CURRENCIES.keys.each do |currency|
-                          %li
-                            %a{:href => '#', 'v-on:click.prevent' => "$set('currency', '#{currency}')"}= currency
-
-              .action
-                %button.btn.btn-primary.btn-lg= t("Request Booking")
-            .problems
-              = link_to t('Report a problem'), page_path('contact')
+                %p 
+                  This artist is currently not affiliated with Audissey and can not
+                  be booked.
+                %p
+                  Are you #{@offering.actionable_name}? Please consider joining
+                  our platform to receive booking requests and other offers.
+                  - if current_user
+                    = link_to "Manage #{@offering.actionable_name}", edit_offering_path(@offering, :control_offering_id => @offering.id) 
+                  - else
+                    = link_to "Sign up as #{@offering.actionable_name}", new_user_registration_path(:control_offering_id => @offering.id) 
+          .problems
+            = link_to t('Report a problem'), page_path('contact')
 :coffee
   positionBookingArea = ->
     scrollPosition = $(window).scrollTop()
