@@ -86,6 +86,7 @@ en:
       message: Message
       offering: Offerings
       user: Users
+      payout: 
   ar: 
   bg: 
   bookings:
@@ -539,6 +540,30 @@ en:
         <p>For that purpose we do away with language barriers, borders and other nuisances.</p>
         <p>This is for the music.</p>
       join_now: Join Now
+      add_a_dj: 
+      add_an_event: 
+      find_out_more: 
+      for_djs: 
+      for_djs_html: "<p>Join Audissey as a DJ and be discovered! Create your DJ profile totally for free.</p>"
+      for_events: 
+      for_events_html: "<p>Running an event? Club? Festival? Sign up for Audissey and we will suggest amazing DJs. We have teamed up with world wide operating agencies and can bring amazing talent to your party. And the best part: It's totally free!</p>"
+      join_as_agency: 
+      post_a_dj: 
+      post_an_event: 
+      post_a_venue: 
+      register_dj: 
+      register_event: 
   zh: 
   zh-CN: 
   zh-TW: 
+  Delete Far Too Loud: 
+  Disconnect Far Too Loud: 
+  flash:
+    actions:
+      create:
+        notice: 
+  Flexible Pricing: 
+  layouts:
+    application:
+      new_listing: 
+  Services: 
