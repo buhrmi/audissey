@@ -49,6 +49,26 @@
   .container
     %h1= t '.about_audissey_header'
     = t '.about_audissey_html'
+.section.call_to_actions
+  .container
+    .row
+      .col-sm-6
+        %h1 For DJs
+        %p
+          Join Audissey as a DJ and be discovered! Create your DJ profile totally for free.
+        %p
+          = link_to t('.add_a_dj'), new_user_registration_path, :class => 'btn btn-lg btn-primary'
+      .col-sm-6
+        %h1 For Events
+        %p
+          Running an event? Club? Festival? Sign up for Audissey and we will
+          suggest amazing DJs. We have teamed up with world wide operating agencies and
+          can bring amazing talent to your party. And the best part: It's totally free!
+        %p
+          = link_to t('.add_an_event'), new_user_registration_path, :class => 'btn btn-lg btn-primary'
+    .others
+      We also provide specialized services for venues and agencies.
+      = link_to t('.find_out_more'), page_path('services')
 .section.featured_events
   .container
     %h1= t '.upcoming_tagline'
