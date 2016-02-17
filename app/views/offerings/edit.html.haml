@@ -83,7 +83,7 @@
     methods:
       offeringValid: ->
         return false unless this.$get('offering.actionable_name')
-        return false unless this.$get('offering.escrow_notes')
+        # return false unless this.$get('offering.escrow_notes')
         true
     ready: ->
       this.$expose 'section', 'section'
