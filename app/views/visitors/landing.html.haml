@@ -32,7 +32,7 @@
         .col-sm-6.col-md-4
           .embed-responsive.embed-responsive-4by3
             = link_to performance do
-              .offering.embed-responsive-item{:style => "background-image: url(#{performance.image&.thumb('400x300')&.url})"}
+              .offering.embed-responsive-item{:style => "background-image: url(#{performance.image&.thumb('400x300#')&.url})"}
                 .gradient
                 .details
                   .pic_circle
@@ -43,8 +43,7 @@
                   .pricing
                     %span.category
                       %span.category-icon{:class => performance.category_id} 
-                      #{performance.category.name},
-                    = t('Flexible Pricing')
+                      #{performance.category.name}
 .section.about_audissey
   .container
     %h1= t '.about_audissey_header'
