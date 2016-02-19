@@ -51,16 +51,16 @@
 .section.call_to_actions
   .container
     .row
-      .col-sm-6
+      .col-sm-6.for_djs
         %h1= t('.for_djs')
         = t('.for_djs_html')
         %p
-          = link_to t('.post_a_dj'), new_user_registration_path, :class => 'btn btn-lg btn-primary'
-      .col-sm-6
+          = link_to t('.list_a_dj'), new_user_registration_path, :class => 'btn btn-lg btn-primary'
+      .col-sm-6.for_events
         %h1= t('.for_events')
         = t('.for_events_html')
         %p
-          = link_to t('.post_an_event'), new_user_registration_path, :class => 'btn btn-lg btn-primary'
+          = link_to t('.list_an_event'), new_user_registration_path, :class => 'btn btn-lg btn-primary'
     .others
       = t('.other_services')
       = link_to t('.find_out_more'), page_path('services')

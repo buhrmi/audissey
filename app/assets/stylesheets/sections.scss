@@ -1,3 +1,5 @@
+@import 'globals';
+
 .section.welcome {
   h2 {
     font-size: 40px;
@@ -54,6 +56,24 @@
   padding: 60px 0;
   color: white;
   text-shadow: 0 0 8px rgba(0,0,0,0.8);
+}
+.section.call_to_actions {
+  // @include column_heights();
+  text-align: center;
+  background-color: white;
+  
+  .others {
+    padding-bottom: 50px;
+    
+  }
+  .for_djs {
+    
+    padding: 50px 0;
+  }
+  .for_events {
+    
+    padding: 50px 0;
+  }
 }
 .section.landing_head {
   text-align: center;

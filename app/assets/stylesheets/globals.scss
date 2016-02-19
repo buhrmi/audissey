@@ -19,6 +19,17 @@ body {
   }
 }
 
+@mixin column_heights {
+  .row {
+    overflow: hidden; 
+  }
+
+  [class*="col-"]{
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+  }
+}
+
 body.visitors.landing .flash {
   right: 0;
   position: absolute;
