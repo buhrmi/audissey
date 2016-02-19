@@ -29,8 +29,16 @@ class Booking < ActiveRecord::Base
   accepts_nested_attributes_for :price
 
   after_create do
-    UserNotifier.booking_inquiry(self).deliver_later
+    UserNotifier.booking_inquiry(self).deliver_later if offering.user
+    UserNotifier.booking_inquiry_for_management(self).deliver_later if offering.managed
     Message.create(:topicable => self, :text => 'Booking request has been received.')
+  end
+  
+  after_update do
+    if confirmed && !confirmed_was
+      UserNotifier.booking_confirmed(self).deliver_later
+      Message.create(:topicable => self, :text => 'Booking has been confirmed. Awaiting payment.')
+    end
   end
 
   def payment_received?
@@ -38,7 +46,7 @@ class Booking < ActiveRecord::Base
   end
 
   def editable_by?(user)
-    self.user_id == user.id || self.offering.user_id == user.id
+    self.user_id == user.id || self.offering.user_id == user.id || user.email == self.offering.management_email
   end
   
   def topicable_name

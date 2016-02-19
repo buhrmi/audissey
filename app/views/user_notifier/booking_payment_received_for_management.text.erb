@@ -1,0 +1,17 @@
+Hello <%= @user.display_name %>,
+
+you have received payment for <%= @offering.actionable_name %>.
+
+Event Date: <%= @booking.start_at %>
+
+Please note that you are now responsible for the availability of <%= @offering.actionable_name %> on the designated date.
+
+We forwarded your contact details to the buyer. You can check the details on the booking page.
+<%= booking_url(@booking) %>
+
+The buyer should contact you soon.
+
+Thank you for using Audissey!
+We hope you have a good experience.
+
+Feel free to reply to this email in case of problems.

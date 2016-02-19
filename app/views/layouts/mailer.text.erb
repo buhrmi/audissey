@@ -7,9 +7,14 @@
 <%- end -%>
 <%= yield %>
 
+<%- if @user && !@user.persisted? -%>
+You are receiving this email because you are the registered management.
+To transfer ownership of the artist to you, please use the email address <%= @user.email %> when signing up on Audissey.
+<%- end -%>
+
 -- 
 Audissey Team
-Bookings and Event Promotion
+Bookings and Promotion
 http://audissey.fm
 
 Head Office
@@ -18,4 +23,4 @@ LOOP A 301
 Tokyo 164-0003
 Japan
 
-If you think you received this email in error, please reply to team@audissey.fm and let us know.
+If you think you received this email in error, please contact team@audissey.fm and let us know.

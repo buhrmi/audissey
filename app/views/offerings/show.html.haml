@@ -12,7 +12,7 @@
         = sanitize @offering.description
       .col-sm-4.booking_col
         .booking_area
-          - if @offering.user_id
+          - if @offering.bookable?
             = form_for Booking.new(:offering => @offering) do |f|
               = f.hidden_field :offering_id
               .booking_box
@@ -44,14 +44,14 @@
                   %button.btn.btn-primary.btn-lg= t("Request Booking")
           - else
             .booking_box
-              .pricing Unaffiliated
+              .pricing No contact
               .availability
                 %p 
-                  This artist is currently not affiliated with Audissey and can not
+                  This artist has no contact information and can not
                   be booked.
                 %p
                   Are you #{@offering.actionable_name}? Please consider joining
-                  our platform to receive booking requests and other offers.
+                  our platform to receive booking requests through Audissey.
                   - if current_user
                     = link_to "Manage #{@offering.actionable_name}", edit_offering_path(@offering, :control_offering_id => @offering.id) 
                   - else

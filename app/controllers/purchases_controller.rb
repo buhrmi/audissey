@@ -89,7 +89,8 @@ class PurchasesController < ApplicationController
         :value_date => value_date,
         :commission_percent => commission_percent
       if buyable.is_a?(Booking)
-        UserNotifier.booking_payment_received(buyable).deliver_later
+        UserNotifier.booking_payment_received(buyable).deliver_later if buyable.offering.user
+        UserNotifier.booking_payment_received_for_management(buyable).deliver_later if buyable.offering.managed
         UserNotifier.booking_payment_completed(buyable).deliver_later
         Message.create(:topicable => buyable, :text => 'Payment has been received.') 
       end

@@ -48,6 +48,7 @@ class Offering < ActiveRecord::Base
 
   dragonfly_accessor :image
   dragonfly_accessor :hero_image
+  dragonfly_accessor :management_image
   accepts_nested_attributes_for :prices, :allow_destroy => true
 
 
@@ -69,6 +70,28 @@ class Offering < ActiveRecord::Base
   
   def to_s
     actionable_name
+  end
+  
+  def profile_image
+    management_image || user&.image
+  end
+  
+  def set_user_by_management_email
+    return unless management_email
+    u = User.find_by_email(management_email)
+    update :user => u if u
+  end
+  
+  def bookable?
+    emails.any?
+  end
+  
+  def emails
+    [user&.email, management_email].compact
+  end
+  
+  def management_user
+    User.new(:name => management_name, :email => management_email, :image_uid => management_image_uid)
   end
 
 end

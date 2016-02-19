@@ -1,0 +1,8 @@
+Hello <%= @user.display_name %>,
+
+<%= @booking.user.display_name %> wants to book <%= @offering.actionable_name %>.
+
+A new booking request has been opened. Please check and confirm availability:
+<%= booking_url(@booking) %>
+
+After you confirm, you will be able to receive payment.

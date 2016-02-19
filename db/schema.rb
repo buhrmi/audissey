@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160216075330) do
+ActiveRecord::Schema.define(version: 20160219005558) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -105,8 +105,8 @@ ActiveRecord::Schema.define(version: 20160216075330) do
     t.text     "description"
     t.integer  "user_id"
     t.string   "image_uid"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "category_id"
     t.integer  "duration"
     t.datetime "published_at"
@@ -114,11 +114,15 @@ ActiveRecord::Schema.define(version: 20160216075330) do
     t.integer  "approved_by_id"
     t.string   "hero_image_uid"
     t.text     "escrow_notes"
-    t.integer  "commission_percent", default: 15
+    t.integer  "commission_percent",   default: 15
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
     t.datetime "deleted_at"
+    t.string   "management_name"
+    t.string   "management_email"
+    t.string   "management_image_uid"
+    t.boolean  "managed"
   end
 
   add_index "offerings", ["deleted_at"], name: "index_offerings_on_deleted_at"
@@ -205,6 +209,10 @@ ActiveRecord::Schema.define(version: 20160216075330) do
     t.string   "tz"
     t.string   "currency"
     t.datetime "deleted_at"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -7,6 +7,13 @@ class UserNotifier < ApplicationMailer
     @user = booking.offering.user
     mail :to => @user.email, :subject => "Booking Request for #{@offering.actionable_name}"
   end
+  
+  def booking_inquiry_for_management(booking)
+    @booking = booking
+    @offering = booking.offering
+    @user = @offering.management_user
+    mail :to => @user.email, :subject => "Booking Request for #{@offering.actionable_name}"
+  end
 
   def booking_confirmed(booking)
     @booking = booking
@@ -19,6 +26,13 @@ class UserNotifier < ApplicationMailer
     @booking = booking
     @offering = booking.offering
     @user = booking.offering.user
+    mail :to => @user.email, :subject => "Payment for #{@offering.actionable_name} received"
+  end
+  
+  def booking_payment_received_for_management(booking)
+    @booking = booking
+    @offering = booking.offering
+    @user = booking.offering.management_user
     mail :to => @user.email, :subject => "Payment for #{@offering.actionable_name} received"
   end
 

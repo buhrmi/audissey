@@ -26,6 +26,22 @@
             = f.text_field :actionable_name,
               :class => 'form-control',
               'v-model' => 'offering.actionable_name'
+          - if current_user.superpowers?
+            .form-group
+              %label Managed
+              = f.check_box :managed, 'v-model' => 'offering.managed'
+            .form-group{'v-if' => 'offering.managed'}
+              %label Management Name
+              = f.text_field :management_name, :class => 'form-control',
+                'v-model' => 'offering.management_name'
+            .form-group{'v-if' => 'offering.managed'}
+              %label Management Email
+              = f.text_field :management_email, :class => 'form-control',
+                'v-model' => 'offering.management_email'
+            .form-group{'v-if' => 'offering.managed'}
+              %label Management Profile Image
+              = f.image_upload_field :management_image
+              
           %p
             = link_to t("Delete #{@offering.actionable_name}"), @offering, :method => 'delete', 'data-confirm' => "Are you sure you want to delete #{@offering.actionable_name}?"
           %p
@@ -83,6 +99,9 @@
     methods:
       offeringValid: ->
         return false unless this.$get('offering.actionable_name')
+        if this.$get('offering.managed')
+          return false unless this.$get('offering.management_name')
+          return false unless this.$get('offering.management_email')
         # return false unless this.$get('offering.escrow_notes')
         true
     ready: ->

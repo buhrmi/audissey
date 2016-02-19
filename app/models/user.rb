@@ -64,9 +64,9 @@ class User < ActiveRecord::Base
   def purchases_since_last_payout(at = Time.current)
     last_payout = self.payouts.where(['created_at < ?', at]).order('created_at desc').first
     if last_payout
-      self.beneficiary_purchases.where(['created_at > ? AND created_at < ?', last_payout.created_at, at])
+      self.beneficiary_purchases.where(['value_date > ? AND value_date < ?', last_payout.created_at, at])
     else
-      self.beneficiary_purchases.where(['created_at < ?', at])
+      self.beneficiary_purchases.where(['value_date < ?', at])
     end
   end
 

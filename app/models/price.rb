@@ -30,7 +30,7 @@ class Price < ActiveRecord::Base
   has_many :purchases
   belongs_to :buyable, :polymorphic => true
   
-  validates :take, :numericality => { :greater_than => 0 }
-  validates :give, :numericality => { :greater_than => 0 }
+  validates :take, :numericality => { :greater_than => 0 }, :allow_nil => true
+  validates :give, :numericality => { :greater_than => 0 }, :allow_nil => true
 
 end

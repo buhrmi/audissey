@@ -28,8 +28,9 @@ class BookingsController < ApplicationController
 
   # GET /bookings/1
   # GET /bookings/1.json
-  # TODO: this is more like messaging view. maybe move into a messages controller
   def show
+    return redirect_to new_user_registration_path unless current_user
+    return cancel 'Not authorized' unless @booking.editable_by?(current_user)
   end
 
   # GET /bookings/new
@@ -74,10 +75,6 @@ class BookingsController < ApplicationController
     end
     respond_to do |format|
       if @booking.update(updates)
-        if confirmed
-          UserNotifier.booking_confirmed(@booking).deliver_later
-          Message.create(:topicable => @booking, :text => 'Booking has been confirmed. Awaiting payment.')
-        end
         format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }
         format.json { render :show, status: :ok, location: @booking }
       else

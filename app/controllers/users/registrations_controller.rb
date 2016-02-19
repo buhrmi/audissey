@@ -17,6 +17,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
         offering.update :user_id => resource.id unless offering.user_id
         session.delete(:control_offering)
       end
+      # Transfer ownership of all managed offerings
+      offerings = Offering.where(:management_email => resource.email)
+      offerings.each do |offering|
+        offering.update :managed => false, :user_id => resource.id
+      end
       resource.save
     end
   end

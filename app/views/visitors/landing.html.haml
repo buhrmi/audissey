@@ -36,8 +36,8 @@
                 .gradient
                 .details
                   .pic_circle
-                    - if performance.user&.image
-                      .pic_image{:style => "background-image: url(#{performance.user.image.thumb('74x74#').url})"}
+                    - if performance.profile_image
+                      .pic_image{:style => "background-image: url(#{performance.profile_image.thumb('74x74#').url})"}
                   .name
                     = performance.actionable_name
                   .pricing
