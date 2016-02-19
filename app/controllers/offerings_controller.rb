@@ -26,15 +26,11 @@
 class OfferingsController < ApplicationController
   before_action :set_offering, only: [:show, :edit, :update, :destroy]
 
-  # GET /offerings
-  # GET /offerings.json
-  def index
-    @offerings = Offering.all
-  end
 
   # GET /offerings/1
   # GET /offerings/1.json
   def show
+    cancel and return unless @offering.editable_by?(current_user)
   end
 
   # GET /offerings/new

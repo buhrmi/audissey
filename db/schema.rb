@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160219005558) do
+ActiveRecord::Schema.define(version: 20160219043829) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -105,8 +105,8 @@ ActiveRecord::Schema.define(version: 20160219005558) do
     t.text     "description"
     t.integer  "user_id"
     t.string   "image_uid"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.string   "category_id"
     t.integer  "duration"
     t.datetime "published_at"
@@ -114,7 +114,7 @@ ActiveRecord::Schema.define(version: 20160219005558) do
     t.integer  "approved_by_id"
     t.string   "hero_image_uid"
     t.text     "escrow_notes"
-    t.integer  "commission_percent",   default: 15
+    t.integer  "commission_percent",    default: 15
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
@@ -123,6 +123,8 @@ ActiveRecord::Schema.define(version: 20160219005558) do
     t.string   "management_email"
     t.string   "management_image_uid"
     t.boolean  "managed"
+    t.string   "image_name"
+    t.string   "management_image_name"
   end
 
   add_index "offerings", ["deleted_at"], name: "index_offerings_on_deleted_at"
@@ -138,13 +140,13 @@ ActiveRecord::Schema.define(version: 20160219005558) do
   end
 
   create_table "prices", force: :cascade do |t|
+    t.integer  "give",         default: 1
     t.integer  "take"
     t.string   "currency"
     t.integer  "buyable_id"
     t.string   "buyable_type"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "give"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "purchases", force: :cascade do |t|
@@ -213,6 +215,7 @@ ActiveRecord::Schema.define(version: 20160219005558) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.string   "image_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
