@@ -50,8 +50,8 @@
         .col-sm-8(v-show="section=='description'")
           %h1 Description
           .form-group
-            %label English
-            = f.text_area :description, :class => 'redactor'
+            
+            = f.translated_text_area :description
 
         .col-sm-8(v-show="section=='images'")
           %h1 Images

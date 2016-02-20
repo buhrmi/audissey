@@ -206,3 +206,15 @@ form .error {
   padding: 8px 12px 8px 30px;
   background: white;
 }
+.locale_link {
+  padding: 4px 12px;
+  display: inline-block;
+  &:hover {
+    color: black;
+  }
+  &.active {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-bottom: none;
+  }
+}

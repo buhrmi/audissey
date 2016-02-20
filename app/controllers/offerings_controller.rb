@@ -110,7 +110,7 @@ class OfferingsController < ApplicationController
     def offering_params
       params.require(:offering).permit(:retained_image, 
       :escrow_notes, :category_id, :actionable_name, :managed,
-      :description, :management_name, :retained_management_image, :management_email,
+      :en_description, :ja_description, :management_name, :retained_management_image, :management_email,
       :prices_attributes => [:id, :_destroy, :take, :give, :currency])
     end
 end

@@ -50,7 +50,7 @@ class Offering < ActiveRecord::Base
   dragonfly_accessor :hero_image
   dragonfly_accessor :management_image
   accepts_nested_attributes_for :prices, :allow_destroy => true
-
+  accepts_translations_for :description
 
   def availability_on(day)
 

@@ -1,0 +1,14 @@
+.translated_text_areas{:class => "#{name}_text_areas"}
+  - [:en, :ja].each do |locale|
+    = link_to t(locale), '#', :class => 'locale_link', ':class' => "{active: locale == '#{locale}'}", '@click.prevent' => "$set('locale', '#{locale}')"
+  - [:en, :ja].each do |locale|
+    .translated_text_area{:class => locale, "v-show" => "locale == '#{locale}'"}
+    
+      = f.text_area "#{locale}_#{name}", :class => 'redactor'
+    
+:coffee
+  new Vue
+    el: ".#{name}_text_areas"
+    data:
+      locale: #{I18n.locale.to_json}
+      
