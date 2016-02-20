@@ -13,7 +13,7 @@ class Category < ActiveRecord::Base
   self.primary_key = :id
 
   delete_all
-  find_or_create_by :id => 'performer', :name => 'DJ / Act'
+  find_or_create_by :id => 'performer', :name => 'DJ / Producer'
   find_or_create_by :id => 'lighting', :name => 'VJ / Laser'
   find_or_create_by :id => 'venue', :name => 'Venue'
   find_or_create_by :id => 'photographer', :name => 'Photographer'

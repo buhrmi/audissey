@@ -35,7 +35,8 @@ module Translatable
 
       define_method field do
         translation = translations.where(:translatable_field => field, :locale => I18n.locale).first
-        translation ||= translations.where(:translatable_field => field).first
+        return translation.text if translation&.text.present?
+        translation = translations.where(:translatable_field => field).first
         translation&.text || attributes[field.to_s]
       end
       
