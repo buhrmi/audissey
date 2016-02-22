@@ -132,6 +132,28 @@ form .error {
   color: white;
   // margin-top: -20px;
   // margin-bottom: 20px;
+  .links {
+    // margin-top: -10px;
+    // margin-bottom: -10px;
+  }
+  .nav_link {
+    padding: 10px 0;
+    margin: 0 10px;
+    color: #ccc;
+    &:hover {
+      background: none;
+      color: #aaa;
+    }
+    &:first-child {
+      margin-left: 0;
+    }
+    &.active {
+      padding-bottom: 7px;
+      color: #eee;
+      border-bottom: 3px solid #eee;
+    }
+  }
+
 }
 
 #content {

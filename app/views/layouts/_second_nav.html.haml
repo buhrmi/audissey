@@ -1,0 +1,7 @@
+.second_nav
+  .container
+    .links
+      = link_to 'Listings', dashboard_path, :class => "nav_link #{'active' if params[:controller] == 'dashboards' && params[:action] == 'show'}"
+      = link_to 'Bookings', dashboard_bookings_path, :class => "nav_link #{'active' if params[:controller] == 'bookings' || params[:action] == 'bookings'}"
+      = link_to 'Profile', dashboard_profile_path, :class => "nav_link #{'active' if params[:action] == 'profile'}"
+      = link_to 'Account', dashboard_account_path, :class => "nav_link #{'active' if params[:action] == 'account'}"

@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   resources :uploads
   resources :categories
   resources :bookings
-  resource :dashboard
+  resource :dashboard do
+    resource :profile, :controller => 'dashboards', :action => 'profile'
+    resource :account, :controller => 'dashboards', :action => 'account'
+    resource :bookings, :controller => 'dashboards', :action => 'bookings'
+  end
   resources :purchases
   resources :messages
 

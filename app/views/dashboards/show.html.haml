@@ -1,3 +1,4 @@
+= render 'layouts/second_nav'
 - if @show_guide
   .section.dashboard_guide
     .container
@@ -8,49 +9,55 @@
 - else
   .section.dashboard
     .container
-      - if current_user.offerings.any?
-        .offerings
-          %h3 Your Listings:
-          - current_user.offerings.each do |offering|
-            = link_to offering.actionable_name, offering
-            = link_to edit_offering_path(offering) do
-              %i.fa.fa-edit
-          = link_to t('.new_listing'), new_offering_path, :class => 'btn btn-lg btn-primary'
-      
-      
-    
-      %h3 Bookings in Progress
-      - if @all_bookings.empty?
-        Nothing yet
-      - @all_bookings.each do |booking|
-        .booking
-          = link_to booking.offering.actionable_name, booking
+      - if params[:action] == 'show'
+        - if current_user.offerings.any?
+          .offerings
+            %h3 Your Listings:
+            - current_user.offerings.each do |offering|
+              = link_to offering.actionable_name, offering
+              = link_to edit_offering_path(offering) do
+                %i.fa.fa-edit
+            = link_to t('.new_listing'), new_offering_path, :class => 'btn btn-lg btn-primary'
+        
+        
+      - if params[:action] == 'bookings'
+        %h3 Bookings in Progress
+        - if @all_bookings.empty?
+          Nothing yet
+        - @all_bookings.each do |booking|
+          .booking
+            = link_to booking.offering.actionable_name, booking
 
-      %h3 Earnings since last Payout
-      - current_user.purchases_since_last_payout.each do |purchase|
-        .purchase
-          #{purchase.created_at.to_s(:short)}: #{nice_price(purchase.price_json)}
-          |
-          = link_to purchase.buyable do
-            #{purchase.buyable}
-      .payout
-      = link_to 'Request Payout', new_payout_path, :class => 'btn btn-primary'
+      - if params[:action] == 'account'
+        %h3 Earnings since last Payout
+        - current_user.purchases_since_last_payout.each do |purchase|
+          .purchase
+            #{purchase.created_at.to_s(:short)}: #{nice_price(purchase.price_json)}
+            |
+            = link_to purchase.buyable do
+              #{purchase.buyable}
+        
+        .payout
+        = link_to 'Request Payout', new_payout_path, :class => 'btn btn-primary'
+        
+        %h3 Payouts
+        - current_user.payouts.each do |payout|
+          = payout.amounts
+          - if payout.completed_at
+            %i.fa.fa-checkmark
+          - else
+            %i.fa.fa-hourglass-half
+            Pending
+        - if current_user.payouts.empty?
+          No payouts to date
       
-      %h3 Payouts
-      - current_user.payouts.each do |payout|
-        = payout.amounts
-        - if payout.completed_at
-          %i.fa.fa-checkmark
-        - else
-          %i.fa.fa-hourglass-half
-          Pending
-      
-      .settings
-        %h3 Account Settings
-        = form_for current_user do |f|
-          .form-group
-            %label Profile Image
-            = f.image_upload_field :image
-          .actions
-            = f.submit "Save changes.", :class => 'btn btn-lg btn-primary'
         = link_to 'Delete Account', current_user, :method => 'delete', 'data-confirm' => 'Are you sure?'
+      - if params[:action] == 'profile'
+        .settings
+          %h3 Account Settings
+          = form_for current_user do |f|
+            .form-group
+              %label Profile Image
+              = f.image_upload_field :image
+            .actions
+              = f.submit "Save changes.", :class => 'btn btn-lg btn-primary'
