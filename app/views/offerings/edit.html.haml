@@ -59,17 +59,8 @@
             %label Listing Image
             = f.image_upload_field :image
           %h3 More Images
-          = render 'uploads/sort_images', :attachable => @offering
-          #more_images.dropzone
-          :coffee
-            new Dropzone '#more_images',
-              url: "/uploads"
-              init: ->
-                this.on 'sending', (file, xhr, data) ->
-                  data.append('attachable_id', #{@offering.id})
-                  data.append('attachable_type', 'Offering')
-                  data.append('authenticity_token', $('meta[name="csrf-token"]').attr('content'))
-
+          = render 'uploads/edit_gallery', :attachable => @offering
+          
           %h1 YouTube
           .form-group
             = f.text_field :promo_video_url

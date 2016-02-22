@@ -4,7 +4,7 @@
 @import "daterangepicker";
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "dropzone/dropzone";
+@import "dropzone/basic";
 
 // OUR STUFF
 @import "globals";
@@ -93,6 +93,40 @@
       left: 3px;
     }
   }
+}
+
+.sortable.gallery {
+  .upload {
+    position: relative;
+    width: 128px;
+    height: 128px;
+    display: inline-block;
+  }
+  .delete {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+.dropzone {
+  width: 128px;
+  height: 128px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  display: inline-block;
+  .dz-message { 
+    font-size: 74px;
+    text-align: center;
+    font-weight: bold;
+    color: #ccc;
+  }
+  .dz-preview {
+    display: none;
+  }
+  
+  
 }
 
 .navbar.navbar-default {

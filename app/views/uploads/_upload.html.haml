@@ -1,0 +1,4 @@
+.upload{:id => dom_id(upload)}
+  = image_tag upload.file.thumb('128x128#').url
+  - if editable
+    = link_to "Delete", upload, :class => 'delete', :method => 'delete', :remote => true

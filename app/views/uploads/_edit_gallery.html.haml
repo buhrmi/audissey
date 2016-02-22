@@ -1,0 +1,16 @@
+.sortable.gallery{:id => 'uploads_' + dom_id(attachable)}
+  = render attachable.uploads.images, :editable => true
+  #more_images.dropzone
+  :coffee
+    ds = new Dropzone '#more_images',
+      url: "/uploads"
+      dictDefaultMessage: '+'
+      init: ->
+        this.on 'sending', (file, xhr, data) ->
+          data.append('attachable_id', #{@offering.id})
+          data.append('attachable_type', 'Offering')
+          data.append('authenticity_token', $('meta[name="csrf-token"]').attr('content'))
+          xhr.onreadystatechange = ->
+            #if xhr.readyState == 4
+              #eval(xhr.responseText) # eval rbjs
+              #ds.removeFile(file)
