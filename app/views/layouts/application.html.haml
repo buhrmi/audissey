@@ -64,6 +64,9 @@
             %li.dropdown
               %a.dropdown-toggle(href="#" data-toggle="dropdown")
                 = current_user.display_name
+                .pic_circle
+                  - if current_user.image
+                    .pic_image{:style => "background-image: url(#{current_user.image.thumb('64x64#').url})"}
               %ul.dropdown-menu
                 %li= link_to 'Dashboard', dashboard_path
                 %li= link_to 'Logout', destroy_user_session_path, :method => 'delete'

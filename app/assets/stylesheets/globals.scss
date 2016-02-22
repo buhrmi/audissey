@@ -126,6 +126,26 @@ form .error {
   // margin-bottom: 20px;
 }
 
+.navbar .pic_circle {
+  display: inline-block;
+  vertical-align: middle;
+  width: 30px;
+  
+  
+  
+  position: relative;
+  
+  .pic_image {
+    position: absolute;
+    top: -15px;
+    width: 26px;
+    height: 26px;
+    border-radius: 16px;
+    background-size: cover;
+    background-position: center;
+    vertical-align: middle;
+  }
+}
 .second_nav {
   background-color: #66666F;
   padding: 10px 0;
