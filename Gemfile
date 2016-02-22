@@ -25,6 +25,8 @@ gem 'devise'              #
 gem 'omniauth-facebook'   #
 ###########################
 
+gem 'dropzonejs-rails'
+gem 'acts_as_list'
 gem 'dragonfly'
 gem 'dragonfly-s3_data_store'
 gem 'vuejs-rails'

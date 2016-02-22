@@ -54,6 +54,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts_as_list (0.7.2)
+      activerecord (>= 3.0)
     addressable (2.4.0)
     arbre (1.0.3)
       activesupport (>= 3.0.0)
@@ -107,6 +109,8 @@ GEM
     dragonfly-s3_data_store (1.2)
       dragonfly (~> 1.0)
       fog-aws
+    dropzonejs-rails (0.7.3)
+      rails (> 3.1)
     erubis (2.7.0)
     excon (0.45.4)
     execjs (2.6.0)
@@ -329,6 +333,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
+  acts_as_list
   better_errors
   bootstrap-sass
   byebug
@@ -337,6 +342,7 @@ DEPENDENCIES
   devise
   dragonfly
   dragonfly-s3_data_store
+  dropzonejs-rails
   griddler
   griddler-sendgrid
   haml-rails

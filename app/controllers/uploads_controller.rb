@@ -2,15 +2,17 @@
 #
 # Table name: uploads
 #
-#  id         :integer          not null, primary key
-#  user_id    :integer
-#  file_name  :string
-#  file_uid   :string
-#  mime_type  :string
-#  through    :string
-#  bytes      :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id              :integer          not null, primary key
+#  user_id         :integer
+#  file_name       :string
+#  file_uid        :string
+#  mime_type       :string
+#  through         :string
+#  bytes           :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  attachable_id   :integer
+#  attachable_type :string
 #
 
 class UploadsController < ApplicationController
@@ -50,7 +52,10 @@ class UploadsController < ApplicationController
     file_param = params[:image] || params[:file]
     return unless file_param.present?
 
-    upload = Upload.create :file => file_param, :bytes => File.size(file_param.tempfile), :user_id => current_user.id, :mime_type => file_param.content_type, :through => params[:through]
+    upload = Upload.create :file => file_param,
+      :bytes => File.size(file_param.tempfile),
+      :user_id => current_user.id, :mime_type => file_param.content_type, :through => params[:through],
+      :attachable_id => params[:attachable_id], :attachable_type => params[:attachable_type]
 
 
     if params[:through] == 'redactor'
@@ -60,7 +65,12 @@ class UploadsController < ApplicationController
         @image = upload.file
         @retained_image = Dragonfly::Serializer.json_b64_encode(uid: upload.file_uid)
       end
-      render action: 'new', layout: false
+      respond_to do |format|
+        format.html { render action: 'new', layout: false }
+        format.json do
+          render :json => { :url => upload.file.url }
+        end
+      end
     end
   end
 

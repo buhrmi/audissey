@@ -25,7 +25,7 @@
                     %label Event Date
                     %input.datepicker.form-control{:value => 4.weeks.from_now.strftime("%Y-%m-%d"), :name => 'booking[start_at]'}
                   .form-group
-                    %label Budget
+                    %label Proposed Fee
 
                     .input-group
                       %input(type="hidden" name="booking[price_attributes][currency]" v-model="currency")

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160220065930) do
+ActiveRecord::Schema.define(version: 20160222095118) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -132,6 +132,7 @@ ActiveRecord::Schema.define(version: 20160220065930) do
     t.boolean  "managed"
     t.string   "image_name"
     t.string   "management_image_name"
+    t.string   "promo_video_url"
   end
 
   add_index "offerings", ["deleted_at"], name: "index_offerings_on_deleted_at"
@@ -192,8 +193,11 @@ ActiveRecord::Schema.define(version: 20160220065930) do
     t.string   "mime_type"
     t.string   "through"
     t.integer  "bytes"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "attachable_id"
+    t.string   "attachable_type"
+    t.integer  "position"
   end
 
   create_table "users", force: :cascade do |t|

@@ -3,13 +3,13 @@
 # Table name: prices
 #
 #  id           :integer          not null, primary key
+#  give         :integer          default(1)
 #  take         :integer
 #  currency     :string
 #  buyable_id   :integer
 #  buyable_type :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  give         :integer
 #
 
 class Price < ActiveRecord::Base
