@@ -84,21 +84,7 @@
                     = link_to "Sign up as #{@offering.actionable_name}", new_user_registration_path(:control_offering_id => @offering.id) 
           .problems
             = link_to t('Report a problem'), page_path('contact')
-
 :coffee
-  positionBookingArea = ->
-    scrollPosition = $(window).scrollTop()
-    bookingColTop = $('.booking_col').offset().top;
-    if $(window).width() > 768
-      if scrollPosition >= bookingColTop
-        $('.booking_area').css('top', scrollPosition - bookingColTop)
-      else $('.booking_area').css('top', 0)
-    else
-      $('.booking_area').css('top', 0)
-
-  $(window).on 'scroll', positionBookingArea
-  $(window).on 'resize', positionBookingArea
-
 
   currencies = #{Price::CURRENCIES.to_json}
   new Vue
