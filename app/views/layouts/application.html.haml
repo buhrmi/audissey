@@ -4,6 +4,7 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:property=>"og:url", :content=>"#{request.base_url + request.path}"}
     %meta{:property=>"og:type", :content=>"website"}
+    %meta{:property=>"fb:app_id", :content=>"357519167786596"}
     - if @graph_object
       %meta{:property=>"og:title", :content=> @graph_object.name}
       %meta{:property=>"og:description", :content=> strip_tags(@graph_object.description)}
