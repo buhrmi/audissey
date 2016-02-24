@@ -5,6 +5,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "dropzone/basic";
+@import "lightgallery";
 
 // OUR STUFF
 @import "globals";
@@ -131,4 +132,33 @@
 
 .navbar.navbar-default {
   margin-bottom: 0;
+}
+
+.form-grid {
+  margin-top: 20px;
+  background-color: white;
+  border: 1px solid #ddd;
+  font-size: 15px;
+  border-radius: 5px;
+  .header {
+    padding: 14px;
+    color: #777;
+    h1 {
+      margin: 0;
+      font-size: 20px;
+    }
+    p {
+      margin: 0;
+    }
+  }
+  .row {
+    margin: 0;
+    border-top: 1px solid #ddd;
+  }
+  .col-xs-3, .col-xs-9 {
+    padding: 10px 20px
+  }
+  .col-xs-3 {
+    text-align: right;
+  }
 }

@@ -67,8 +67,10 @@ class UploadsController < ApplicationController
       :user_id => current_user.id, :mime_type => file_param.content_type, :through => params[:through],
       :attachable_id => params[:attachable_id], :attachable_type => params[:attachable_type]
 
-    attachable_dom_id = params[:attachable_type]+'_'+params[:attachable_id]
-    attachable_dom_id.downcase!
+    if params[:attachable_id] && params[:attachable_type]
+      attachable_dom_id = params[:attachable_type]+'_'+params[:attachable_id]
+      attachable_dom_id.downcase!
+    end
     
     if params[:through] == 'redactor'
       render :json => {'filelink' => upload.file.url}

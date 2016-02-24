@@ -5,7 +5,7 @@
 
     = form_for @offering do |f|
       .row
-        .col-sm-4.nav-col
+        .col-sm-3.nav-col
           %ul.nav.nav-pills.nav-stacked
             %li{':class' => '{active: section=="basics"}'}
               = link_to 'Basics', '#', :'@click.prevent' => '$set("section", "basics")'
@@ -19,7 +19,7 @@
               = link_to 'Pricing', '#', :'@click.prevent' => '$set("section", "pricing")'
             %li{':class' => '{active: section=="escrow"}'}
               = link_to 'Escrow Infos', '#', :'@click.prevent' => '$set("section", "escrow")'
-        .col-sm-8(v-show="section=='basics'")
+        .col-sm-9(v-show="section=='basics'")
           %h1 Basics
           .form-group
             %label Name
@@ -47,25 +47,34 @@
           %p
             = link_to t("Disconnect #{@offering.actionable_name}"), offering_path(@offering, :offering => { :disconnect => true }), :method => 'put', 'data-confirm' => "Disconnect #{@offering.actionable_name} from your account?"
 
-        .col-sm-8(v-show="section=='description'")
+        .col-sm-9(v-show="section=='description'")
           %h1 Description
           .form-group
             
             = f.translated_text_area :description
 
-        .col-sm-8(v-show="section=='images'")
-          %h1 Images
-          .form-group
-            %label Listing Image
-            = f.image_upload_field :image
-          %h3 More Images
-          = render 'uploads/edit_gallery', :attachable => @offering
-          
-          %h1 YouTube
-          .form-group
-            = f.text_field :promo_video_url
+        .col-sm-9(v-show="section=='images'")
+          .form-grid
+            .header
+              %h1 Images
+              %p Choose some images that showcase the #{@offering.category_id}.
+            .row
+              .col-xs-3
+                Listing Image
+              .col-xs-9
+                = f.image_upload_field :image
+            .row
+              .col-xs-3
+                Gallery
+              .col-xs-9
+                = render 'uploads/edit_gallery', :attachable => @offering
+            .row
+              .col-xs-3
+                YouTube Video
+              .col-xs-9
+                = f.text_field :promo_video_url, :class => 'form-control'
 
-        .col-sm-8(v-show="section=='availability'")
+        .col-sm-9(v-show="section=='availability'")
           %h1 Availability
           .radio
             %label.big_option.active
@@ -73,7 +82,7 @@
               %strong Always Confirm
               %p Before accepting payment, I want to be notified and confirm booking offers by myself.
           (more options coming soon)
-        .col-sm-8(v-show="section=='pricing'")
+        .col-sm-9(v-show="section=='pricing'")
           %h1 Pricing
           .radio
             %label.big_option.active
@@ -81,7 +90,7 @@
               %strong Flexible
               %p Rates &amp; Fees can be negotiated for each booking.
           (more options coming soon)
-        .col-sm-8(v-show="section=='escrow'")
+        .col-sm-9(v-show="section=='escrow'")
           %h1 Escrow Information
           %p 
             =t('.escrow')

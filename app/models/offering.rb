@@ -101,5 +101,9 @@ class Offering < ActiveRecord::Base
   def management_user
     User.new(:name => management_name, :email => management_email, :image_uid => management_image_uid)
   end
+  
+  def public_images
+    uploads.images.free
+  end
 
 end

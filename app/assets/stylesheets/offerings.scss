@@ -1,3 +1,20 @@
+.offering_hero {
+  position: relative;
+  .superhero {
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+  }
+  .hero_name {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 60px;
+    text-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+  }
+}
 .offering_detail {
   margin-top: 40px;
   .booking_col {

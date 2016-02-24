@@ -1,3 +1,6 @@
+.section.offering_hero
+  .superhero{:style => "background-image: url('#{@offering.image.thumb('1280x>').url}')"}
+  .hero_name= @offering.actionable_name
 - if !@offering.approved_at
   .second_nav
     .container
@@ -10,6 +13,15 @@
       .col-sm-8
         %h1= @offering.actionable_name
         = sanitize @offering.description
+        - if @offering.public_images.any?
+          %h1 Gallery
+          #lightgallery
+            - @offering.public_images.take(8).each do |image|
+              = link_to image_tag(image.file.thumb('128x100#').url),
+                image.file.thumb('1280x>').url, 'data-src' => image.file.thumb('1280x>').url
+              
+          :coffee
+            $('#lightgallery').lightGallery(thumbnail: true)
       .col-sm-4.booking_col
         .booking_area
           - if @offering.bookable?
@@ -19,7 +31,7 @@
                 .pricing
                   - if @offering.prices.any?
                   - else
-                    New Inquiry
+                    Book #{@offering.actionable_name}
                 .availability
                   .form-group
                     %label Event Date
@@ -58,6 +70,7 @@
                     = link_to "Sign up as #{@offering.actionable_name}", new_user_registration_path(:control_offering_id => @offering.id) 
           .problems
             = link_to t('Report a problem'), page_path('contact')
+
 :coffee
   positionBookingArea = ->
     scrollPosition = $(window).scrollTop()

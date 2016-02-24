@@ -24,4 +24,6 @@
 //= require bootstrap-sprockets
 //= require dropzone
 //= require vue
+//= require lightgallery
+//= require lg-thumbnail
 //= require_tree .
