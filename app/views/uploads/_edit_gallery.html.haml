@@ -11,6 +11,6 @@
           data.append('attachable_type', 'Offering')
           data.append('authenticity_token', $('meta[name="csrf-token"]').attr('content'))
           xhr.onreadystatechange = ->
-            #if xhr.readyState == 4
-              #eval(xhr.responseText) # eval rbjs
-              #ds.removeFile(file)
+            if xhr.readyState == 4
+              eval(xhr.responseText) # eval rbjs
+              ds.removeFile(file)

@@ -1,5 +1,19 @@
 .section.offering_hero
   .superhero{:style => "background-image: url('#{@offering.image.thumb('1280x>').url}')"}
+  - if @offering.iframe_video_url
+    .video_button
+      %i.fa.fa-play-circle-o
+    .video_iframe
+      .box
+        %iframe{"data-src" => @offering.iframe_video_url}
+    
+    :coffee
+      $('.video_button').click ->
+        $('.video_button').hide()
+        $('.video_iframe').show()
+        $('.video_iframe iframe').attr('src', $('.video_iframe iframe').data('src'))
+        $('.hero_name').addClass('small')
+
   .hero_name= @offering.actionable_name
 - if !@offering.approved_at
   .second_nav

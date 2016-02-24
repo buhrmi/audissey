@@ -116,7 +116,7 @@ class OfferingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def offering_params
       params.require(:offering).permit(:retained_image, 
-      :escrow_notes, :category_id, :actionable_name, :managed,
+      :escrow_notes, :category_id, :actionable_name, :managed, :promo_video_url,
       :en_description, :ja_description, :management_name, :retained_management_image, :management_email,
       :prices_attributes => [:id, :_destroy, :take, :give, :currency])
     end

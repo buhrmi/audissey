@@ -105,5 +105,12 @@ class Offering < ActiveRecord::Base
   def public_images
     uploads.images.free
   end
+  
+  def iframe_video_url
+    youtube_id = promo_video_url.match(/v=(.*)/)[1] rescue nil
+    if youtube_id
+      "http://www.youtube.com/embed/#{youtube_id}?autoplay=1&modestbranding=1&showinfo=0"
+    end
+  end
 
 end
