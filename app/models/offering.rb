@@ -73,6 +73,7 @@ class Offering < ActiveRecord::Base
   end
 
   def editable_by?(user)
+    return false unless user
     user&.superpowers? or self.user_id == user&.id
   end
   
@@ -111,6 +112,10 @@ class Offering < ActiveRecord::Base
     if youtube_id
       "http://www.youtube.com/embed/#{youtube_id}?autoplay=1&modestbranding=1&showinfo=0"
     end
+  end
+  
+  def name
+    actionable_name
   end
 
 end

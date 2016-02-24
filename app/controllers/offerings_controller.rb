@@ -37,7 +37,7 @@ class OfferingsController < ApplicationController
   # GET /offerings/1
   # GET /offerings/1.json
   def show
-    cancel and return unless @offering.editable_by?(current_user)
+    @graph_object = @offering
   end
 
   # GET /offerings/new

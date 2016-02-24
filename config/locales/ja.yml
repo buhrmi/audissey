@@ -73,6 +73,12 @@ ja:
         method: 
         method_detail: 
         user_id: 
+      brand:
+        description: 
+        name: 
+        user_id: 
+      price:
+        give: 
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -87,6 +93,8 @@ ja:
       offering: 
       user: 
       payout: 
+      brand: 
+      price: 
   ar: 
   bg: 
   bookings:
@@ -396,6 +404,10 @@ ja:
         method: 
         method_detail: 
         user_id: 
+      brand:
+        description: 
+        name: 
+        user_id: 
     select:
       prompt: 選択してください
     submit:
@@ -543,8 +555,9 @@ ja:
       post_a_dj: 
       post_an_event: 
       post_a_venue: 
-      register_dj: 
-      register_event: 
+      list_a_dj: 
+      list_an_event: 
+      other_services: We also provide specialized services for venues and agencies.
   zh: 
   zh-CN: 
   zh-TW: 
@@ -554,8 +567,21 @@ ja:
     actions:
       create:
         notice: 
+      update:
+        notice: 
   Flexible Pricing: 
   layouts:
     application:
       new_listing: 
+      description: Discover hidden talent on Audissey
+      new_event: 
+      title: Audissey
   Services: 
+  Audissey: 
+  dashboards:
+    show:
+      new_listing: 
+  Delete DJ Yummy: 
+  Delete zxzxczxc: 
+  Disconnect DJ Yummy: 
+  Disconnect zxzxczxc: 

@@ -2,11 +2,17 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %meta{:property=>"og:url", :content=>"http://audissey.fm"}
+    %meta{:property=>"og:url", :content=>"#{request.base_url + request.path}"}
     %meta{:property=>"og:type", :content=>"website"}
-    %meta{:property=>"og:title", :content=>"audissey"}
-    %meta{:property=>"og:description", :content=>"audissey"}
-    %meta{:property=>"og:image", :content=>"http://audissey.fm/logo.png"}
+    - if @graph_object
+      %meta{:property=>"og:title", :content=> @graph_object.name}
+      %meta{:property=>"og:description", :content=> strip_tags(@graph_object.description)}
+      - if @graph_object.image
+        %meta{:property=>"og:image", :content=> @graph_object.image.thumb('480x480#').url}
+    - else
+      %meta{:property=>"og:title", :content=> t('.title')}
+      %meta{:property=>"og:description", :content=> t('.description')}
+      %meta{:property=>"og:image", :content=>"/logo_square.png"}
     %title Audissey.fm
     = stylesheet_link_tag    '//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'
     = javascript_include_tag '//cdn.jsdelivr.net/momentjs/latest/moment.min.js'

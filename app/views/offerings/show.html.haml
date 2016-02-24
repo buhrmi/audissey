@@ -1,5 +1,8 @@
 .section.offering_hero
-  .superhero{:style => "background-image: url('#{@offering.image.thumb('1280x>').url}')"}
+  - if @offering.image
+    .superhero{:style => "background-image: url('#{@offering.image.thumb('1280x>').url}')"}
+  - else
+    .superhero
   - if @offering.iframe_video_url
     .video_button
       %i.fa.fa-play-circle-o
