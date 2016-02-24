@@ -16,6 +16,13 @@ Dragonfly.app.configure do
     access_key_id: ENV['AWS_ACCESS_KEY'],
     secret_access_key: ENV['AWS_SECRET_KEY'],
     region: 'ap-northeast-1' # Tokyo, yay
+    
+  processor :with_logo do |content, *args|
+    content.shell_update do |old_path, new_path|
+      logo_path = Rails.root + 'app/assets/images/logo_square_inverted.png'
+      "composite -gravity southwest -geometry 128x128+2+2 #{logo_path} #{old_path} #{new_path}"
+    end
+  end
 
 end
 

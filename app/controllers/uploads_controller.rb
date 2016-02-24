@@ -77,7 +77,7 @@ class UploadsController < ApplicationController
     else
       if file_param.content_type.include?('image')
         @image = upload.file
-        @retained_image = Dragonfly::Serializer.json_b64_encode(uid: upload.file_uid)
+        @retained_image = Dragonfly::Serializer.json_b64_encode(uid: upload.file_uid, name: upload.file_name)
       end
       respond_to do |format|
         format.html { render action: 'new', layout: false }
