@@ -18,6 +18,8 @@ class Category < ActiveRecord::Base
   find_or_create_by :id => 'venue', :name => 'Venue'
   find_or_create_by :id => 'photographer', :name => 'Photographer'
   find_or_create_by :id => 'catering', :name => 'Catering'
+  find_or_create_by :id => 'consultant', :name => 'Consultant'
+  find_or_create_by :id => 'model', :name => 'Model / Dancer'
 
   has_many :offerings
 

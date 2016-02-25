@@ -28,10 +28,16 @@
   .container
     .row
       .col-sm-8
-        %h1= @offering.actionable_name
-        = sanitize @offering.description
+        .user_info
+          .profile_circle
+            = image_tag @offering.profile_image.thumb('100x100#').url
+          .name= @offering.actionable_name
+          .user by #{link_to @offering.user.display_name, @offering.user}
+        .clearfix
+        .description
+          = sanitize @offering.description
+        
         - if @offering.public_images.any?
-          %h1 Gallery
           #lightgallery
             - @offering.public_images.take(8).each do |image|
               = link_to image_tag(image.file.thumb('128x100#').url),

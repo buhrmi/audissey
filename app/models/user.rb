@@ -42,9 +42,9 @@ class User < ActiveRecord::Base
 
   dragonfly_accessor :image
 
-  has_many :bookings
-  has_many :offerings
-  has_many :uploads
+  has_many :bookings, :dependent => :destroy
+  has_many :offerings, :dependent => :destroy
+  has_many :uploads, :dependent => :destroy
   has_many :purchases
   has_many :beneficiary_purchases, :class_name => 'Purchase', :foreign_key => 'beneficiary_id'
   has_many :payouts

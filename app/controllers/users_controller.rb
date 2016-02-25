@@ -68,6 +68,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params[:user].permit(:retained_image)
+    params[:user].permit(:retained_image, :name, :email)
   end
 end

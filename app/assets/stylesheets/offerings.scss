@@ -56,6 +56,36 @@
 }
 .offering_detail {
   margin-top: 40px;
+  .user_info {
+    background: #F7F7F7;
+    padding: 15px;
+    .profile_circle {
+      float: left;
+      border-radius: 52px;
+      // width: 104px;
+      // height: 104px;
+      position: relative;
+      top: -30px;
+      padding: 2px;
+      box-shadow: 0 0 2px rgba(0,0,0,0.4);
+      img {
+        border-radius: 50px;
+        
+      }
+    }
+    .name {
+      font-size: 30px;
+      margin-left: 120px;
+    }
+    .user {
+      margin-left: 120px;
+    }
+  }
+  .description, #lightgallery {
+    background: #f7f7f7;
+    padding: 15px;
+    margin-bottom: 20px;
+  }
   .booking_col {
     position: relative;
   }

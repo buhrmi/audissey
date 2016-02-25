@@ -57,6 +57,12 @@
           %h3 Account Settings
           = form_for current_user do |f|
             .form-group
+              %label Profile Name
+              = f.text_field :name, :class => 'form-control'
+            .form-group
+              %label Email
+              = f.text_field :email, :class => 'form-control'
+            .form-group
               %label Profile Image
               = f.image_upload_field :image
             .actions

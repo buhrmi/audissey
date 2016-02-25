@@ -20,7 +20,7 @@ Dragonfly.app.configure do
   processor :with_logo do |content, *args|
     content.shell_update do |old_path, new_path|
       logo_path = Rails.root + 'app/assets/images/logo_square_inverted.png'
-      "composite -gravity southwest -geometry 96x96+2+32 #{logo_path} #{old_path} #{new_path}"
+      "composite -gravity southwest -geometry 96x96+2+2 #{logo_path} #{old_path} #{new_path}"
     end
   end
 
