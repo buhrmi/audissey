@@ -22,4 +22,5 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   mount_griddler
 
+  get ':offering_name', :controller => 'offerings', :action => 'show', :as => 'nice_offering'
 end

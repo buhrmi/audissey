@@ -31,7 +31,7 @@
       - @performers.each do |performance|
         .col-sm-6.col-md-4
           .embed-responsive.embed-responsive-4by3.offering_cell
-            = link_to performance do
+            = link_to nice_offering_url(performance.url_fragment) do
               .offering.embed-responsive-item{:style => "background-image: url(#{performance.image&.thumb('400x300#')&.url})"}
                 .gradient
                 .details

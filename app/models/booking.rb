@@ -46,7 +46,7 @@ class Booking < ActiveRecord::Base
   end
 
   def editable_by?(user)
-    self.user_id == user.id || self.offering.user_id == user.id || user.email == self.offering.management_email
+    user && (self.user_id == user.id || self.offering.user_id == user.id || user.email == self.offering.management_email)
   end
   
   def topicable_name

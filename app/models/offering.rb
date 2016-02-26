@@ -60,6 +60,11 @@ class Offering < ActiveRecord::Base
   accepts_nested_attributes_for :prices, :allow_destroy => true
   accepts_translations_for :description
 
+  before_update do
+    self.url_fragment = actionable_name.gsub(/[^0-9A-Za-z]/,'').underscore
+  end
+    
+
   def availability_on(day)
 
   end
@@ -117,5 +122,7 @@ class Offering < ActiveRecord::Base
   def name
     actionable_name
   end
+  
+  
 
 end

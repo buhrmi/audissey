@@ -5,7 +5,6 @@
     bottom: 164px;
     width: 100%;
     text-align: center;
-    
     font-size: 120px;
     i.fa {
       text-shadow: 1px 1px 40px rgba(0, 0, 0, 0.5);
@@ -59,6 +58,7 @@
   .user_info {
     background: #F7F7F7;
     padding: 15px;
+    border: 1px solid #DDD;
     .profile_circle {
       float: left;
       border-radius: 52px;
@@ -82,6 +82,7 @@
     }
   }
   .description, #lightgallery {
+    border: 1px solid #DDD;
     background: #f7f7f7;
     padding: 15px;
     margin-bottom: 20px;
