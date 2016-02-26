@@ -61,7 +61,7 @@ class Offering < ActiveRecord::Base
   accepts_translations_for :description
 
   before_update do
-    self.url_fragment = actionable_name.gsub(/[^0-9A-Za-z]/,'').underscore
+    self.url_fragment = actionable_name.gsub(/[^0-9A-Za-z]/,'').underscore.dasherize
   end
     
 
