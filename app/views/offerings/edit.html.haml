@@ -65,6 +65,11 @@
                 = f.image_upload_field :image
             .row
               .col-xs-3
+                Logo
+              .col-xs-9
+                = f.image_upload_field :logo_image
+            .row
+              .col-xs-3
                 Gallery
               .col-xs-9
                 = render 'uploads/edit_gallery', :attachable => @offering
