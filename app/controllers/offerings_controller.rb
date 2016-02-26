@@ -86,7 +86,7 @@ class OfferingsController < ApplicationController
     end
     respond_to do |format|
       if @offering.update(updates)
-        format.html { redirect_to @offering, notice: @offering.actionable_name + ' was successfully updated.' }
+        format.html { redirect_to nice_offering_url(@offering.url_fragment), notice: @offering.actionable_name + ' was successfully updated.' }
         format.json { render :show, status: :ok, location: @offering }
       else
         format.html { render :edit }
