@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160226071245) do
+ActiveRecord::Schema.define(version: 20160227023732) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 20160226071245) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "image_uid"
+    t.string   "image_name"
   end
 
   create_table "categories", id: false, force: :cascade do |t|
@@ -97,6 +99,25 @@ ActiveRecord::Schema.define(version: 20160226071245) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
+
+  create_table "events", force: :cascade do |t|
+    t.integer  "brand_id"
+    t.integer  "venue_id"
+    t.string   "flyer_image_uid"
+    t.string   "flyer_image_name"
+    t.string   "name"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "events_offerings", force: :cascade do |t|
+    t.integer  "event_id"
+    t.integer  "offering_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "messages", force: :cascade do |t|
     t.integer  "topicable_id"

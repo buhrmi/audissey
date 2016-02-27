@@ -13,6 +13,7 @@ class Brand < ActiveRecord::Base
   include Translatable
   
   belongs_to :user
+  has_many :events
   
   accepts_translations_for :description
 end

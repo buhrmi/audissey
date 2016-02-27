@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Brand:
+  = @event.brand_id
+%p
+  %b Venue:
+  = @event.venue_id
+%p
+  %b Flyer image uid:
+  = @event.flyer_image_uid
+%p
+  %b Flyer image name:
+  = @event.flyer_image_name
+%p
+  %b Name:
+  = @event.name
+%p
+  %b Start at:
+  = @event.start_at
+%p
+  %b End at:
+  = @event.end_at
+
+= link_to 'Edit', edit_event_path(@event)
+\|
+= link_to 'Back', events_path

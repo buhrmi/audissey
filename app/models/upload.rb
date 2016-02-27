@@ -13,6 +13,7 @@
 #  updated_at      :datetime         not null
 #  attachable_id   :integer
 #  attachable_type :string
+#  position        :integer
 #
 
 class Upload < ActiveRecord::Base

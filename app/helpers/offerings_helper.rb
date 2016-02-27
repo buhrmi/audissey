@@ -28,6 +28,9 @@
 #  image_name            :string
 #  management_image_name :string
 #  promo_video_url       :string
+#  url_fragment          :string
+#  logo_image_uid        :string
+#  logo_image_name       :string
 #
 
 module OfferingsHelper
