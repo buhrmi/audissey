@@ -6,26 +6,11 @@
         - @event.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :brand_id
-    = f.number_field :brand_id
-  .field
-    = f.label :venue_id
-    = f.number_field :venue_id
-  .field
-    = f.label :flyer_image_uid
-    = f.text_field :flyer_image_uid
-  .field
-    = f.label :flyer_image_name
-    = f.text_field :flyer_image_name
-  .field
+  .form-group
     = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :start_at
-    = f.datetime_select :start_at
-  .field
-    = f.label :end_at
-    = f.datetime_select :end_at
+    = f.text_field :name, :class => 'form-control'
+  .form-group
+    = f.label :description
+    = f.translated_text_area :description
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', :class => 'btn btn-primary btn-lg'

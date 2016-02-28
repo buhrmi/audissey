@@ -7,6 +7,8 @@
 #  name       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  image_uid  :string
+#  image_name :string
 #
 
 class BrandsController < InheritedResources::Base

@@ -68,4 +68,18 @@
   .container
     %h1= t '.upcoming_tagline'
     %h2= t '.upcoming_tagline2'
-    %p= t 'Nothing here. Check back soon.'
+    .row
+      - @brands.each do |brand|
+        .col-sm-6.col-md-4
+          .embed-responsive.embed-responsive-4by3.offering_cell
+            = link_to nice_brand_url(brand.url_fragment) do
+              .offering.embed-responsive-item{:style => "background-image: url(#{brand.image&.thumb('400x300#')&.url})"}
+                .gradient
+                .details
+                  .pic_circle
+                    - if brand.image
+                      .pic_image{:style => "background-image: url(#{brand.profile_image.thumb('74x74#').url})"}
+                  .name
+                    = brand.name
+    
+    

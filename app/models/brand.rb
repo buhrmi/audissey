@@ -7,6 +7,8 @@
 #  name       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  image_uid  :string
+#  image_name :string
 #
 
 class Brand < ActiveRecord::Base
@@ -15,5 +17,10 @@ class Brand < ActiveRecord::Base
   belongs_to :user
   has_many :events
   
+  dragonfly_accessor :image
   accepts_translations_for :description
+  
+  before_update do
+    self.url_fragment = name.gsub(/[^0-9A-Za-z]/,'').underscore.dasherize
+  end
 end
