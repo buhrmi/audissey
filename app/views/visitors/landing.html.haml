@@ -48,6 +48,7 @@
   .container
     %h1= t '.about_audissey_header'
     = t '.about_audissey_html'
+
 .section.call_to_actions
   .container
     .row
@@ -64,22 +65,26 @@
     .others
       = t('.other_services')
       = link_to t('.find_out_more'), page_path('services')
+.section.statistics
+  .container
+    %h1= t '.statistics'
+    = t '.earnings_till_date'
+    - @totals.each do |currency, amount|
+      .total
+        %strong= nice_price Price.new(:currency => currency, :take => amount)
+    = t '.earnings_till_date2'      
 .section.featured_events
   .container
     %h1= t '.upcoming_tagline'
     %h2= t '.upcoming_tagline2'
     .row
       - @brands.each do |brand|
-        .col-sm-6.col-md-4
-          .embed-responsive.embed-responsive-4by3.offering_cell
-            = link_to nice_brand_url(brand.url_fragment) do
-              .offering.embed-responsive-item{:style => "background-image: url(#{brand.image&.thumb('400x300#')&.url})"}
-                .gradient
-                .details
-                  .pic_circle
-                    - if brand.image
-                      .pic_image{:style => "background-image: url(#{brand.profile_image.thumb('74x74#').url})"}
-                  .name
-                    = brand.name
+        .col-xs-12
+          = link_to nice_brand_url(brand.url_fragment) do
+            .event_brand{:style => "background-image: url(#{brand.image&.thumb('600x250#')&.url})"}
+              .gradient
+              .details
+                .name
+                  = brand.name
     
     

@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   mount_griddler
 
   # SEO stuff
-  get 'events/:url_fragment', :controller => 'brands', :action => 'show', :as => 'nice_brand'
+  get 'event/:url_fragment', :controller => 'brands', :action => 'show', :as => 'nice_brand'
   get ':offering_name', :controller => 'offerings', :action => 'show', :as => 'nice_offering'
   
 end

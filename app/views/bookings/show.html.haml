@@ -73,7 +73,7 @@
                     - else
                       %i.fa.fa-hourglass-half
                       Waiting for confirmation from #{@booking.offering.actionable_name}.
-                      = link_to 'Cancel', booking_path(@booking), :method => 'delete', :class => 'btn btn-primary'
+                      -# = link_to 'Cancel', booking_path(@booking), :method => 'delete', :class => 'btn btn-primary'
                   - if @booking.offering.user_id == current_user.id
                     - if @booking.offerer_confirmed_at
                       %i.fa.fa-hourglass-half
@@ -81,7 +81,7 @@
                     - else
                       Please confirm availability in order to receive payment.
                       = link_to 'Confirm', booking_path(@booking, :confirm => true), :method => 'PUT', :class => 'btn btn-primary'
-                      = link_to 'Decline', booking_path(@booking), :method => 'delete', :class => 'btn btn-primary'
+                      -# = link_to 'Decline', booking_path(@booking), :method => 'delete', :class => 'btn btn-primary'
         .messages_area
           .old_messages
             = render @booking.messages

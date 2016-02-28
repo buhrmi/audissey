@@ -58,6 +58,22 @@
   font-size: 22px;
   text-shadow: 0 0 8px rgba(0,0,0,0.8);
 }
+.section.statistics {
+  text-align: center;
+  position: relative;
+  background-color: #005AAB;
+  background-position: center;
+  background-size: cover;
+  padding: 60px 0;
+  padding-top: 40px;
+  
+  font-size: 22px;
+  // text-shadow: 0 0 8px rgba(0,0,0,0.8);
+  .total {
+    font-size: 30px;
+  }
+}
+
 .section.call_to_actions {
   // @include column_heights();
   text-align: center;
@@ -163,6 +179,10 @@
   padding-top: 50px;
   text-align: center;
   padding-bottom: 50px;
+  .event_brand {
+    position: relative;
+    height: 200px;
+  }
 }
 
 .section.initial_signup {
@@ -174,7 +194,7 @@
     font-size: 30px;
   }
   .name {
-
+    
   }
   .offering {
     padding-bottom: 16px;

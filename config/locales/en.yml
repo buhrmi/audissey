@@ -543,8 +543,8 @@ en:
       featured_tagline2: Artists available in Tokyo
       tagline: BOOKING MADE EASY
       tagline2: Discover hidden talent
-      upcoming_tagline: UPCOMING IN TOKYO
-      upcoming_tagline2: Events powered by audissey.fm
+      upcoming_tagline: COMING SOON
+      upcoming_tagline2: Events on Audissey
       about_audissey_header: About Audissey
       about_audissey_html: |-
         <p>Life is about the experience. About the people you meet, the sights you see, the music you hear, the places you go.</p>
@@ -566,6 +566,9 @@ en:
       list_a_dj: 
       list_an_event: 
       other_services: We also provide specialized services for venues and agencies.
+      earnings_till_date: Audissey members have earned a total of
+      earnings_till_date2: to date!
+      statistics: 
   zh: 
   zh-CN: 
   zh-TW: 
@@ -598,3 +601,5 @@ en:
   Delete imagename: 
   Disconnect imagename: 
   GitHub: 
+  Delete Far Too Loud 2: 
+  Disconnect Far Too Loud 2: 

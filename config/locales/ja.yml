@@ -535,8 +535,8 @@ ja:
       featured_tagline2: Artists available in Tokyo
       tagline: ブッキングは簡単に
       tagline2: 隠れた才能を発掘
-      upcoming_tagline: UPCOMING IN TOKYO
-      upcoming_tagline2: Events powered by audissey.fm
+      upcoming_tagline: COMING SOON
+      upcoming_tagline2: Events on Audissey
       about_audissey_header: Audisseyとは？
       about_audissey_html: |-
         <p>人生とは、経験すること。出会うひとであったり、視野に入るもの、鑑賞する音楽や、足を運んだ場所。</p>
@@ -558,6 +558,9 @@ ja:
       list_a_dj: 
       list_an_event: 
       other_services: We also provide specialized services for venues and agencies.
+      earnings_till_date: Audissey members have earned a total of
+      earnings_till_date2: to date!
+      statistics: 
   zh: 
   zh-CN: 
   zh-TW: 
@@ -590,3 +593,5 @@ ja:
   Delete imagename: 
   Disconnect imagename: 
   GitHub: 
+  Delete Far Too Loud 2: 
+  Disconnect Far Too Loud 2: 
