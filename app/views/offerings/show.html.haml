@@ -21,7 +21,7 @@
 - if !@offering.approved_at
   .second_nav
     .container
-      NOTE: This listing/offering is not approved and won't be published in search results.
+      NOTE: This listing is not approved and won't be published in search results.
       - if current_user&.superpowers?
         = link_to 'Approve now', params.merge('offering[approve]' => true), :method => 'put', :class => 'btn btn-primary'
 .section.offering_detail
@@ -54,11 +54,8 @@
                 .pricing
                   - if @offering.prices.any?
                   - else
-                    Book #{@offering.actionable_name}
+                    Offer a Gig
                 .availability
-                  .form-group
-                    %label Event Date
-                    %input.datepicker.form-control{:value => 4.weeks.from_now.strftime("%Y-%m-%d"), :name => 'booking[start_at]'}
                   .form-group
                     %label Proposed Fee
 
@@ -74,7 +71,16 @@
                           - Price::CURRENCIES.keys.each do |currency|
                             %li
                               %a{:href => '#', 'v-on:click.prevent' => "$set('currency', '#{currency}')"}= currency
-
+                  .more_information
+                    %i.fa.fa-caret-right.less_fields
+                    %i.fa.fa-caret-down.more_fields
+                    More Info
+                  .more_fields
+                    .form-group
+                      %label Event Date
+                      %input.datepicker.form-control{:value => 4.weeks.from_now.strftime("%Y-%m-%d"), :name => 'booking[start_at]'}
+                  :coffee
+                    $('.more_information').click -> $('.more_fields, .less_fields').toggle()
                 .action
                   %button.btn.btn-primary.btn-lg= t("Request Booking")
           - else
