@@ -35,7 +35,7 @@ class Booking < ActiveRecord::Base
   end
   
   after_update do
-    if confirmed && !confirmed_was
+    if offerer_confirmed_at && !offerer_confirmed_at_was
       UserNotifier.booking_confirmed(self).deliver_later
       Message.create(:topicable => self, :text => 'Booking has been confirmed. Awaiting payment.')
     end
