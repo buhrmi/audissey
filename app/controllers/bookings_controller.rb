@@ -51,7 +51,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user_id = current_user.id
     @booking.buyer_confirmed_at = Time.now
-    cancel "You can't book yourself" and return if @booking.offering.user_id == current_user.id && Rails.env.production?
+    cancel "You can't book yourself" and return if @booking.offering.user_id == current_user.id && !current_user.superpowers?
     return false unless @booking.editable_by?(current_user)
     respond_to do |format|
       if @booking.save

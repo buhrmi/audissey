@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160227113145) do
+ActiveRecord::Schema.define(version: 20160229080315) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -158,6 +158,10 @@ ActiveRecord::Schema.define(version: 20160227113145) do
     t.string   "url_fragment"
     t.string   "logo_image_uid"
     t.string   "logo_image_name"
+    t.string   "soundcloud_url"
+    t.string   "mixcloud_url"
+    t.string   "facebook_url"
+    t.string   "twitter_id"
   end
 
   add_index "offerings", ["deleted_at"], name: "index_offerings_on_deleted_at"
