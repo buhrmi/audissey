@@ -52,12 +52,16 @@
               = f.hidden_field :offering_id
               .booking_box
                 .pricing
-                  - if @offering.prices.any?
+                  - if @offering.availability == 'instant'
+                    Book now
                   - else
                     Offer a Gig
                 .availability
                   .form-group
-                    %label Proposed Fee
+                    - if @offering.availability == 'instant'
+                      %label Payment
+                    - else
+                      %label Proposed Fee
 
                     .input-group
                       %input(type="hidden" name="booking[price_attributes][currency]" v-model="currency")
@@ -82,7 +86,11 @@
                   :coffee
                     $('.more_information').click -> $('.more_fields, .less_fields').toggle()
                 .action
-                  %button.btn.btn-primary.btn-lg= t("Request Booking")
+                  - if @offering.availability == 'instant'
+                    = javascript_include_tag 'https://checkout.stripe.com/checkout.js'
+                    .btn.btn-primary.btn-lg.instant_book= t("Book now")
+                  - else
+                    %button.btn.btn-primary.btn-lg= t("Request Booking")
           - else
             .booking_box
               .pricing No contact
@@ -99,10 +107,44 @@
                     = link_to "Sign up as #{@offering.actionable_name}", new_user_registration_path(:control_offering_id => @offering.id) 
           .problems
             = link_to t('Report a problem'), page_path('contact')
+            
+- if @offering.availability == 'instant'
+  = form_tag Purchase.new, :id => 'instant_book_form' do |f|
+    = hidden_field_tag :offering_id, @offering.id
+    = hidden_field_tag :gateway, 'stripe'
+    = hidden_field_tag :amount, ''
+    = hidden_field_tag :currency, ''
+    = hidden_field_tag :date, ''
+    = hidden_field_tag :email
+    = hidden_field_tag :stripeToken
+  :coffee
+    delay 2000, ->
+      handler = StripeCheckout.configure
+        key: #{ENV['STRIPE_PUBLIC_KEY'].to_json}
+        image: #{asset_path('logo_square.png').to_json}
+        name: #{@offering.actionable_name.to_json}
+        description: 'Booking via audissey.fm'
+        'allow-remember-me': false
+        locale: #{I18n.locale.to_json}
+        email: #{(current_user ? current_user.email : nil).to_json}
+        token: (token) ->
+          console.log token
+          $('#instant_book_form [name=amount]').val booking_vue.$get('amount')
+          $('#instant_book_form [name=currency]').val booking_vue.$get('currency')
+          $('#instant_book_form [name=date]').val booking_vue.$get('date')
+          $('#instant_book_form [name=stripeToken]').val token.id
+          $('#instant_book_form [name=email]').val token.email
+          $('#instant_book_form').submit()
+      $('.instant_book').click (e) ->
+        handler.open
+          amount: booking_vue.$get('amount')
+          currency: booking_vue.$get('currency')
+        e.preventDefault()
 :coffee
 
+
   currencies = #{Price::CURRENCIES.to_json}
-  new Vue
+  window.booking_vue = new Vue
     el: '.booking_area'
     data:
       location: '#{params[:location]}' || 'Tokyo'

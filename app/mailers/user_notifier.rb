@@ -61,8 +61,8 @@ class UserNotifier < ApplicationMailer
     encrypted = crypt.encrypt_and_sign(embed_data.to_json)
     reply_to = "reply+#{encrypted}@relay.audissey.fm"
     mail :to => to_user.email,
-      :from => "#{message.sender.display_name} | Audissey <team@audissey.fm>",
-      :subject => "New Message: #{message.topicable.topicable_name}",
+      :from => "#{message.sender.display_name} on Audissey <team@audissey.fm>",
+      :subject => "#{message.topicable.topicable_name}",
       :reply_to => "#{message.sender.display_name} <#{reply_to}>"
   end
 end
