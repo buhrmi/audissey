@@ -12,7 +12,8 @@
               %li= msg
 
       .form-group
-        %h3 Type of Service
+        %h3 Category
+        %p Where do you want your listing to appear?
         .btn-group
           - Category.with_icon.each do |category|
             .btn.btn-default.btn-large.category(v-bind:class="{'active': category_id=='#{category.id}'}"
@@ -22,7 +23,8 @@
 
         = f.hidden_field :category_id, :'v-model' => :category_id
       .form-group
-        %h3 Listing Name
+        %h3 Name
+        %p What do you want your listing to be known as?
 
         = f.text_field :actionable_name, :class => 'form-control', 'v-model' => :actionable_name, 'v-bind:placeholder' => 'placeholder'
       -# .form-group

@@ -23,7 +23,7 @@
     .container
       NOTE: This listing is not approved and won't be published in search results.
       - if current_user&.superpowers?
-        = link_to 'Approve now', params.merge('offering[approve]' => true), :method => 'put', :class => 'btn btn-primary'
+        = link_to 'Approve now', 'offering[approve]' => true, :method => 'put', :class => 'btn btn-primary'
 .section.offering_detail
   .container
     .row
@@ -88,9 +88,15 @@
                 .action
                   - if @offering.availability == 'instant'
                     = javascript_include_tag 'https://checkout.stripe.com/checkout.js'
-                    .btn.btn-primary.btn-lg.instant_book= t("Book now")
+                    - if @offering.category_id == 'rental'
+                      .btn.btn-primary.btn-lg.instant_book= t("Rent now")
+                    - else
+                      .btn.btn-primary.btn-lg.instant_book= t("Book now")
                   - else
-                    %button.btn.btn-primary.btn-lg= t("Request Booking")
+                    - if @offering.category_id == 'rental'
+                      %button.btn.btn-primary.btn-lg= t("Request Rental")
+                    - else
+                      %button.btn.btn-primary.btn-lg= t("Request Booking")
           - else
             .booking_box
               .pricing No contact

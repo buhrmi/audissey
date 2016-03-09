@@ -33,6 +33,22 @@
   content: "\f0f5";
   font-family: FontAwesome;
 }
+.category-icon.lighting:before {
+  content: "\f008";
+  font-family: FontAwesome;
+}
+.category-icon.model:before {
+  content: "\f004";
+  font-family: FontAwesome;
+}
+.category-icon.rental:before {
+  content: "\f07a";
+  font-family: FontAwesome;
+}
+.category-icon.other:before {
+  content: "\f118";
+  font-family: FontAwesome;
+}
 .offering, 
 .visitors.landing .event_brand {
   background-color: #DDD;
