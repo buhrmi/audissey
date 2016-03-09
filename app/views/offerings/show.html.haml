@@ -53,15 +53,19 @@
               .booking_box
                 .pricing
                   - if @offering.availability == 'instant'
-                    Book now
+                    - if @offering.category_id == 'rental'
+                      Rent now
+                    - else
+                      Book now
                   - else
-                    Offer a Gig
+                    - if @offering.category_id == 'rental'
+                      Rent
+                    - else
+                      Offer a Gig
                 .availability
                   .form-group
-                    - if @offering.availability == 'instant'
-                      %label Payment
-                    - else
-                      %label Proposed Fee
+                    %label Proposed Fee
+                    
 
                     .input-group
                       %input(type="hidden" name="booking[price_attributes][currency]" v-model="currency")
