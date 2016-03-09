@@ -23,7 +23,7 @@
     .container
       NOTE: This listing is not approved and won't be published in search results.
       - if current_user&.superpowers?
-        = link_to 'Approve now', 'offering[approve]' => true, :method => 'put', :class => 'btn btn-primary'
+        = link_to 'Approve now', {'offering[approve]' => true}, :method => 'put', :class => 'btn btn-primary'
 .section.offering_detail
   .container
     .row
