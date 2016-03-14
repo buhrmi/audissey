@@ -30,7 +30,8 @@
       .col-sm-8
         .user_info
           .profile_circle
-            = image_tag @offering.profile_image.thumb('100x100#').url
+            - if @offering.profile_image
+              = image_tag @offering.profile_image.thumb('100x100#').url
           .name= @offering.actionable_name
           .user by #{link_to @offering.user.display_name, @offering.user}
         .clearfix
