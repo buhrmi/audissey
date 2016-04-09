@@ -40,6 +40,18 @@
         .payout
         = link_to 'Request Payout', new_payout_path, :class => 'btn btn-primary'
         
+        - if current_user.unvalued_purchases.any?
+          %h3 Earnings available soon
+          %p These funds are currently in escrow.
+          - current_user.unvalued_purchases.each do |purchase|
+            .purchase
+              #{purchase.created_at.to_s(:short)}: #{nice_price(purchase.price_json)}
+              |
+              = link_to purchase.buyable do
+                #{purchase.buyable}
+              |
+              Available for payout at: #{purchase.value_date.to_s(:short)}
+        
         %h3 Payouts
         - current_user.payouts.each do |payout|
           = payout.amounts
@@ -50,7 +62,8 @@
             Pending
         - if current_user.payouts.empty?
           No payouts to date
-      
+        
+        %hr  
         = link_to 'Delete Account', current_user, :method => 'delete', 'data-confirm' => 'Are you sure?'
       - if params[:action] == 'profile'
         .settings

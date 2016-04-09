@@ -71,8 +71,12 @@ class User < ActiveRecord::Base
     if last_payout
       self.beneficiary_purchases.where(['value_date > ? AND value_date < ?', last_payout.created_at, at])
     else
-      self.beneficiary_purchases.where(['value_date < ?', at])
+      self.beneficiary_purchases.where(['value_date <= ?', at])
     end
+  end
+  
+  def unvalued_purchases(at = Time.current)
+    self.beneficiary_purchases.where(['value_date > ?', at])
   end
 
   def earnings_since_last_payout(at = Time.current)
