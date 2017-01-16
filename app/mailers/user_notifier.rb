@@ -46,7 +46,7 @@ class UserNotifier < ApplicationMailer
   def admin_new_listing(offering)  
     @offering = offering
     return unless Rails.env.production?
-    mail :to => 'gee.daigo@ringmasters.cc', :subject => "Please approve: #{offering.actionable_name}"
+    mail :to => 'XXXX@ringmasters.cc', :subject => "Please approve: #{offering.actionable_name}"
   end
   
   def message_received(message, to_user)
