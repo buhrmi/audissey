@@ -11,8 +11,8 @@
       - if @graph_object.image
         %meta{:property=>"og:image", :content=> (request.base_url + @graph_object.image.thumb('470x275#').with_logo.url)}
     - else
-      %meta{:property=>"og:title", :content=> 'IN THE NAME OF GOOD VIBES'}
-      %meta{:property=>"og:description", :content=> "We're about to disrupt all your shit."}
+      %meta{:property=>"og:title", :content=> 'Audissey | The disruptive collective'}
+      %meta{:property=>"og:description", :content=> "In the name of good vibes, we're about to disrupt all your shit."}
       %meta{:property=>"og:image", :content=> request.base_url+asset_path("festival-og.jpg")}
     %title Audissey.fm
     = stylesheet_link_tag    '//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'
