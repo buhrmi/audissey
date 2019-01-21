@@ -64,7 +64,7 @@ class Offering < ActiveRecord::Base
   accepts_nested_attributes_for :prices, :allow_destroy => true
   accepts_translations_for :description
 
-  before_update do
+  before_save do
     self.url_fragment = name.gsub(/[^0-9A-Za-z]/,'').underscore.dasherize
   end
     
