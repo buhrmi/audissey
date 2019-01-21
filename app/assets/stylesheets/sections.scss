@@ -97,9 +97,9 @@
   text-align: center;
   position: relative;
   height: 600px;
-  background-image: url(http://blog.iavm.org/wp-content/uploads/2014/10/3DM-Music-Festival.jpg);
-  background-position: top;
-  background-size: 150%;
+  background-image: url(asset-path('festival.jpg'));
+  background-position: center;
+  background-size: cover;
   color: white;
   margin-top: -52px; //-20px;
   // padding-top: 125px; //30px;
