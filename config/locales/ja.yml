@@ -34,7 +34,7 @@ ja:
         id: 
         messages: 
         note: 
-        offerer_confirmed_at: 
+        artist_confirmed_at: 
         offering: 
         price: 
         purchase: 
@@ -42,7 +42,7 @@ ja:
         updated_at: 
         user: 
       offering:
-        actionable_name: 
+        name: 
         approved_at: 
         approved_by: 
         approved_by_id: 
@@ -52,7 +52,7 @@ ja:
         created_at: 
         description: 
         duration: 
-        escrow_notes: 
+        contact_details: 
         hero_image_uid: 
         id: 
         image_uid: 
@@ -277,12 +277,12 @@ ja:
           body: 
       offering:
         edit:
-          actionable_name: 
+          name: 
           approved_at: 
           approved_by: 
           description: 
           duration: 
-          escrow_notes: 
+          contact_details: 
           hero_image_uid: 
           image_uid: 
           published_at: 
@@ -290,19 +290,19 @@ ja:
     labels:
       offering:
         edit:
-          actionable_name: 
+          name: 
           approved_at: 
           approved_by: 
           description: 
           duration: 
-          escrow_notes: 
+          contact_details: 
           hero_image_uid: 
           image_uid: 
           published_at: 
           user: 
       q:
         index:
-          actionable_name: 
+          name: 
           approved_at: 
           approved_by: 
           availability_rules: 
@@ -312,12 +312,12 @@ ja:
           description: 
           duration: 
           end_at: 
-          escrow_notes: 
+          contact_details: 
           hero_image_uid: 
           image_uid: 
           messages: 
           note: 
-          offerer_confirmed_at: 
+          artist_confirmed_at: 
           offering: 
           price: 
           prices: 
@@ -334,18 +334,18 @@ ja:
           body: 
       offering:
         edit:
-          actionable_name: 
+          name: 
           description: 
           duration: 
-          escrow_notes: 
+          contact_details: 
           hero_image_uid: 
           image_uid: 
       q:
         index:
-          actionable_name: 
+          name: 
           description: 
           duration: 
-          escrow_notes: 
+          contact_details: 
           hero_image_uid: 
           image_uid: 
           note: 
@@ -356,19 +356,19 @@ ja:
     label:
       offering:
         edit:
-          actionable_name: 
+          name: 
           approved_at: 
           approved_by: 
           description: 
           duration: 
-          escrow_notes: 
+          contact_details: 
           hero_image_uid: 
           image_uid: 
           published_at: 
           user: 
       q:
         index:
-          actionable_name: 
+          name: 
           approved_at: 
           approved_by: 
           availability_rules: 
@@ -378,12 +378,12 @@ ja:
           description: 
           duration: 
           end_at: 
-          escrow_notes: 
+          contact_details: 
           hero_image_uid: 
           image_uid: 
           messages: 
           note: 
-          offerer_confirmed_at: 
+          artist_confirmed_at: 
           offering: 
           price: 
           prices: 
@@ -476,7 +476,7 @@ ja:
     destroy:
       in_use: 
     edit:
-      escrow: This information is kept confidential and will be made available to the buyer after payment has been confirmed. Please include contact details such as phone numbers, email addresses, etc.
+      contact: This information is kept confidential and will be made available to the buyer after payment has been confirmed. Please provide your such as phone numbers, email addresses, etc.
   pages:
     contact:
       address: |-

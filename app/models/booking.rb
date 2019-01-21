@@ -7,7 +7,7 @@
 #  user_id              :integer
 #  start_at             :datetime
 #  end_at               :datetime
-#  offerer_confirmed_at :datetime
+#  artist_confirmed_at :datetime
 #  buyer_confirmed_at   :datetime
 #  note                 :string
 #  created_at           :datetime         not null
@@ -35,7 +35,7 @@ class Booking < ActiveRecord::Base
   end
   
   after_update do
-    if offerer_confirmed_at && !offerer_confirmed_at_was
+    if artist_confirmed_at && !artist_confirmed_at_was
       UserNotifier.booking_confirmed(self).deliver_later
       Message.create(:topicable => self, :text => 'Booking has been confirmed. Awaiting payment.')
     end
@@ -50,10 +50,10 @@ class Booking < ActiveRecord::Base
   end
   
   def topicable_name
-    offering.actionable_name
+    offering.name
   end
   
   def to_s
-    offering.actionable_name + ' booked by ' + user.display_name
+    offering.name + ' booked by ' + user.display_name
   end
 end

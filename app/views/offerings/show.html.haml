@@ -17,7 +17,7 @@
         $('.video_iframe iframe').attr('src', $('.video_iframe iframe').data('src'))
         $('.hero_name').addClass('small')
 
-  .hero_name= @offering.actionable_name
+  .hero_name= @offering.name
 - if !@offering.approved_at
   .second_nav
     .container
@@ -32,8 +32,7 @@
           .profile_circle
             - if @offering.profile_image
               = image_tag @offering.profile_image.thumb('100x100#').url
-          .name= @offering.actionable_name
-          .user by #{link_to @offering.user.display_name, @offering.user}
+          .name= @offering.name
         .clearfix
         .description
           = sanitize @offering.description
@@ -53,21 +52,14 @@
               = f.hidden_field :offering_id
               .booking_box
                 .pricing
-                  - if @offering.availability == 'instant'
-                    - if @offering.category_id == 'rental'
-                      Rent now
-                    - else
-                      Book now
+                  - if @offering.category_id == 'rental'
+                    Rent now
                   - else
-                    - if @offering.category_id == 'rental'
-                      Rent
-                    - else
-                      Offer a Gig
+                    Book now
+                
                 .availability
                   .form-group
-                    %label Proposed Fee
-                    
-
+                    %label Offer
                     .input-group
                       %input(type="hidden" name="booking[price_attributes][currency]" v-model="currency")
                       .input-group-addon {{symbolForCurrency()}}
@@ -80,14 +72,10 @@
                           - Price::CURRENCIES.keys.each do |currency|
                             %li
                               %a{:href => '#', 'v-on:click.prevent' => "$set('currency', '#{currency}')"}= currency
-                  .more_information
-                    %i.fa.fa-caret-right.less_fields
-                    %i.fa.fa-caret-down.more_fields
-                    More Info
-                  .more_fields
-                    .form-group
-                      %label Event Date
-                      %input.datepicker.form-control{:value => 4.weeks.from_now.strftime("%Y-%m-%d"), :name => 'booking[start_at]'}
+                  
+                  .form-group
+                    %label Event Date
+                    %input.datepicker.form-control{:value => 4.weeks.from_now.strftime("%Y-%m-%d"), :name => 'booking[start_at]'}
                   :coffee
                     $('.more_information').click -> $('.more_fields, .less_fields').toggle()
                 .action
@@ -99,10 +87,9 @@
                       .btn.btn-primary.btn-lg.instant_book= t("Book now")
                   - else
                     - if @offering.category_id == 'rental'
-                      %button.btn.btn-primary.btn-lg= t("Request Rental")
+                      %button.btn.btn-primary.btn-lg= t("Rent now")
                     - else
-                      %button.btn.btn-primary.btn-lg= t("Request Booking")
-                    .info You will get a response from us or the offerer within 24 hours.
+                      %button.btn.btn-primary.btn-lg= t("Book now")
           - else
             .booking_box
               .pricing No contact
@@ -111,12 +98,12 @@
                   This artist has no contact information and can not
                   be booked.
                 %p
-                  Are you #{@offering.actionable_name}? Please consider joining
+                  Are you #{@offering.name}? Please consider joining
                   our platform to receive booking requests through Audissey.
                   - if current_user
-                    = link_to "Manage #{@offering.actionable_name}", edit_offering_path(@offering, :control_offering_id => @offering.id) 
+                    = link_to "Manage #{@offering.name}", edit_offering_path(@offering, :control_offering_id => @offering.id) 
                   - else
-                    = link_to "Sign up as #{@offering.actionable_name}", new_user_registration_path(:control_offering_id => @offering.id) 
+                    = link_to "Sign up as #{@offering.name}", new_user_registration_path(:control_offering_id => @offering.id) 
           .problems
             = link_to t('Report a problem'), page_path('contact')
             
@@ -134,7 +121,7 @@
       handler = StripeCheckout.configure
         key: #{ENV['STRIPE_PUBLIC_KEY'].to_json}
         image: #{asset_path('logo_square.png').to_json}
-        name: #{@offering.actionable_name.to_json}
+        name: #{@offering.name.to_json}
         description: 'Booking via audissey.fm'
         'allow-remember-me': false
         locale: #{I18n.locale.to_json}

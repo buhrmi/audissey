@@ -3,7 +3,7 @@
 # Table name: offerings
 #
 #  id                    :integer          not null, primary key
-#  actionable_name       :string
+#  name       :string
 #  description           :text
 #  user_id               :integer
 #  image_uid             :string
@@ -15,7 +15,7 @@
 #  approved_at           :datetime
 #  approved_by_id        :integer
 #  hero_image_uid        :string
-#  escrow_notes          :text
+#  contact_details          :text
 #  commission_percent    :integer          default(15)
 #  address               :string
 #  latitude              :float
@@ -58,6 +58,7 @@ class OfferingsController < ApplicationController
   def create
     @offering = Offering.new(offering_params)
     @offering.user_id = current_user.id
+    @offering.approved_at = Time.now
         
     respond_to do |format|
       if @offering.save
@@ -89,7 +90,7 @@ class OfferingsController < ApplicationController
     end
     respond_to do |format|
       if @offering.update(updates)
-        format.html { redirect_to nice_offering_url(@offering.url_fragment), notice: @offering.actionable_name + ' was successfully updated.' }
+        format.html { redirect_to nice_offering_url(@offering.url_fragment), notice: @offering.name + ' was successfully updated.' }
         format.json { render :show, status: :ok, location: @offering }
       else
         format.html { render :edit }
@@ -123,7 +124,7 @@ class OfferingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def offering_params
       params.require(:offering).permit(:retained_image, :availability,
-      :escrow_notes, :category_id, :actionable_name, :managed, :promo_video_url,
+      :contact_details, :category_id, :name, :managed, :promo_video_url,
       :en_description, :ja_description, :management_name, :retained_management_image, :management_email,
       :prices_attributes => [:id, :_destroy, :take, :give, :currency])
     end

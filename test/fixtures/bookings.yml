@@ -7,7 +7,7 @@
 #  user_id              :integer
 #  start_at             :datetime
 #  end_at               :datetime
-#  offerer_confirmed_at :datetime
+#  artist_confirmed_at :datetime
 #  buyer_confirmed_at   :datetime
 #  note                 :string
 #  created_at           :datetime         not null
@@ -24,7 +24,7 @@ one:
   user_id: 1
   start_at: 2016-01-13 11:40:27
   end_at: 2016-01-13 11:40:27
-  offerer_confirmed_at: 2016-01-13 11:40:27
+  artist_confirmed_at: 2016-01-13 11:40:27
   buyer_confirmed_at: 2016-01-13 11:40:27
   note: MyString
 
@@ -33,6 +33,6 @@ two:
   user_id: 1
   start_at: 2016-01-13 11:40:27
   end_at: 2016-01-13 11:40:27
-  offerer_confirmed_at: 2016-01-13 11:40:27
+  artist_confirmed_at: 2016-01-13 11:40:27
   buyer_confirmed_at: 2016-01-13 11:40:27
   note: MyString

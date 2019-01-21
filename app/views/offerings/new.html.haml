@@ -12,21 +12,21 @@
               %li= msg
 
       .form-group
-        %h3 Category
-        %p Where do you want your listing to appear?
-        .btn-group
-          - Category.with_icon.each do |category|
-            .btn.btn-default.btn-large.category(v-bind:class="{'active': category_id=='#{category.id}'}"
-              v-on:click="$set('category_id','#{category.id}')")
-              .category-icon{:class => category.id}
-              = category.name
+        -# %h3 Category
+        -# %p Where do you want your listing to appear?
+        -# .btn-group
+        -#   - Category.with_icon.each do |category|
+        -#     .btn.btn-default.btn-large.category(v-bind:class="{'active': category_id=='#{category.id}'}"
+        -#       v-on:click="$set('category_id','#{category.id}')")
+        -#       .category-icon{:class => category.id}
+        -#       = category.name
+        = f.hidden_field :category_id, :value => 'dj' #:'v-model' => :category_id
 
-        = f.hidden_field :category_id, :'v-model' => :category_id
       .form-group
         %h3 Name
         %p What do you want your listing to be known as?
 
-        = f.text_field :actionable_name, :class => 'form-control', 'v-model' => :actionable_name, 'v-bind:placeholder' => 'placeholder'
+        = f.text_field :name, :class => 'form-control', 'v-model' => :name, 'v-bind:placeholder' => 'placeholder'
       -# .form-group
       -#   %label Description
       -#   = f.text_area :description, :class => 'redactor'
@@ -42,7 +42,7 @@
       -#   %label Promotions
       -#   Coming soon.
       .actions
-        = f.submit 'Save & Continue', :class => 'btn btn-primary btn-lg', :'v-bind:disabled' => '!actionable_name || !category_id'
+        = f.submit 'Save & Continue', :class => 'btn btn-primary btn-lg', :'v-bind:disabled' => '!name || !category_id'
         .note 
           By clicking this button, you agree with our #{link_to "Terms & Conditions", page_path('terms'), :target => '_blank'}.
 

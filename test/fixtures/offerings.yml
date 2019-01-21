@@ -3,7 +3,7 @@
 # Table name: offerings
 #
 #  id                    :integer          not null, primary key
-#  actionable_name       :string
+#  name       :string
 #  description           :text
 #  user_id               :integer
 #  image_uid             :string
@@ -15,7 +15,7 @@
 #  approved_at           :datetime
 #  approved_by_id        :integer
 #  hero_image_uid        :string
-#  escrow_notes          :text
+#  contact_details          :text
 #  commission_percent    :integer          default(15)
 #  address               :string
 #  latitude              :float
@@ -36,14 +36,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  actionable_name: MyString
+  name: MyString
   description: MyText
   price_yen: 1
   user_id: 1
   image_uid: MyString
 
 two:
-  actionable_name: MyString
+  name: MyString
   description: MyText
   price_yen: 1
   user_id: 1

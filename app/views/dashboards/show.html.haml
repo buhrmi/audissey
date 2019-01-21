@@ -14,7 +14,7 @@
           .offerings
             %h3 Your Listings:
             - current_user.offerings.each do |offering|
-              = link_to offering.actionable_name, offering
+              = link_to offering.name, offering
               = link_to edit_offering_path(offering) do
                 %i.fa.fa-edit
             = link_to t('.new_listing'), new_offering_path, :class => 'btn btn-lg btn-primary'
@@ -26,7 +26,7 @@
           Nothing yet
         - @all_bookings.each do |booking|
           .booking
-            = link_to booking.offering.actionable_name, booking
+            = link_to booking.offering.name, booking
 
       - if params[:action] == 'account'
         %h3 Earnings since last Payout
@@ -41,8 +41,7 @@
         = link_to 'Request Payout', new_payout_path, :class => 'btn btn-primary'
         
         - if current_user.unvalued_purchases.any?
-          %h3 Earnings available soon
-          %p These funds are currently in escrow.
+          %h3 Available soon for payout
           - current_user.unvalued_purchases.each do |purchase|
             .purchase
               #{purchase.created_at.to_s(:short)}: #{nice_price(purchase.price_json)}

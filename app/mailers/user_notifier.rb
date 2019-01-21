@@ -5,35 +5,35 @@ class UserNotifier < ApplicationMailer
     @booking = booking
     @offering = booking.offering
     @user = booking.offering.user
-    mail :to => @user.email, :subject => "Booking Request for #{@offering.actionable_name}"
+    mail :to => @user.email, :subject => "Booking Request for #{@offering.name}"
   end
   
   def booking_inquiry_for_management(booking)
     @booking = booking
     @offering = booking.offering
     @user = @offering.management_user
-    mail :to => @user.email, :subject => "Booking Request for #{@offering.actionable_name}"
+    mail :to => @user.email, :subject => "Booking Request for #{@offering.name}"
   end
 
   def booking_confirmed(booking)
     @booking = booking
     @offering = booking.offering
     @user = booking.user
-    mail :to => @user.email, :subject => "#{@offering.actionable_name} confirmed your booking!"
+    mail :to => @user.email, :subject => "#{@offering.name} confirmed your booking!"
   end
 
   def booking_payment_received(booking)
     @booking = booking
     @offering = booking.offering
     @user = booking.offering.user
-    mail :to => @user.email, :subject => "Payment for #{@offering.actionable_name} received"
+    mail :to => @user.email, :subject => "Payment for #{@offering.name} received"
   end
   
   def booking_payment_received_for_management(booking)
     @booking = booking
     @offering = booking.offering
     @user = booking.offering.management_user
-    mail :to => @user.email, :subject => "Payment for #{@offering.actionable_name} received"
+    mail :to => @user.email, :subject => "Payment for #{@offering.name} received"
   end
 
   def booking_payment_completed(booking)
@@ -46,7 +46,7 @@ class UserNotifier < ApplicationMailer
   def admin_new_listing(offering)  
     @offering = offering
     return unless Rails.env.production?
-    mail :to => 'XXXX@ringmasters.cc', :subject => "Please approve: #{offering.actionable_name}"
+    mail :to => 'XXXX@ringmasters.cc', :subject => "Please approve: #{offering.name}"
   end
   
   def message_received(message, to_user)

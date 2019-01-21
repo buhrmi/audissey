@@ -11,7 +11,7 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Offerings pending approval" do
           ul do
             Offering.where(:approved_at => nil).map do |offering|
-              li link_to(offering.actionable_name, offering)
+              li link_to(offering.name, offering)
             end
           end
         end

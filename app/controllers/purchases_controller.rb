@@ -48,7 +48,7 @@ class PurchasesController < ApplicationController
       price = Price.create :take => amount, :currency => currency
       buyable = Booking.new :price => price, 
         :offering => offering, :user => current_user,
-        :start_at => params[:date], :offerer_confirmed_at => Time.now,
+        :start_at => params[:date], :artist_confirmed_at => Time.now,
         :buyer_confirmed_at => Time.now
     end
     
@@ -60,7 +60,7 @@ class PurchasesController < ApplicationController
     
 
     # right now we assume buyable is a booking.... but could be anything actually.
-    description = "audissey.fm booking #{buyable.id} (#{buyable.offering.actionable_name})"
+    description = "audissey.fm booking #{buyable.id} (#{buyable.offering.name})"
     return unless current_user.can_purchase?(buyable)
 
     if params[:gateway] == 'webpay'
@@ -97,7 +97,7 @@ class PurchasesController < ApplicationController
       buyable.save!
       if buyable.is_a?(Booking)
         beneficiary = buyable.offering.user
-        memo = buyable.offering.actionable_name
+        memo = buyable.offering.name
         value_date = buyable.start_at + 1.days
         commission_percent = buyable.offering.commission_percent
       end

@@ -7,7 +7,7 @@
 #  user_id              :integer
 #  start_at             :datetime
 #  end_at               :datetime
-#  offerer_confirmed_at :datetime
+#  artist_confirmed_at :datetime
 #  buyer_confirmed_at   :datetime
 #  note                 :string
 #  created_at           :datetime         not null

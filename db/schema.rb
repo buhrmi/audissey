@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20160303142315) do
     t.integer  "user_id"
     t.datetime "start_at"
     t.datetime "end_at"
-    t.datetime "offerer_confirmed_at"
+    t.datetime "artist_confirmed_at"
     t.datetime "buyer_confirmed_at"
     t.string   "note"
     t.datetime "created_at",           null: false
@@ -130,19 +130,19 @@ ActiveRecord::Schema.define(version: 20160303142315) do
   end
 
   create_table "offerings", force: :cascade do |t|
-    t.string   "actionable_name"
+    t.string   "name"
     t.text     "description"
     t.integer  "user_id"
     t.string   "image_uid"
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
     t.string   "category_id"
     t.integer  "duration"
     t.datetime "published_at"
     t.datetime "approved_at"
     t.integer  "approved_by_id"
     t.string   "hero_image_uid"
-    t.text     "escrow_notes"
+    t.text     "contact_details"
     t.integer  "commission_percent",    default: 15
     t.string   "address"
     t.float    "latitude"
@@ -162,7 +162,7 @@ ActiveRecord::Schema.define(version: 20160303142315) do
     t.string   "mixcloud_url"
     t.string   "facebook_url"
     t.string   "twitter_id"
-    t.string   "pricing"
+    t.string   "pricing",               default: "flexible"
     t.string   "availability",          default: "confirm"
   end
 

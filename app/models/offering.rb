@@ -3,7 +3,7 @@
 # Table name: offerings
 #
 #  id                    :integer          not null, primary key
-#  actionable_name       :string
+#  name       :string
 #  description           :text
 #  user_id               :integer
 #  image_uid             :string
@@ -15,7 +15,7 @@
 #  approved_at           :datetime
 #  approved_by_id        :integer
 #  hero_image_uid        :string
-#  escrow_notes          :text
+#  contact_details          :text
 #  commission_percent    :integer          default(15)
 #  address               :string
 #  latitude              :float
@@ -40,7 +40,7 @@
 # 4. Use credits to create booking
 # 5. Both parties (booker and offering creator) need to confirm booking (contract signing). Can change time.
 # 6. Can cancel booking any time
-# 7. After booking, release money to offerer
+# 7. After booking, release money to artist
 
 class Offering < ActiveRecord::Base
   include Buyable
@@ -65,7 +65,7 @@ class Offering < ActiveRecord::Base
   accepts_translations_for :description
 
   before_update do
-    self.url_fragment = actionable_name.gsub(/[^0-9A-Za-z]/,'').underscore.dasherize
+    self.url_fragment = name.gsub(/[^0-9A-Za-z]/,'').underscore.dasherize
   end
     
 
@@ -87,7 +87,7 @@ class Offering < ActiveRecord::Base
   end
   
   def to_s
-    actionable_name
+    name
   end
   
   def profile_image
@@ -122,11 +122,6 @@ class Offering < ActiveRecord::Base
       "http://www.youtube.com/embed/#{youtube_id}?autoplay=1&modestbranding=1&showinfo=0"
     end
   end
-  
-  def name
-    actionable_name
-  end
-  
   
 
 end

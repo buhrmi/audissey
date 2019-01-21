@@ -39,52 +39,46 @@
                     - if performance.profile_image
                       .pic_image{:style => "background-image: url(#{performance.profile_image.thumb('74x74#').url})"}
                   .name
-                    = performance.actionable_name
+                    = performance.name
                   .pricing
                     %span.category
                       %span.category-icon{:class => performance.category_id} 
                       #{performance.category.name}
-.section.about_audissey
-  .container
-    %h1= t '.about_audissey_header'
-    = t '.about_audissey_html'
-
-.section.call_to_actions
-  .container
-    .row
-      .col-sm-6.for_djs
-        %h1= t('.for_djs')
-        = t('.for_djs_html')
-        %p
-          = link_to t('.list_a_dj'), new_user_registration_path, :class => 'btn btn-lg btn-primary'
-      .col-sm-6.for_events
-        %h1= t('.for_events')
-        = t('.for_events_html')
-        %p
-          = link_to t('.list_an_event'), new_user_registration_path, :class => 'btn btn-lg btn-primary'
-    .others
-      = t('.other_services')
-      = link_to t('.find_out_more'), page_path('services')
-.section.statistics
-  .container
-    %h1= t '.statistics'
-    = t '.earnings_till_date'
-    - @totals.each do |currency, amount|
-      .total
-        %strong= nice_price Price.new(:currency => currency, :take => amount)
-    = t '.earnings_till_date2'      
-.section.featured_events
-  .container
-    %h1= t '.upcoming_tagline'
-    %h2= t '.upcoming_tagline2'
-    .row
-      - @brands.each do |brand|
-        .col-xs-12
-          = link_to nice_brand_url(brand.url_fragment) do
-            .event_brand{:style => "background-image: url(#{brand.image&.thumb('600x250#')&.url})"}
-              .gradient
-              .details
-                .name
-                  = brand.name
+-# .section.call_to_actions
+-#   .container
+    
+-#     %h1= t('.for_djs')
+-#     = t('.for_djs_html')
+-#     %p
+-#       = link_to t('.list_a_dj'), new_user_registration_path, :class => 'btn btn-lg btn-primary'
+      -# .col-sm-6.for_events
+      -#   %h1= t('.for_events')
+      -#   = t('.for_events_html')
+      -#   %p
+      -#     = link_to t('.list_an_event'), new_user_registration_path, :class => 'btn btn-lg btn-primary'
+    -# .others
+    -#   = t('.other_services')
+    -#   = link_to t('.find_out_more'), page_path('services')
+-# .section.statistics
+-#   .container
+-#     %h1= t '.statistics'
+-#     = t '.earnings_till_date'
+-#     - @totals.each do |currency, amount|
+-#       .total
+-#         %strong= nice_price Price.new(:currency => currency, :take => amount)
+-#     = t '.earnings_till_date2'      
+-# .section.featured_events
+-#   .container
+-#     %h1= t '.upcoming_tagline'
+-#     %h2= t '.upcoming_tagline2'
+-#     .row
+-#       - @brands.each do |brand|
+-#         .col-xs-12
+-#           = link_to nice_brand_url(brand.url_fragment) do
+-#             .event_brand{:style => "background-image: url(#{brand.image&.thumb('600x250#')&.url})"}
+-#               .gradient
+-#               .details
+-#                 .name
+-#                   = brand.name
     
     

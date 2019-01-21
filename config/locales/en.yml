@@ -34,7 +34,7 @@ en:
         id: Id
         messages: Messages
         note: Note
-        offerer_confirmed_at: Offerer confirmed at
+        artist_confirmed_at: artist confirmed at
         offering: Offering
         price: Price
         purchase: Purchase
@@ -42,7 +42,7 @@ en:
         updated_at: Updated at
         user: User
       offering:
-        actionable_name: Actionable name
+        name: Actionable name
         approved_at: Approved at
         approved_by: Approved by
         approved_by_id: Approved By
@@ -52,7 +52,7 @@ en:
         created_at: Created at
         description: Description
         duration: Duration
-        escrow_notes: Escrow notes
+        contact_details: Contact details
         hero_image_uid: Hero image uid
         id: Id
         image_uid: Image uid
@@ -283,12 +283,12 @@ en:
           body: 
       offering:
         edit:
-          actionable_name: 
+          name: 
           approved_at: 
           approved_by: 
           description: 
           duration: 
-          escrow_notes: 
+          contact_details: 
           hero_image_uid: 
           image_uid: 
           published_at: 
@@ -296,19 +296,19 @@ en:
     labels:
       offering:
         edit:
-          actionable_name: 
+          name: 
           approved_at: 
           approved_by: 
           description: 
           duration: 
-          escrow_notes: 
+          contact_details: 
           hero_image_uid: 
           image_uid: 
           published_at: 
           user: 
       q:
         index:
-          actionable_name: 
+          name: 
           approved_at: 
           approved_by: 
           availability_rules: 
@@ -318,12 +318,12 @@ en:
           description: 
           duration: 
           end_at: 
-          escrow_notes: 
+          contact_details: 
           hero_image_uid: 
           image_uid: 
           messages: 
           note: 
-          offerer_confirmed_at: 
+          artist_confirmed_at: 
           offering: 
           price: 
           prices: 
@@ -340,18 +340,18 @@ en:
           body: 
       offering:
         edit:
-          actionable_name: 
+          name: 
           description: 
           duration: 
-          escrow_notes: 
+          contact_details: 
           hero_image_uid: 
           image_uid: 
       q:
         index:
-          actionable_name: 
+          name: 
           description: 
           duration: 
-          escrow_notes: 
+          contact_details: 
           hero_image_uid: 
           image_uid: 
           note: 
@@ -362,19 +362,19 @@ en:
     label:
       offering:
         edit:
-          actionable_name: 
+          name: 
           approved_at: 
           approved_by: 
           description: 
           duration: 
-          escrow_notes: 
+          contact_details: 
           hero_image_uid: 
           image_uid: 
           published_at: 
           user: 
       q:
         index:
-          actionable_name: 
+          name: 
           approved_at: 
           approved_by: 
           availability_rules: 
@@ -384,12 +384,12 @@ en:
           description: 
           duration: 
           end_at: 
-          escrow_notes: 
+          contact_details: 
           hero_image_uid: 
           image_uid: 
           messages: 
           note: 
-          offerer_confirmed_at: 
+          artist_confirmed_at: 
           offering: 
           price: 
           prices: 
@@ -484,7 +484,7 @@ en:
     destroy:
       in_use: 
     edit:
-      escrow: This information is kept confidential and will be made available to the buyer after payment has been confirmed. Please include contact details such as phone numbers, email addresses, etc.
+      contact: This information is kept confidential and will be made available to the buyer after payment has been confirmed. Please provide your contact details such as phone numbers, email addresses, etc.
   pages:
     contact:
       address: |-
@@ -541,16 +541,10 @@ en:
       explain: How does it work?
       featured_tagline: A TRACK RECORD OF AWESOME
       featured_tagline2: Artists available in Tokyo
-      tagline: BOOKING MADE EASY
-      tagline2: Discover hidden talent
+      tagline: DISRUPT ALL THE THINGS
+      tagline2: It's time to bring back the good vibes
       upcoming_tagline: COMING SOON
       upcoming_tagline2: Events on Audissey
-      about_audissey_header: About Audissey
-      about_audissey_html: |-
-        <p>Life is about the experience. About the people you meet, the sights you see, the music you hear, the places you go.</p>
-        <p>Audissey is creating the best place to find and work with amazing artists, venues and event organizers all over the world.</p>
-        <p>For that purpose we do away with language barriers, borders and other nuisances.</p>
-        <p>This is for the music.</p>
       join_now: Join Now
       add_a_dj: 
       add_an_event: 

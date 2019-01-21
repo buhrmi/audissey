@@ -1,5 +1,5 @@
 .second_nav
-  .container Edit Listing: {{offering.actionable_name}}
+  .container Edit Listing: {{offering.name}}
 .section.edit_offering
   .container
 
@@ -17,15 +17,15 @@
               = link_to 'Availability', '#', :'@click.prevent' => '$set("section", "availability")'
             %li{':class' => '{active: section=="pricing"}'}
               = link_to 'Pricing', '#', :'@click.prevent' => '$set("section", "pricing")'
-            %li{':class' => '{active: section=="escrow"}'}
-              = link_to 'Escrow Infos', '#', :'@click.prevent' => '$set("section", "escrow")'
+            %li{':class' => '{active: section=="contact"}'}
+              = link_to 'Contact Details', '#', :'@click.prevent' => '$set("section", "contact")'
         .col-sm-9(v-show="section=='basics'")
           %h1 Basics
           .form-group
             %label Name
-            = f.text_field :actionable_name,
+            = f.text_field :name,
               :class => 'form-control',
-              'v-model' => 'offering.actionable_name'
+              'v-model' => 'offering.name'
           - if current_user.superpowers?
             .form-group
               %label Managed
@@ -43,9 +43,9 @@
               = f.image_upload_field :management_image
               
           %p
-            = link_to t("Delete #{@offering.actionable_name}"), @offering, :method => 'delete', 'data-confirm' => "Are you sure you want to delete #{@offering.actionable_name}?"
+            = link_to t("Delete #{@offering.name}"), @offering, :method => 'delete', 'data-confirm' => "Are you sure you want to delete #{@offering.name}?"
           %p
-            = link_to t("Disconnect #{@offering.actionable_name}"), offering_path(@offering, :offering => { :disconnect => true }), :method => 'put', 'data-confirm' => "Disconnect #{@offering.actionable_name} from your account?"
+            = link_to t("Disconnect #{@offering.name}"), offering_path(@offering, :offering => { :disconnect => true }), :method => 'put', 'data-confirm' => "Disconnect #{@offering.name} from your account?"
 
         .col-sm-9(v-show="section=='description'")
           %h1 Description
@@ -101,16 +101,16 @@
               %p My fee may vary for each booking.
               %p Minimum Fee: ¥1 JPY
           (more options coming soon)
-        .col-sm-9(v-show="section=='escrow'")
-          %h1 Escrow Information
+        .col-sm-9(v-show="section=='contact'")
+          %h1 Contact Details
           %p 
-            =t('.escrow')
+            =t('.contact')
           .form-group
             %label English
-            = f.text_area :escrow_notes,
+            = f.text_area :contact_details,
               :placeholder => "Phone:\nEmail:",
               :class => 'form-control',
-              'v-model' => 'offering.escrow_notes'
+              'v-model' => 'offering.contact_details'
           
 
       .actions
@@ -125,11 +125,11 @@
       offering: #{@offering.to_json}
     methods:
       offeringValid: ->
-        return false unless this.$get('offering.actionable_name')
+        return false unless this.$get('offering.name')
         if this.$get('offering.managed')
           return false unless this.$get('offering.management_name')
           return false unless this.$get('offering.management_email')
-        # return false unless this.$get('offering.escrow_notes')
+        # return false unless this.$get('offering.contact_details')
         true
     ready: ->
       this.$expose 'section', 'section'

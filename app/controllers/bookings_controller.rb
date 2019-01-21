@@ -7,7 +7,7 @@
 #  user_id              :integer
 #  start_at             :datetime
 #  end_at               :datetime
-#  offerer_confirmed_at :datetime
+#  artist_confirmed_at :datetime
 #  buyer_confirmed_at   :datetime
 #  note                 :string
 #  created_at           :datetime         not null
@@ -70,7 +70,7 @@ class BookingsController < ApplicationController
     return false unless @booking.editable_by?(current_user)
     updates = booking_update_params
     if params[:confirm] && @booking.offering.user_id == current_user.id
-      updates[:offerer_confirmed_at] = Time.now
+      updates[:artist_confirmed_at] = Time.now
       confirmed = true
     end
     respond_to do |format|
