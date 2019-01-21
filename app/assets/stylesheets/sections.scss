@@ -96,14 +96,14 @@
   text-shadow: 0 0 12px rgba(0,0,0,0.7);
   text-align: center;
   position: relative;
-  height: 700px;
+  height: 600px;
   background-image: url(http://blog.iavm.org/wp-content/uploads/2014/10/3DM-Music-Festival.jpg);
   background-position: top;
-  background-size: cover;
+  background-size: 150%;
   color: white;
   margin-top: -52px; //-20px;
   // padding-top: 125px; //30px;
-  .big { font-size: 60px; }
+  .big { margin-top: 200px; font-size: 60px; }
   .small { font-size: 30px; margin-bottom: 30px; }
   .bottom {
     position: absolute;
