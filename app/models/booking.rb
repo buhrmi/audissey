@@ -3,7 +3,7 @@
 # Table name: bookings
 #
 #  id                   :integer          not null, primary key
-#  offering_id          :integer
+#  artist_id          :integer
 #  user_id              :integer
 #  start_at             :datetime
 #  end_at               :datetime
@@ -20,8 +20,8 @@
 class Booking < ActiveRecord::Base
   acts_as_paranoid
   
-  belongs_to :offering
-  belongs_to :location, :class_name => 'Offering'
+  belongs_to :artist
+  belongs_to :location, :class_name => 'Artist'
   belongs_to :user
   belongs_to :price
   has_many :messages, :as => 'topicable'
@@ -29,8 +29,8 @@ class Booking < ActiveRecord::Base
   accepts_nested_attributes_for :price
 
   after_create do
-    UserNotifier.booking_inquiry(self).deliver_later if offering.user
-    UserNotifier.booking_inquiry_for_management(self).deliver_later if offering.managed
+    UserNotifier.booking_inquiry(self).deliver_later if artist.user
+    UserNotifier.booking_inquiry_for_management(self).deliver_later if artist.managed
     Message.create(:topicable => self, :text => 'Booking request has been received.')
   end
   
@@ -46,14 +46,14 @@ class Booking < ActiveRecord::Base
   end
 
   def editable_by?(user)
-    user && (self.user_id == user.id || self.offering.user_id == user.id || user.email == self.offering.management_email)
+    user && (self.user_id == user.id || self.artist.user_id == user.id || user.email == self.artist.management_email)
   end
   
   def topicable_name
-    offering.name
+    artist.name
   end
   
   def to_s
-    offering.name + ' booked by ' + user.display_name
+    artist.name + ' booked by ' + user.display_name
   end
 end

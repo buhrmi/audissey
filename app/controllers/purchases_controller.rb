@@ -27,8 +27,8 @@ class PurchasesController < ApplicationController
   end
 
 
-  # TODO: Use CREDIT CHANGES if purchased an offering via fixed pricing:
-  # 1. Create credit change +1 for offering (source: this purchase)
+  # TODO: Use CREDIT CHANGES if purchased an artist via fixed pricing:
+  # 1. Create credit change +1 for artist (source: this purchase)
   # 2. If booking given, use credit to pay for the booking via -1 credit change (source: booking)
   def create
     if !current_user && params[:email]
@@ -40,14 +40,14 @@ class PurchasesController < ApplicationController
     
     if params[:price_id]
       price = Price.find(params[:price_id])
-    elsif params[:offering_id]
-      offering = Offering.find(params[:offering_id])
-      return cancel unless offering.availability == 'instant'
+    elsif params[:artist_id]
+      artist = Artist.find(params[:artist_id])
+      return cancel unless artist.availability == 'instant'
       amount = params[:amount]
       currency = params[:currency]
       price = Price.create :take => amount, :currency => currency
       buyable = Booking.new :price => price, 
-        :offering => offering, :user => current_user,
+        :artist => artist, :user => current_user,
         :start_at => params[:date], :artist_confirmed_at => Time.now,
         :buyer_confirmed_at => Time.now
     end
@@ -60,7 +60,7 @@ class PurchasesController < ApplicationController
     
 
     # right now we assume buyable is a booking.... but could be anything actually.
-    description = "audissey.fm booking #{buyable.id} (#{buyable.offering.name})"
+    description = "audissey.fm booking #{buyable.id} (#{buyable.artist.name})"
     return unless current_user.can_purchase?(buyable)
 
     if params[:gateway] == 'webpay'
@@ -96,10 +96,10 @@ class PurchasesController < ApplicationController
     if paid
       buyable.save!
       if buyable.is_a?(Booking)
-        beneficiary = buyable.offering.user
-        memo = buyable.offering.name
+        beneficiary = buyable.artist.user
+        memo = buyable.artist.name
         value_date = buyable.start_at + 1.days
-        commission_percent = buyable.offering.commission_percent
+        commission_percent = buyable.artist.commission_percent
       end
       Purchase.create :buyer => current_user,
         :buyable => buyable,
@@ -111,8 +111,8 @@ class PurchasesController < ApplicationController
         :value_date => value_date,
         :commission_percent => commission_percent
       if buyable.is_a?(Booking)
-        UserNotifier.booking_payment_received(buyable).deliver_later if buyable.offering.user
-        UserNotifier.booking_payment_received_for_management(buyable).deliver_later if buyable.offering.managed
+        UserNotifier.booking_payment_received(buyable).deliver_later if buyable.artist.user
+        UserNotifier.booking_payment_received_for_management(buyable).deliver_later if buyable.artist.managed
         UserNotifier.booking_payment_completed(buyable).deliver_later
         Message.create(:topicable => buyable, :text => 'Payment has been received.') 
       end

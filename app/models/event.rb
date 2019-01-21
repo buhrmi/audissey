@@ -18,7 +18,7 @@ class Event < ActiveRecord::Base
   include Translatable
   
   belongs_to :brand
-  has_and_belongs_to_many :offerings
+  has_and_belongs_to_many :artists
   
   accepts_translations_for :description
   

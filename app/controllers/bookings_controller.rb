@@ -3,7 +3,7 @@
 # Table name: bookings
 #
 #  id                   :integer          not null, primary key
-#  offering_id          :integer
+#  artist_id          :integer
 #  user_id              :integer
 #  start_at             :datetime
 #  end_at               :datetime
@@ -35,8 +35,8 @@ class BookingsController < ApplicationController
 
   # GET /bookings/new
   def new
-    @offering = Offering.find(params[:offering])
-    @booking = @offering.bookings.new(:user => current_user)
+    @artist = Artist.find(params[:artist])
+    @booking = @artist.bookings.new(:user => current_user)
   end
 
   # GET /bookings/1/edit
@@ -51,7 +51,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user_id = current_user.id
     @booking.buyer_confirmed_at = Time.now
-    cancel "You can't book yourself" and return if @booking.offering.user_id == current_user.id && !current_user.superpowers?
+    cancel "You can't book yourself" and return if @booking.artist.user_id == current_user.id && !current_user.superpowers?
     return false unless @booking.editable_by?(current_user)
     respond_to do |format|
       if @booking.save
@@ -69,7 +69,7 @@ class BookingsController < ApplicationController
   def update
     return false unless @booking.editable_by?(current_user)
     updates = booking_update_params
-    if params[:confirm] && @booking.offering.user_id == current_user.id
+    if params[:confirm] && @booking.artist.user_id == current_user.id
       updates[:artist_confirmed_at] = Time.now
       confirmed = true
     end
@@ -109,6 +109,6 @@ class BookingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
-      params[:booking].permit(:offering_id, :start_at, :price_attributes => [:id, :take, :currency])
+      params[:booking].permit(:artist_id, :start_at, :price_attributes => [:id, :take, :currency])
     end
 end

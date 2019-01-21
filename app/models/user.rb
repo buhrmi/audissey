@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
   dragonfly_accessor :image
 
   has_many :bookings, :dependent => :destroy
-  has_many :offerings, :dependent => :destroy
+  has_many :artists, :dependent => :destroy
   has_many :uploads, :dependent => :destroy
   has_many :purchases
   has_many :beneficiary_purchases, :class_name => 'Purchase', :foreign_key => 'beneficiary_id'
@@ -104,7 +104,7 @@ class User < ActiveRecord::Base
   
   def pending_bookings
     bookings_from_me = bookings
-    bookings_with_me = Booking.where(:offering => offerings)
+    bookings_with_me = Booking.where(:artist => artists)
     (bookings_from_me + bookings_with_me).uniq
   end
 end

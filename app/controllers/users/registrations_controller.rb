@@ -12,15 +12,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
 
     if resource.persisted?
-      if session[:control_offering]
-        offering = Offering.find session[:control_offering]
-        offering.update :user_id => resource.id unless offering.user_id
-        session.delete(:control_offering)
+      if session[:control_artist]
+        artist = Artist.find session[:control_artist]
+        artist.update :user_id => resource.id unless artist.user_id
+        session.delete(:control_artist)
       end
-      # Transfer ownership of all managed offerings
-      offerings = Offering.where(:management_email => resource.email)
-      offerings.each do |offering|
-        offering.update :managed => false, :user_id => resource.id
+      # Transfer ownership of all managed artists
+      artists = Artist.where(:management_email => resource.email)
+      artists.each do |artist|
+        artist.update :managed => false, :user_id => resource.id
       end
       resource.save
     end

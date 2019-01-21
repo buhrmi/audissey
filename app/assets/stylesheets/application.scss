@@ -10,7 +10,7 @@
 // OUR STUFF
 @import "globals";
 @import "sections";
-@import "offerings";
+@import "artists";
 @import "bookings";
 
 .category-icon.performer:before {
@@ -49,7 +49,7 @@
   content: "\f118";
   font-family: FontAwesome;
 }
-.offering, 
+.artist, 
 .visitors.landing .event_brand {
   background-color: #DDD;
   background-size: cover;

@@ -7,8 +7,8 @@
       dictDefaultMessage: '+'
       init: ->
         this.on 'sending', (file, xhr, data) ->
-          data.append('attachable_id', #{@offering.id})
-          data.append('attachable_type', 'Offering')
+          data.append('attachable_id', #{@artist.id})
+          data.append('attachable_type', 'Artist')
           data.append('authenticity_token', $('meta[name="csrf-token"]').attr('content'))
           xhr.onreadystatechange = ->
             if xhr.readyState == 4

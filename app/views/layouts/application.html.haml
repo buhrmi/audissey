@@ -33,22 +33,22 @@
               = link_to image_tag('audisseylogo_inverted.png'), root_url
         %ul.nav.navbar-nav.navbar-right
           - if current_user
-            - if current_user.offerings.empty?
-              %li= link_to "Offer a service", new_offering_path
+            - if current_user.artists.empty?
+              %li= link_to "Offer a service", new_artist_path
             - else
               %li.dropdown
                 %a.dropdown-toggle(href="#" data-toggle="dropdown")
                   %i.fa.fa-bookmark-o
-                  Listings
+                  My Artists
                 %ul.dropdown-menu
-                  - current_user.offerings.each do |offering|
+                  - current_user.artists.each do |artist|
                     %li
-                      = link_to edit_offering_path(offering) do
-                        .category-icon{:class => offering.category_id}
-                          = offering.name
+                      = link_to edit_artist_path(artist) do
+                        .category-icon{:class => artist.category_id}
+                          = artist.name
                   %li.divider  
                   %li
-                    = link_to new_offering_path do
+                    = link_to new_artist_path do
                       %i.fa.fa-plus
                       = t('.new_listing')
                         
@@ -56,13 +56,13 @@
               %li.dropdown
                 %a.dropdown-toggle(href="#" data-toggle="dropdown")
                   %i.fa.fa-envelope-o
-                  Messages
+                  Bookings
                 %ul.dropdown-menu
                   - current_user.pending_bookings.each do |pending_booking|
                     %li
                       = link_to booking_path(pending_booking) do
-                        .category-icon{:class => pending_booking.offering.category_id}
-                          = pending_booking.offering.name
+                        .category-icon{:class => pending_booking.artist.category_id}
+                          = pending_booking.artist.name
                           on
                           = event_date(pending_booking.start_at)
             %li.dropdown

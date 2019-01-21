@@ -1,0 +1,60 @@
+
+
+.section.new_artist
+  .container
+    %h1 Add a performer
+    = form_for @artist, :html => {:class => 'full_form'} do |f|
+      - if @artist.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@artist.errors.count, "error")} prohibited this artist from being saved:"
+          %ul
+            - @artist.errors.full_messages.each do |msg|
+              %li= msg
+
+      .form-group
+        -# %h3 Category
+        -# %p Where do you want your listing to appear?
+        -# .btn-group
+        -#   - Category.with_icon.each do |category|
+        -#     .btn.btn-default.btn-large.category(v-bind:class="{'active': category_id=='#{category.id}'}"
+        -#       v-on:click="$set('category_id','#{category.id}')")
+        -#       .category-icon{:class => category.id}
+        -#       = category.name
+        = f.hidden_field :category_id, :'v-model' => :category_id
+
+      .form-group
+        %h3 Name
+
+        = f.text_field :name, :class => 'form-control', 'v-model' => :name, 'v-bind:placeholder' => 'placeholder'
+      -# .form-group
+      -#   %label Description
+      -#   = f.text_area :description, :class => 'redactor'
+      -# .form-group
+      -#   %label Price Structure
+      -#   - if @artist.prices.any?
+      -#     = f.fields_for :prices do |builder|
+      -#       = render 'price_fields', :f => builder
+      -#   - else
+      -#     %p.free Free
+      -#   = link_to_add_fields '<i class="fa fa-plus"></i> Add Pricing'.html_safe, f, :prices
+      -# .form-group
+      -#   %label Promotions
+      -#   Coming soon.
+      .actions
+        = f.submit 'Save & Continue', :class => 'btn btn-primary btn-lg', :'v-bind:disabled' => '!name || !category_id'
+        
+    :coffee
+      new Vue
+        data:
+          name: #{current_user.display_name.to_json}
+          placeholder: #{current_user.display_name.to_json}
+          category_id: 'performer'
+        ready: ->
+          this.$watch 'category_id', (val) ->
+            placeholder = 'DJ ' + this.$get('name') if this.category_id == 'performer'
+            placeholder = 'Club ' + this.$get('name') if this.category_id == 'venue'
+            placeholder = 'Chef ' + this.$get('name') if this.category_id == 'catering'
+            placeholder = this.$get('name') + ' Photography' if this.category_id == 'photographer'
+            placeholder = this.$get('name') + ' Promotions' if this.category_id == 'organizer'
+            this.$set('placeholder', placeholder)
+        el: '#new_artist'

@@ -3,21 +3,21 @@
   .section.dashboard_guide
     .container
       %h1 Let's get started.
-      = link_to 'Offer your services', new_offering_path, :class => 'btn btn-lg btn-primary'
+      = link_to 'Offer your services', new_artist_path, :class => 'btn btn-lg btn-primary'
       or browse our listings
 
 - else
   .section.dashboard
     .container
       - if params[:action] == 'show'
-        - if current_user.offerings.any?
-          .offerings
+        - if current_user.artists.any?
+          .artists
             %h3 Your Listings:
-            - current_user.offerings.each do |offering|
-              = link_to offering.name, offering
-              = link_to edit_offering_path(offering) do
+            - current_user.artists.each do |artist|
+              = link_to artist.name, artist
+              = link_to edit_artist_path(artist) do
                 %i.fa.fa-edit
-            = link_to t('.new_listing'), new_offering_path, :class => 'btn btn-lg btn-primary'
+            = link_to t('.new_listing'), new_artist_path, :class => 'btn btn-lg btn-primary'
         
         
       - if params[:action] == 'bookings'
@@ -26,7 +26,7 @@
           Nothing yet
         - @all_bookings.each do |booking|
           .booking
-            = link_to booking.offering.name, booking
+            = link_to booking.artist.name, booking
 
       - if params[:action] == 'account'
         %h3 Earnings since last Payout

@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :set_locale
-  before_filter :control_offering
+  before_filter :control_artist
   around_filter :set_tz
   around_filter :atomic_posts
   
@@ -20,14 +20,14 @@ class ApplicationController < ActionController::Base
   end
   
   private
-  def control_offering
-    if params[:control_offering_id]
-      session[:control_offering] = params[:control_offering_id]
+  def control_artist
+    if params[:control_artist_id]
+      session[:control_artist] = params[:control_artist_id]
     end
-    if session[:control_offering] && current_user
-      offering = Offering.find session[:control_offering]
-      offering.update :user_id => current_user.id unless offering.user_id
-      session.delete(:control_offering)
+    if session[:control_artist] && current_user
+      artist = Artist.find session[:control_artist]
+      artist.update :user_id => current_user.id unless artist.user_id
+      session.delete(:control_artist)
     end
   end
   

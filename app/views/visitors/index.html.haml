@@ -25,9 +25,9 @@
         .name
           my name is
           %input(name="name" placeholder="deadmau5")
-        .offering
+        .artist
           and I am
-          %input(name="offering" placeholder="teaching music production")
+          %input(name="artist" placeholder="teaching music production")
         .category
           in the category
           %select(name="category")= options_from_collection_for_select(Category.all, :id, :name)

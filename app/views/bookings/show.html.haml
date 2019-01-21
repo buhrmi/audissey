@@ -15,8 +15,8 @@
           - current_user.bookings.each do |booking|
             %li{:class => @booking == booking ? 'active' : ''}
               = link_to booking_path(booking) do
-                .category-icon{:class => booking.offering.category_id}
-                  = booking.offering.name
+                .category-icon{:class => booking.artist.category_id}
+                  = booking.artist.name
                   on
                   = event_date(booking.start_at)
       .col-sm-8.messaging_col
@@ -56,7 +56,7 @@
                           data-locale="#{I18n.locale}"
                           data-email="#{current_user.email}"
                           data-image="#{asset_path('logo_square.png')}"
-                          data-name="#{@booking.offering.name}"
+                          data-name="#{@booking.artist.name}"
                           data-amount="#{@booking.price.take}"
                           data-currency="#{@booking.price.currency}"
                           data-description="Booking via Audissey"
@@ -72,9 +72,9 @@
                             data-lang="#{I18n.locale}")
                     - else
                       %i.fa.fa-hourglass-half
-                      Waiting for confirmation from #{@booking.offering.name}.
+                      Waiting for confirmation from #{@booking.artist.name}.
                       -# = link_to 'Cancel', booking_path(@booking), :method => 'delete', :class => 'btn btn-primary'
-                  - if @booking.offering.user_id == current_user.id
+                  - if @booking.artist.user_id == current_user.id
                     - if @booking.artist_confirmed_at
                       %i.fa.fa-hourglass-half
                       Waiting for payment

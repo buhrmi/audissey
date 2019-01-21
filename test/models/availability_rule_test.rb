@@ -3,7 +3,7 @@
 # Table name: availability_rules
 #
 #  id           :integer          not null, primary key
-#  offering_id  :integer
+#  artist_id  :integer
 #  is_exclusion :boolean
 #  start_at     :datetime
 #  end_at       :datetime

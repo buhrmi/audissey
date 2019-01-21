@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20160303142315) do
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
 
   create_table "availability_rules", force: :cascade do |t|
-    t.integer  "offering_id"
+    t.integer  "artist_id"
     t.boolean  "is_exclusion"
     t.datetime "start_at"
     t.datetime "end_at"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20160303142315) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.integer  "offering_id"
+    t.integer  "artist_id"
     t.integer  "user_id"
     t.datetime "start_at"
     t.datetime "end_at"
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 20160303142315) do
 
   create_table "credit_changes", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "offering_id"
+    t.integer  "artist_id"
     t.integer  "delta"
     t.integer  "source_id"
     t.string   "source_type"
@@ -113,9 +113,9 @@ ActiveRecord::Schema.define(version: 20160303142315) do
     t.datetime "updated_at",       null: false
   end
 
-  create_table "events_offerings", force: :cascade do |t|
+  create_table "events_artists", force: :cascade do |t|
     t.integer  "event_id"
-    t.integer  "offering_id"
+    t.integer  "artist_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -129,7 +129,7 @@ ActiveRecord::Schema.define(version: 20160303142315) do
     t.datetime "updated_at",     null: false
   end
 
-  create_table "offerings", force: :cascade do |t|
+  create_table "artists", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "user_id"
@@ -166,7 +166,7 @@ ActiveRecord::Schema.define(version: 20160303142315) do
     t.string   "availability",          default: "confirm"
   end
 
-  add_index "offerings", ["deleted_at"], name: "index_offerings_on_deleted_at"
+  add_index "artists", ["deleted_at"], name: "index_artists_on_deleted_at"
 
   create_table "payouts", force: :cascade do |t|
     t.string   "method"

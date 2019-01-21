@@ -4,7 +4,7 @@
 #
 #  id          :integer          not null, primary key
 #  user_id     :integer
-#  offering_id :integer
+#  artist_id :integer
 #  delta       :integer
 #  source_id   :integer
 #  source_type :string
@@ -14,7 +14,7 @@
 
 class CreditChange < ActiveRecord::Base
   belongs_to :user
-  belongs_to :offering
+  belongs_to :artist
 
   belongs_to :source, :polymorphic => true
 end

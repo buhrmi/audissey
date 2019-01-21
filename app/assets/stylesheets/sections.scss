@@ -36,13 +36,13 @@
     padding: 3px 12px 3px;
   }
 }
-.section.edit_offering {
+.section.edit_artist {
   
   .nav-pills {
     margin-top: 20px;
     margin-bottom: 20px;
   }
-  #offering_contact_details {
+  #artist_contact_details {
     height: 140px;
   }
 }
@@ -171,7 +171,7 @@
   padding-top: 50px;
   text-align: center;
   padding-bottom: 50px;
-  .offering_cell {
+  .artist_cell {
     margin-bottom: 18px;
   }
 }
@@ -196,7 +196,7 @@
   .name {
     
   }
-  .offering {
+  .artist {
     padding-bottom: 16px;
   }
   button {

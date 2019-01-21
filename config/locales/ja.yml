@@ -6,7 +6,7 @@ ja:
   Browse: 
   Check out our stuff!: 
   Contact: 
-  Delete Offering: 
+  Delete Artist: 
   Don&#39;t have an account? Sign Up: 
   Events powered by audissey: 
   Featured acts available for booking in Tokyo: 
@@ -35,13 +35,13 @@ ja:
         messages: 
         note: 
         artist_confirmed_at: 
-        offering: 
+        artist: 
         price: 
         purchase: 
         start_at: 
         updated_at: 
         user: 
-      offering:
+      artist:
         name: 
         approved_at: 
         approved_by: 
@@ -90,7 +90,7 @@ ja:
       booking: 
       comment: 
       message: 
-      offering: 
+      artist: 
       user: 
       payout: 
       brand: 
@@ -268,14 +268,14 @@ ja:
   for an event on: 
   formtastic:
     actions:
-      offering:
+      artist:
         edit:
           update: 
     hints:
       active_admin/comment:
         show:
           body: 
-      offering:
+      artist:
         edit:
           name: 
           approved_at: 
@@ -288,7 +288,7 @@ ja:
           published_at: 
           user: 
     labels:
-      offering:
+      artist:
         edit:
           name: 
           approved_at: 
@@ -318,7 +318,7 @@ ja:
           messages: 
           note: 
           artist_confirmed_at: 
-          offering: 
+          artist: 
           price: 
           prices: 
           published_at: 
@@ -332,7 +332,7 @@ ja:
       active_admin/comment:
         show:
           body: 
-      offering:
+      artist:
         edit:
           name: 
           description: 
@@ -354,7 +354,7 @@ ja:
   he: 
   helpers:
     label:
-      offering:
+      artist:
         edit:
           name: 
           approved_at: 
@@ -384,7 +384,7 @@ ja:
           messages: 
           note: 
           artist_confirmed_at: 
-          offering: 
+          artist: 
           price: 
           prices: 
           published_at: 
@@ -472,7 +472,7 @@ ja:
     precision:
       format:
         delimiter: 
-  offerings:
+  artists:
     destroy:
       in_use: 
     edit:

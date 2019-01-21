@@ -20,7 +20,7 @@ class Message < ActiveRecord::Base
     return true unless sender_id
     if topicable_type == 'Booking'
       return true if topicable.user_id == sender.id
-      return true if topicable.offering.user_id == sender.id
+      return true if topicable.artist.user_id == sender.id
       errors.add :sender, 'invalid'
     end
   end
@@ -36,7 +36,7 @@ class Message < ActiveRecord::Base
   def receivers
     if topicable_type == 'Booking'
       if topicable.user_id == sender_id
-        [topicable.offering.user]
+        [topicable.artist.user]
       else
         [topicable.user]
       end

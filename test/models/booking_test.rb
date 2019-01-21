@@ -3,7 +3,7 @@
 # Table name: bookings
 #
 #  id                   :integer          not null, primary key
-#  offering_id          :integer
+#  artist_id          :integer
 #  user_id              :integer
 #  start_at             :datetime
 #  end_at               :datetime

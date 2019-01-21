@@ -1,10 +1,10 @@
 Hello <%= @user.display_name %>,
 
-you have received payment for <%= @offering.name %>.
+you have received payment for <%= @artist.name %>.
 
 Event Date: <%= @booking.start_at %>
 
-Please note that you are now responsible for the availability of <%= @offering.name %> on the designated date.
+Please note that you are now responsible for the availability of <%= @artist.name %> on the designated date.
 
 We forwarded your contact details to the buyer. You can check the details on the booking page.
 <%= booking_url(@booking) %>

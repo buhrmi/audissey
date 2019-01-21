@@ -43,16 +43,16 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    cancel t(".in_use") and return if @user.offerings.any? { |o| o.pending_bookings.any? }
-    @user.offerings.map(&:destroy)
+    cancel t(".in_use") and return if @user.artists.any? { |o| o.pending_bookings.any? }
+    @user.artists.map(&:destroy)
     cancel and return unless @user.id == current_user.id
     @user.update :email => @user.email + '_' + SecureRandom.hex 
     @user.destroy
     redirect_to root_url, :notice => t('.destroyed')
   end
 
-  # PATCH/PUT /offerings/1
-  # PATCH/PUT /offerings/1.json
+  # PATCH/PUT /artists/1
+  # PATCH/PUT /artists/1.json
   def update
     respond_to do |format|
       if current_user.update(user_params)

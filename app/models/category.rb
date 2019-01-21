@@ -22,7 +22,7 @@ class Category < ActiveRecord::Base
   find_or_create_by :id => 'model', :name => 'Model / Dancer'
   find_or_create_by :id => 'rental', :name => 'Rental Gear'
 
-  has_many :offerings
+  has_many :artists
 
 
   scope :with_icon, lambda { all }

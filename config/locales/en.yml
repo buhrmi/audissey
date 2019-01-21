@@ -6,7 +6,7 @@ en:
   Browse: 
   Check out our stuff!: 
   Contact: 
-  Delete Offering: 
+  Delete Artist: 
   Don&#39;t have an account? Sign Up: 
   Events powered by audissey: 
   Featured acts available for booking in Tokyo: 
@@ -35,13 +35,13 @@ en:
         messages: Messages
         note: Note
         artist_confirmed_at: artist confirmed at
-        offering: Offering
+        artist: Artist
         price: Price
         purchase: Purchase
         start_at: Start at
         updated_at: Updated at
         user: User
-      offering:
+      artist:
         name: Actionable name
         approved_at: Approved at
         approved_by: Approved by
@@ -90,7 +90,7 @@ en:
       booking: Bookings
       comment: Comments
       message: Message
-      offering: Offerings
+      artist: Artists
       user: Users
       payout: 
       brand: 
@@ -274,14 +274,14 @@ en:
   for an event on: 
   formtastic:
     actions:
-      offering:
+      artist:
         edit:
           update: 
     hints:
       active_admin/comment:
         show:
           body: 
-      offering:
+      artist:
         edit:
           name: 
           approved_at: 
@@ -294,7 +294,7 @@ en:
           published_at: 
           user: 
     labels:
-      offering:
+      artist:
         edit:
           name: 
           approved_at: 
@@ -324,7 +324,7 @@ en:
           messages: 
           note: 
           artist_confirmed_at: 
-          offering: 
+          artist: 
           price: 
           prices: 
           published_at: 
@@ -338,7 +338,7 @@ en:
       active_admin/comment:
         show:
           body: 
-      offering:
+      artist:
         edit:
           name: 
           description: 
@@ -360,7 +360,7 @@ en:
   he: 
   helpers:
     label:
-      offering:
+      artist:
         edit:
           name: 
           approved_at: 
@@ -390,7 +390,7 @@ en:
           messages: 
           note: 
           artist_confirmed_at: 
-          offering: 
+          artist: 
           price: 
           prices: 
           published_at: 
@@ -480,7 +480,7 @@ en:
     precision:
       format:
         delimiter: 
-  offerings:
+  artists:
     destroy:
       in_use: 
     edit:

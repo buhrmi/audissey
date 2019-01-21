@@ -3,7 +3,7 @@ class DashboardsController < ApplicationController
   
   def show
     @show_guide = true
-    @show_guide = false if current_user.offerings.any?
+    @show_guide = false if current_user.artists.any?
     @show_guide = false if current_user.bookings.any?
 
     
@@ -20,7 +20,7 @@ class DashboardsController < ApplicationController
   
   def bookings
     bookings_from_me = current_user.bookings
-    bookings_with_me = Booking.where(:offering => current_user.offerings)
+    bookings_with_me = Booking.where(:artist => current_user.artists)
     @all_bookings = (bookings_from_me + bookings_with_me).uniq
     render :show
   end

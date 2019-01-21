@@ -1,7 +1,7 @@
 class CreateAvailabilityRules < ActiveRecord::Migration
   def change
     create_table :availability_rules do |t|
-      t.integer :offering_id
+      t.integer :artist_id
       t.boolean :is_exclusion
       t.timestamp :start_at
       t.timestamp :end_at

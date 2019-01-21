@@ -3,7 +3,7 @@
 # Table name: bookings
 #
 #  id                   :integer          not null, primary key
-#  offering_id          :integer
+#  artist_id          :integer
 #  user_id              :integer
 #  start_at             :datetime
 #  end_at               :datetime
@@ -20,7 +20,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  offering_id: 1
+  artist_id: 1
   user_id: 1
   start_at: 2016-01-13 11:40:27
   end_at: 2016-01-13 11:40:27
@@ -29,7 +29,7 @@ one:
   note: MyString
 
 two:
-  offering_id: 1
+  artist_id: 1
   user_id: 1
   start_at: 2016-01-13 11:40:27
   end_at: 2016-01-13 11:40:27

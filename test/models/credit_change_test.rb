@@ -4,7 +4,7 @@
 #
 #  id          :integer          not null, primary key
 #  user_id     :integer
-#  offering_id :integer
+#  artist_id :integer
 #  delta       :integer
 #  source_id   :integer
 #  source_type :string

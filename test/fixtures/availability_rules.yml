@@ -3,7 +3,7 @@
 # Table name: availability_rules
 #
 #  id           :integer          not null, primary key
-#  offering_id  :integer
+#  artist_id  :integer
 #  is_exclusion :boolean
 #  start_at     :datetime
 #  end_at       :datetime
@@ -17,7 +17,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  offering_id: 1
+  artist_id: 1
   is_exclusion: false
   start_at: 2016-01-13 09:22:41
   end_at: 2016-01-13 09:22:41
@@ -26,7 +26,7 @@ one:
   days_json: MyString
 
 two:
-  offering_id: 1
+  artist_id: 1
   is_exclusion: false
   start_at: 2016-01-13 09:22:41
   end_at: 2016-01-13 09:22:41

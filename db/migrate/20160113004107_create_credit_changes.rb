@@ -2,7 +2,7 @@ class CreateCreditChanges < ActiveRecord::Migration
   def change
     create_table :credit_changes do |t|
       t.integer :user_id
-      t.integer :offering_id
+      t.integer :artist_id
       t.integer :delta
       t.integer :source_id
       t.string :source_type

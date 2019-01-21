@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :events
   resources :brands
   resources :payouts
-  resources :offerings
+  resources :artists
   resources :uploads
   resources :categories
   resources :bookings
@@ -25,6 +25,6 @@ Rails.application.routes.draw do
 
   # SEO stuff
   get 'event/:url_fragment', :controller => 'brands', :action => 'show', :as => 'nice_brand'
-  get ':offering_name', :controller => 'offerings', :action => 'show', :as => 'nice_offering'
+  get ':artist_name', :controller => 'artists', :action => 'show', :as => 'nice_artist'
   
 end

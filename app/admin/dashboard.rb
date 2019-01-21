@@ -8,10 +8,10 @@ ActiveAdmin.register_page "Dashboard" do
     #
     columns do
       column do
-        panel "Offerings pending approval" do
+        panel "Artists pending approval" do
           ul do
-            Offering.where(:approved_at => nil).map do |offering|
-              li link_to(offering.name, offering)
+            Artist.where(:approved_at => nil).map do |artist|
+              li link_to(artist.name, artist)
             end
           end
         end
