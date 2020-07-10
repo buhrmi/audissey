@@ -1,30 +1,137 @@
+---
 en:
-  A TRACK RECORD OF AWESOME: 
-  Already have an account? Log in: 
+  devise:
+    confirmations:
+      confirmed: Your email address has been successfully confirmed.
+      send_instructions: You will receive an email with instructions for how to confirm
+        your email address in a few minutes.
+      send_paranoid_instructions: If your email address exists in our database, you
+        will receive an email with instructions for how to confirm your email address
+        in a few minutes.
+    failure:
+      already_authenticated: You are already signed in.
+      inactive: Your account is not activated yet.
+      invalid: Invalid %{authentication_keys} or password.
+      locked: Your account is locked.
+      last_attempt: You have one more attempt before your account is locked.
+      not_found_in_database: Invalid %{authentication_keys} or password.
+      timeout: Your session expired. Please sign in again to continue.
+      unauthenticated: You need to sign in or sign up before continuing.
+      unconfirmed: You have to confirm your email address before continuing.
+      user: {}
+    mailer:
+      confirmation_instructions:
+        subject: Confirmation instructions
+      reset_password_instructions:
+        subject: Reset password instructions
+      unlock_instructions:
+        subject: Unlock instructions
+      password_change:
+        subject: Password Changed
+    omniauth_callbacks:
+      failure: Could not authenticate you from %{kind} because "%{reason}".
+      success: Successfully authenticated from %{kind} account.
+    passwords:
+      no_token: You can't access this page without coming from a password reset email.
+        If you do come from a password reset email, please make sure you used the
+        full URL provided.
+      send_instructions: You will receive an email with instructions on how to reset
+        your password in a few minutes.
+      send_paranoid_instructions: If your email address exists in our database, you
+        will receive a password recovery link at your email address in a few minutes.
+      updated: Your password has been changed successfully. You are now signed in.
+      updated_not_active: Your password has been changed successfully.
+    registrations:
+      destroyed: Bye! Your account has been successfully cancelled. We hope to see
+        you again soon.
+      signed_up: Welcome! You have signed up successfully.
+      signed_up_but_inactive: You have signed up successfully. However, we could not
+        sign you in because your account is not yet activated.
+      signed_up_but_locked: You have signed up successfully. However, we could not
+        sign you in because your account is locked.
+      signed_up_but_unconfirmed: A message with a confirmation link has been sent
+        to your email address. Please follow the link to activate your account.
+      update_needs_confirmation: You updated your account successfully, but we need
+        to verify your new email address. Please check your email and follow the confirm
+        link to confirm your new email address.
+      updated: Your account has been updated successfully.
+      new:
+        done: Sign Up
+        header: Getting Closer
+        provider: Sign up with %{provider}
+        tagline: Work with artists and promoters from all over the world
+        use_existing_account: Already have an account? Click here!
+        or: Or
+      user:
+        signed_up: Welcome to Audissey!
+    sessions:
+      signed_in: Signed in successfully.
+      signed_out: Signed out successfully.
+      already_signed_out: Signed out successfully.
+      new:
+        header: Getting Closer
+        tagline: Work with artists and promoters from all over the world
+        or: Or
+      user:
+        signed_in: Welcome back!
+        signed_out: You have been signed out.
+    unlocks:
+      send_instructions: You will receive an email with instructions for how to unlock
+        your account in a few minutes.
+      send_paranoid_instructions: If your account exists, you will receive an email
+        with instructions for how to unlock it in a few minutes.
+      unlocked: Your account has been unlocked successfully. Please sign in to continue.
+  errors:
+    messages:
+      already_confirmed: was already confirmed, please try signing in
+      confirmation_period_expired: needs to be confirmed within %{period}, please
+        request a new one
+      expired: has expired, please request a new one
+      not_found: not found
+      not_locked: was not locked
+      not_saved:
+        one: '1 error prohibited this %{resource} from being saved:'
+        other: "%{count} errors prohibited this %{resource} from being saved:"
+      accepted: must be accepted
+      blank: can't be blank
+      confirmation: doesn't match %{attribute}
+      empty: can't be empty
+      equal_to: must be equal to %{count}
+      even: must be even
+      exclusion: is reserved
+      greater_than: must be greater than %{count}
+      greater_than_or_equal_to: must be greater than or equal to %{count}
+      inclusion: is not included in the list
+      invalid: is invalid
+      less_than: must be less than %{count}
+      less_than_or_equal_to: must be less than or equal to %{count}
+      model_invalid: 'Validation failed: %{errors}'
+      not_a_number: is not a number
+      not_an_integer: must be an integer
+      odd: must be odd
+      other_than: must be other than %{count}
+      present: must be blank
+      required: must exist
+      taken: has already been taken
+      too_long:
+        one: is too long (maximum is 1 character)
+        other: is too long (maximum is %{count} characters)
+      too_short:
+        one: is too short (minimum is 1 character)
+        other: is too short (minimum is %{count} characters)
+      wrong_length:
+        one: is the wrong length (should be 1 character)
+        other: is the wrong length (should be %{count} characters)
+    format: "%{attribute} %{message}"
+    template:
+      body: 'There were problems with the following fields:'
+      header:
+        one: 1 error prohibited this %{model} from being saved
+        other: "%{count} errors prohibited this %{model} from being saved"
   BOOKING MADE EASY: BOOKING MADE EASY
-  Booking request has been received: 
-  Browse: 
-  Check out our stuff!: 
-  Contact: 
-  Delete Artist: 
-  Don&#39;t have an account? Sign Up: 
-  Events powered by audissey: 
-  Featured acts available for booking in Tokyo: 
-  Hire the artists you really love: 
-  How does it work?: 
-  I&#39;m looking for: 
-  Jobs: 
-  Mission Statement: 
-  Nothing here:
-    " Check back soon": 
-  Report a problem: 
-  Request Booking: 
-  Search: 
-  Team: 
+  Nothing here: {}
   Terms And Conditions: Terms & Conditions
-  Tokyo: 
   UPCOMING IN TOKYO: UPCOMING IN TOKYO
-  User Guide: 
   activerecord:
     attributes:
       booking:
@@ -67,18 +174,9 @@ en:
         email: Email
         password: Password
         password_confirmation: Password confirmation
-      payout:
-        completed_at: 
-        completed_by: 
-        method: 
-        method_detail: 
-        user_id: 
-      brand:
-        description: 
-        name: 
-        user_id: 
-      price:
-        give: 
+      payout: {}
+      brand: {}
+      price: {}
     errors:
       messages:
         record_invalid: 'Validation failed: %{errors}'
@@ -92,72 +190,22 @@ en:
       message: Message
       artist: Artists
       user: Users
-      payout: 
-      brand: 
-      price: 
-  ar: 
-  bg: 
   bookings:
     show:
       send_message_placeholder: Type Message. Ctrl+Return to send.
-  bs: 
-  ca: 
-  cs: 
-  da: 
   date:
-    abbr_day_names:
-    - Sun
-    - Mon
-    - Tue
-    - Wed
-    - Thu
-    - Fri
-    - Sat
-    abbr_month_names:
-    - 
-    - Jan
-    - Feb
-    - Mar
-    - Apr
-    - May
-    - Jun
-    - Jul
-    - Aug
-    - Sep
-    - Oct
-    - Nov
-    - Dec
-    day_names:
-    - Sunday
-    - Monday
-    - Tuesday
-    - Wednesday
-    - Thursday
-    - Friday
-    - Saturday
+    abbr_day_names: '["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]'
+    abbr_month_names: '[nil, "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug",
+      "Sep", "Oct", "Nov", "Dec"]'
+    day_names: '["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
+      "Saturday"]'
     formats:
       default: "%Y-%m-%d"
-      event_date: 
       long: "%B %d, %Y"
       short: "%b %d"
-    month_names:
-    - 
-    - January
-    - February
-    - March
-    - April
-    - May
-    - June
-    - July
-    - August
-    - September
-    - October
-    - November
-    - December
-    order:
-    - :year
-    - :month
-    - :day
+    month_names: '[nil, "January", "February", "March", "April", "May", "June", "July",
+      "August", "September", "October", "November", "December"]'
+    order: "[:year, :month, :day]"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -201,219 +249,38 @@ en:
       month: Month
       second: Seconds
       year: Year
-  de: 
-  de-CH: 
-  devise:
-    failure:
-      user:
-        invalid: 
-        not_found_in_database: 
-    registrations:
-      new:
-        done: Sign Up
-        header: Getting Closer
-        provider: Sign up with %{provider}
-        tagline: Work with artists and promoters from all over the world
-        use_existing_account: Already have an account? Click here!
-        or: Or
-      user:
-        signed_up: Welcome to Audissey!
-    sessions:
-      new:
-        header: Getting Closer
-        tagline: Work with artists and promoters from all over the world
-        or: Or
-      user:
-        signed_in: Welcome back!
-        signed_out: You have been signed out.
-  el: 
   en: English
-  en-GB: 
-  errors:
-    format: "%{attribute} %{message}"
-    messages:
-      accepted: must be accepted
-      blank: can't be blank
-      confirmation: doesn't match %{attribute}
-      empty: can't be empty
-      equal_to: must be equal to %{count}
-      even: must be even
-      exclusion: is reserved
-      greater_than: must be greater than %{count}
-      greater_than_or_equal_to: must be greater than or equal to %{count}
-      inclusion: is not included in the list
-      invalid: is invalid
-      less_than: must be less than %{count}
-      less_than_or_equal_to: must be less than or equal to %{count}
-      model_invalid: 'Validation failed: %{errors}'
-      not_a_number: is not a number
-      not_an_integer: must be an integer
-      odd: must be odd
-      other_than: must be other than %{count}
-      present: must be blank
-      required: must exist
-      taken: has already been taken
-      too_long:
-        one: is too long (maximum is 1 character)
-        other: is too long (maximum is %{count} characters)
-      too_short:
-        one: is too short (minimum is 1 character)
-        other: is too short (minimum is %{count} characters)
-      wrong_length:
-        one: is the wrong length (should be 1 character)
-        other: is the wrong length (should be %{count} characters)
-    template:
-      body: 'There were problems with the following fields:'
-      header:
-        one: 1 error prohibited this %{model} from being saved
-        other: "%{count} errors prohibited this %{model} from being saved"
-  es: 
-  es-MX: 
-  fa: 
-  fi: 
-  for an event on: 
   formtastic:
     actions:
       artist:
-        edit:
-          update: 
+        edit: {}
     hints:
       active_admin/comment:
-        show:
-          body: 
+        show: {}
       artist:
-        edit:
-          name: 
-          approved_at: 
-          approved_by: 
-          description: 
-          duration: 
-          contact_details: 
-          hero_image_uid: 
-          image_uid: 
-          published_at: 
-          user: 
+        edit: {}
     labels:
       artist:
-        edit:
-          name: 
-          approved_at: 
-          approved_by: 
-          description: 
-          duration: 
-          contact_details: 
-          hero_image_uid: 
-          image_uid: 
-          published_at: 
-          user: 
+        edit: {}
       q:
-        index:
-          name: 
-          approved_at: 
-          approved_by: 
-          availability_rules: 
-          bookings: 
-          buyer_confirmed_at: 
-          created_at: 
-          description: 
-          duration: 
-          end_at: 
-          contact_details: 
-          hero_image_uid: 
-          image_uid: 
-          messages: 
-          note: 
-          artist_confirmed_at: 
-          artist: 
-          price: 
-          prices: 
-          published_at: 
-          purchase: 
-          purchases: 
-          start_at: 
-          translations: 
-          updated_at: 
-          user: 
+        index: {}
     placeholders:
       active_admin/comment:
-        show:
-          body: 
+        show: {}
       artist:
-        edit:
-          name: 
-          description: 
-          duration: 
-          contact_details: 
-          hero_image_uid: 
-          image_uid: 
+        edit: {}
       q:
-        index:
-          name: 
-          description: 
-          duration: 
-          contact_details: 
-          hero_image_uid: 
-          image_uid: 
-          note: 
+        index: {}
     update: Update %{model}
-  fr: 
-  he: 
   helpers:
     label:
       artist:
-        edit:
-          name: 
-          approved_at: 
-          approved_by: 
-          description: 
-          duration: 
-          contact_details: 
-          hero_image_uid: 
-          image_uid: 
-          published_at: 
-          user: 
+        edit: {}
       q:
-        index:
-          name: 
-          approved_at: 
-          approved_by: 
-          availability_rules: 
-          bookings: 
-          buyer_confirmed_at: 
-          created_at: 
-          description: 
-          duration: 
-          end_at: 
-          contact_details: 
-          hero_image_uid: 
-          image_uid: 
-          messages: 
-          note: 
-          artist_confirmed_at: 
-          artist: 
-          price: 
-          prices: 
-          published_at: 
-          purchase: 
-          purchases: 
-          start_at: 
-          translations: 
-          updated_at: 
-          user: 
-      user:
-        email: 
-        password: 
-        password_confirmation: 
-      payout:
-        completed_at: 
-        completed_by: 
-        method: 
-        method_detail: 
-        user_id: 
-      brand:
-        description: 
-        name: 
-        user_id: 
+        index: {}
+      user: {}
+      payout: {}
+      brand: {}
     select:
       prompt: Please select
     submit:
@@ -422,32 +289,23 @@ en:
         create: Create Message
       submit: Save %{model}
       update: Update %{model}
-  hr: 
-  hu: 
-  id: 
-  it: 
   ja: 日本語
-  ko: 
-  lt: 
-  lv: 
-  nb: 
-  nl: 
   number:
     currency:
       format:
         delimiter: ","
         format: "%u%n"
-        precision: 2
+        precision: '2'
         separator: "."
-        significant: false
-        strip_insignificant_zeros: false
+        significant: 'false'
+        strip_insignificant_zeros: 'false'
         unit: "$"
     format:
       delimiter: ","
-      precision: 3
+      precision: '3'
       separator: "."
-      significant: false
-      strip_insignificant_zeros: false
+      significant: 'false'
+      strip_insignificant_zeros: 'false'
     human:
       decimal_units:
         format: "%n %u"
@@ -457,12 +315,10 @@ en:
           quadrillion: Quadrillion
           thousand: Thousand
           trillion: Trillion
-          unit: 
       format:
-        delimiter: 
-        precision: 3
-        significant: true
-        strip_insignificant_zeros: true
+        precision: '3'
+        significant: 'true'
+        strip_insignificant_zeros: 'true'
       storage_units:
         format: "%n %u"
         units:
@@ -475,53 +331,43 @@ en:
           tb: TB
     percentage:
       format:
-        delimiter: 
         format: "%n%"
     precision:
-      format:
-        delimiter: 
+      format: {}
   artists:
-    destroy:
-      in_use: 
+    destroy: {}
     edit:
-      contact: This information is kept confidential and will be made available to the buyer after payment has been confirmed. Please provide your contact details such as phone numbers, email addresses, etc.
+      contact: This information is kept confidential and will be made available to
+        the buyer after payment has been confirmed. Please provide your contact details
+        such as phone numbers, email addresses, etc.
   pages:
     contact:
-      address: |-
-        Audissey
-        LOOP A 301
-        4-17-3 Higashi-Nakano, Nakano-ku
-        Tokyo 164-0003
-        FAX:
-        TEL:
+      address: 'AudisseyLOOP A 3014-17-3 Higashi-Nakano, Nakano-kuTokyo 164-0003FAX:TEL:'
     guide:
-      summary_html: "<p>We are still working on a complete guide, but here it is in a nutshell</p>"
+      summary_html: "<p>We are still working on a complete guide, but here it is in
+        a nutshell</p>"
     mission:
-      text1_html: |
-        <p>Life is about the experience. About the people you meet, the sights you see, the music you hear, the events you attend.</p>
-        <p>We at Audissey aim to become the best place to find and work with amazing artists, venues and event organizers in the world.</p>
-         <p>For that purpose and in the name of good music we do away with language barriers, borders and other nuisances.</p>
-         <p>Join us and together we can change the world.</p>
+      text1_html: "<p>Life is about the experience. About the people you meet, the
+        sights you see, the music you hear, the events you attend.</p><p>We at Audissey
+        aim to become the best place to find and work with amazing artists, venues
+        and event organizers in the world.</p> <p>For that purpose and in the name
+        of good music we do away with language barriers, borders and other nuisances.</p>
+        <p>Join us and together we can change the world.</p>"
     terms:
-      summary_html: |-
-        <h3>Payouts</h3>
-        <p>A payout to your account can be requested at any time from your dashboard page. You can not be paid out for events that have not started yet. A payout usually takes between 2 and 7 days but can take longer in individual cases depending on your geographic location.</p>
-        <p>By default, we take a commission of 15% which is automatically deducted from your payout. Lower rates can be negotiated.</p>
-        <h3>Times</h3>
-        <p>Times noted in the rider details are in the timezone of the event location.</p>
-        <p>Morning: 5 AM to 11 AM, Daytime: 11 AM to 5 PM, Evening: 5 PM to 10 PM, Night: 10 PM to 5 AM</p>
-  pl: 
-  pt: 
-  pt-BR: 
-  pt-PT: 
-  ro: 
-  ru: 
+      summary_html: "<h3>Payouts</h3><p>A payout to your account can be requested
+        at any time from your dashboard page. You can not be paid out for events that
+        have not started yet. A payout usually takes between 2 and 7 days but can
+        take longer in individual cases depending on your geographic location.</p><p>By
+        default, we take a commission of 15% which is automatically deducted from
+        your payout. Lower rates can be negotiated.</p><h3>Times</h3><p>Times noted
+        in the rider details are in the timezone of the event location.</p><p>Morning:
+        5 AM to 11 AM, Daytime: 11 AM to 5 PM, Evening: 5 PM to 10 PM, Night: 10 PM
+        to 5 AM</p>"
   support:
     array:
       last_word_connector: ", and "
       two_words_connector: " and "
       words_connector: ", "
-  sv-SE: 
   time:
     am: am
     formats:
@@ -530,12 +376,8 @@ en:
       recent_message: "%I:%M %P"
       short: "%d %b %H:%M"
     pm: pm
-  tr: 
-  uk: 
   users:
-    destroy:
-      in_use: 
-  vi: 
+    destroy: {}
   visitors:
     landing:
       explain: How does it work?
@@ -546,54 +388,22 @@ en:
       upcoming_tagline: COMING SOON
       upcoming_tagline2: Events on Audissey
       join_now: Join Now
-      add_a_dj: 
-      add_an_event: 
-      find_out_more: 
-      for_djs: 
-      for_djs_html: "<p>Join Audissey as a DJ and be discovered! Create your DJ profile totally for free.</p>"
-      for_events: 
-      for_events_html: "<p>Running an event? Club? Festival? Sign up for Audissey and we will suggest amazing DJs. We have teamed up with world wide operating agencies and can bring amazing talent to your party. And the best part: It's totally free!</p>"
-      join_as_agency: 
-      post_a_dj: 
-      post_an_event: 
-      post_a_venue: 
-      list_a_dj: 
-      list_an_event: 
+      for_djs_html: "<p>Join Audissey as a DJ and be discovered! Create your DJ profile
+        totally for free.</p>"
+      for_events_html: "<p>Running an event? Club? Festival? Sign up for Audissey
+        and we will suggest amazing DJs. We have teamed up with world wide operating
+        agencies and can bring amazing talent to your party. And the best part: It's
+        totally free!</p>"
       other_services: We also provide specialized services for venues and agencies.
       earnings_till_date: Audissey members have earned a total of
       earnings_till_date2: to date!
-      statistics: 
-  zh: 
-  zh-CN: 
-  zh-TW: 
-  Delete Far Too Loud: 
-  Disconnect Far Too Loud: 
   flash:
     actions:
-      create:
-        notice: 
-      update:
-        notice: 
-  Flexible Pricing: 
+      create: {}
+      update: {}
   layouts:
     application:
-      new_listing: 
       description: In the name of good vibes, we're about to disrupt all your shit.
-      new_event: 
       title: Audissey
-  Services: 
-  Audissey: 
   dashboards:
-    show:
-      new_listing: 
-  Delete DJ Yummy: 
-  Delete zxzxczxc: 
-  Disconnect DJ Yummy: 
-  Disconnect zxzxczxc: 
-  Angellist: 
-  AngelList: 
-  Delete imagename: 
-  Disconnect imagename: 
-  GitHub: 
-  Delete Far Too Loud 2: 
-  Disconnect Far Too Loud 2: 
+    show: {}
